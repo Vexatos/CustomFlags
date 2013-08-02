@@ -1,6 +1,8 @@
 package mods.custom_flags.client.gui.controls;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 
 import java.awt.*;
@@ -17,7 +19,7 @@ public class GuiColourPicker extends GuiButton {
 
     public static final DynamicTexture sb_buffer = new DynamicTexture(RES, RES);
     public static final DynamicTexture hue_buffer = new DynamicTexture(1, RES);
-    public static final DynamicTexture background_buffer = new DynamicTexture(3, 11);
+    public static final DynamicTexture background_buffer = new DynamicTexture(2, 2);
 
     public static final int DEFAULT_COLOURS = 1;
     public static final int ALPHA_SELECTION = 2;
@@ -30,12 +32,11 @@ public class GuiColourPicker extends GuiButton {
         }
 
         pixels = background_buffer.func_110565_c();
+        pixels[0] = 0xFF666666;
+        pixels[3] = 0xFF666666;
 
-        for(int x = 0; x < 3; x++){
-            for(int y = 0; y < 11; y++){
-                pixels[x*y+y] = (x%2) == (y%2) ? 0xFF666666 : 0xFF999999;
-            }
-        }
+        pixels[1] = 0xFF999999;
+        pixels[2] = 0xFF999999;
 
     }
 
@@ -78,12 +79,38 @@ public class GuiColourPicker extends GuiButton {
     }
 
     private void calculateBuffers() {
-        int[] pixels = hue_buffer.func_110565_c();
+        int[] pixels = sb_buffer.func_110565_c();
         for(int s = 0; s < RES; s++){
             for(int b = 0; b < RES; b++){
-                pixels[s * b + b] =
+                pixels[s * RES + b] = Color.getHSBColor(selectedHSB[0], 1-(float)s / RES, (float)b / RES).getRGB() | 0xFF000000;
             }
         }
+    }
+
+    @Override
+    public void drawButton(Minecraft mc, int mouse_x, int mouse_y) {
+        //super.drawButton(mc, mouse_x, mouse_y);
+
+        //Draw the saturation / brightness square
+        sb_buffer.func_110564_a();
+        this.drawTexturedModalRect(sb_start_x, sb_start_y, 48, 48, 0,0, 1,1);
+
+        //Draw the hue square
+        hue_buffer.func_110564_a();
+        this.drawTexturedModalRect(hue_start_x, sb_start_y, 12, 48, 0,0, 1,1);
+
+        if(isSwitchOn(ALPHA_SELECTION)){
+            background_buffer.func_110564_a();
+            this.drawTexturedModalRect(alpha_start_x, sb_start_y, 12, 48, 0,0, 2, 8);
+        }
+
+
+        if(isSwitchOn(COLOUR_DISPLAY)){
+            background_buffer.func_110564_a();
+            this.drawTexturedModalRect(sb_start_x, sb_start_y+52, 48, 12, 0,0, 8, 2);
+        }
+
+
     }
 
     private void selectColour(int rgb) {
@@ -96,5 +123,22 @@ public class GuiColourPicker extends GuiButton {
 
     private boolean isSwitchOn(int switchMask){
         return (type & switchMask) == switchMask;
+    }
+
+
+    public void drawTexturedModalRect(int x, int y, int width, int height, int tex_x, int tex_y, int tex_width, int tex_height)
+    {
+        //float f = 0.00390625F;
+        //float f1 = 0.00390625F;
+
+        float f = 1F;
+        float f1 = 1F;
+        Tessellator tessellator = Tessellator.instance;
+        tessellator.startDrawingQuads();
+        tessellator.addVertexWithUV((double)(x + 0), (double)(y + height), (double)this.zLevel, (double)((float)(tex_x + 0) * f), (double)((float)(tex_y + tex_height) * f1));
+        tessellator.addVertexWithUV((double)(x + width), (double)(y + height), (double)this.zLevel, (double)((float)(tex_x + tex_width) * f), (double)((float)(tex_y + tex_height) * f1));
+        tessellator.addVertexWithUV((double)(x + width), (double)(y + 0), (double)this.zLevel, (double)((float)(tex_x + tex_width) * f), (double)((float)(tex_y + 0) * f1));
+        tessellator.addVertexWithUV((double)(x + 0), (double)(y + 0), (double)this.zLevel, (double)((float)(tex_x + 0) * f), (double)((float)(tex_y + 0) * f1));
+        tessellator.draw();
     }
 }
