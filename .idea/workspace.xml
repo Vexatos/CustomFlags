@@ -95,7 +95,7 @@
       <file leaf-file-name="auto-commit.sh" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/auto-commit.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="40" selection-end="40" vertical-scroll-proportion="0.080789946">
+            <state line="2" column="0" selection-start="39" selection-end="39" vertical-scroll-proportion="0.053859964">
               <folding />
             </state>
           </provider>
@@ -629,7 +629,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/auto-commit.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="40" selection-end="40" vertical-scroll-proportion="0.080789946">
+        <state line="2" column="0" selection-start="39" selection-end="39" vertical-scroll-proportion="0.053859964">
           <folding />
         </state>
       </provider>
