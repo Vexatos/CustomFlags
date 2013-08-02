@@ -13,6 +13,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import mods.custom_flags.blocks.BlockFlagPole;
 import mods.custom_flags.blocks.TileEntityFlagPole;
 import mods.custom_flags.client.renderer.FlagPoleTileRenderer;
+import mods.custom_flags.utils.ImageData;
 import net.minecraftforge.common.Configuration;
 
 import static cpw.mods.fml.common.Mod.*;
@@ -67,6 +68,7 @@ public class CustomFlags {
 
         //TODO Move to proxy
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFlagPole.class, new FlagPoleTileRenderer());
+
 
     }
 }

@@ -19,7 +19,7 @@ public class ImageData {
 
 
     public static ImageData defaultImage = new ImageData(ItemDye.dyeColors[0], ItemDye.dyeColors[15], ItemDye.dyeColors[15], ItemDye.dyeColors[0]);
-
+    public static byte[] defaultData = defaultImage.getByteArray();
 
     public ImageData(int c1, int c2, int c3, int c4){
         pixels = new int[IMAGE_RES * IMAGE_RES];
@@ -69,6 +69,14 @@ public class ImageData {
         }
     }
 
+    public ImageData(byte[] bytes){
+        pixels = new int[bytes.length / 2];
+        ByteBuffer bb = ByteBuffer.wrap(bytes);
+        for(int i = 0; i < pixels.length; i++){
+            pixels[i] = getRgb(bb.getShort(i*2));
+        }
+    }
+
 
     public byte[] getByteArray(){
         ByteBuffer bb = ByteBuffer.allocate(pixels.length * 2);
@@ -87,14 +95,13 @@ public class ImageData {
     public static final String getHexArray(byte[] bytes){
         StringBuilder sb = new StringBuilder();
         for (byte b : bytes) {
-            sb.append(String.format("%04X ", b));
+            sb.append(String.format("%02X ", b));
         }
         return(sb.toString());
     }
 
 
     private int roundColour(int rgb){
-
         return (rgb & 0xF0F0F0F0) | 0x0F080808;
     }
 
