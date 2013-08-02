@@ -7,4 +7,6 @@ package mods.custom_flags.client.utils;
  * TODO: Add discription
  */
 public class ImageCahce {
+
+
 }
