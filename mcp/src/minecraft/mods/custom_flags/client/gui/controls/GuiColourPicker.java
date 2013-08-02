@@ -4,6 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.DynamicTexture;
+import net.minecraft.item.ItemDye;
 import org.lwjgl.opengl.GL11;
 
 import java.awt.*;
@@ -16,11 +17,12 @@ import java.awt.*;
  */
 public class GuiColourPicker extends GuiButton {
 
-    public static final int RES = 48;
+    public static final int RES = 128;
 
     public static final DynamicTexture sb_buffer = new DynamicTexture(RES, RES);
     public static final DynamicTexture hue_buffer = new DynamicTexture(1, RES);
     public static final DynamicTexture background_buffer = new DynamicTexture(2, 2);
+    public static final DynamicTexture default_colours = new DynamicTexture(8, 2);
 
     public static final int DEFAULT_COLOURS = 1;
     public static final int ALPHA_SELECTION = 2;
@@ -39,6 +41,10 @@ public class GuiColourPicker extends GuiButton {
         pixels[1] = 0xFF999999;
         pixels[2] = 0xFF999999;
 
+        pixels = default_colours.func_110565_c();
+        for(int i = 0; i < pixels.length; i++){
+            pixels[i] = ItemDye.dyeColors[i] | 0xFF000000;
+        }
     }
 
 
@@ -92,7 +98,10 @@ public class GuiColourPicker extends GuiButton {
     public void drawButton(Minecraft mc, int mouse_x, int mouse_y) {
         //super.drawButton(mc, mouse_x, mouse_y);
 
+
         GL11.glColor3f(1,1,1);
+
+        GL11.glPushMatrix();
 
         //Draw the saturation / brightness square
         sb_buffer.func_110564_a();
@@ -109,37 +118,47 @@ public class GuiColourPicker extends GuiButton {
             this.drawGradientRect(alpha_start_x, sb_start_y, alpha_start_x+12, sb_start_y+48, selectedRGB | 0xFF000000, selectedRGB & 0x00FFFFFF);
         }
 
+        if(isSwitchOn(DEFAULT_COLOURS)){
+            default_colours.func_110564_a();
+            this.drawTexturedModalRect(xPosition, yPosition, 48, 12, 0,0, 1, 1 );
+        }
 
         if(isSwitchOn(COLOUR_DISPLAY)){
             background_buffer.func_110564_a();
             this.drawTexturedModalRect(sb_start_x, sb_start_y+52, 48, 12, 0,0, 8, 2);
 
             drawRect(sb_start_x, sb_start_y+52, sb_start_x+48, sb_start_y+64, selectedRGB);
+            GL11.glColor3f(1,1,1);
         }
 
-        GL11.glEnable(GL11.GL_BLEND);
-        GL11.glBlendFunc(GL11.GL_ONE_MINUS_DST_COLOR, GL11.GL_ONE_MINUS_SRC_COLOR);
+        GL11.glPushMatrix();
 
+        GL11.glEnable(GL11.GL_BLEND);
+        GL11.glBlendFunc(GL11.GL_ONE_MINUS_DST_COLOR, GL11.GL_ONE);
+        this.zLevel++;
         //Saturation Line (Horiz)
-        drawRect2(sb_start_x, sb_start_y + (int)(selectedHSB[1] * 48),sb_start_x+48, sb_start_y + (int)(selectedHSB[1] * 48)+1, 0xFFFFFFFF);
+        drawRect2(sb_start_x, sb_start_y + (int)((1-selectedHSB[1]) * 48),sb_start_x+48, sb_start_y + (int)((1-selectedHSB[1]) * 48)+1, 0xFFFFFFFF);
 
         //Brightness Line (Vertical)
-        drawRect2(sb_start_x, sb_start_y + (int)((1-selectedHSB[2]) * 48),sb_start_x+48, sb_start_y + (int)((1-selectedHSB[2]) * 48)+1, 0xFFFFFFFF);
-
-
+        drawRect2(sb_start_x+ (int)((selectedHSB[2]) * 48), sb_start_y ,sb_start_x+(int)((selectedHSB[2]) * 48)+1, sb_start_y + 48, 0xFFFFFFFF);
 
         //Hue Line
         drawRect2(hue_start_x, sb_start_y + (int)(selectedHSB[0] * 48), hue_start_x+12, sb_start_y + (int)(selectedHSB[0] * 48)+1, 0xFFFFFFFF);
 
-
+        this.zLevel--;
 
         GL11.glDisable(GL11.GL_BLEND);
+        GL11.glPopMatrix();
+
+        GL11.glPopMatrix();
     }
 
     private void selectColour(int rgb) {
         this.selectedRGB = rgb;
         this.selectedHSB = Color.RGBtoHSB((rgb&0x00FF0000) >> 16, (rgb&0x0000FF00) >> 8, (rgb&0x000000FF), new float[3]);
-        selected_alpha = (float)((rgb &0xFF000000) >> 24) / 255F;
+        selected_alpha = ((float)((rgb & 0xFF000000) >>> 24)) / 255F;
+        System.out.println(((rgb & 0xFF000000) >>> 24));
+
         calculateBuffers();
     }
 

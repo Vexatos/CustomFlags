@@ -11,7 +11,7 @@
     <file path="/CustomFlags.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375409622903" ignored="false" />
     <file path="/BlockFlag.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375409579859" ignored="false" />
     <file path="/fragment.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375409824368" ignored="false" />
-    <file path="/GuiColourPicker.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375413182883" ignored="false" />
+    <file path="/GuiColourPicker.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375413976890" ignored="false" />
     <file path="/GuiContainerCreative.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375411809067" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +85,7 @@
       <file leaf-file-name="GuiColourPicker.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/controls/GuiColourPicker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="126" column="67" selection-start="3899" selection-end="3899" vertical-scroll-proportion="0.6896552">
+            <state line="132" column="66" selection-start="4025" selection-end="4025" vertical-scroll-proportion="0.35344827">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,7 +105,7 @@
       <file leaf-file-name="GuiContainerCreative.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/client/gui/inventory/GuiContainerCreative.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="292" column="55" selection-start="12300" selection-end="12300" vertical-scroll-proportion="-16.6">
+            <state line="274" column="64" selection-start="11215" selection-end="11215" vertical-scroll-proportion="-5.8">
               <folding />
             </state>
           </provider>
@@ -639,7 +639,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24946581" sideWeight="0.670354" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32964602" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32964602" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -777,9 +777,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/client/gui/inventory/GuiContainerCreative.java">
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/client/gui/Gui.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="292" column="55" selection-start="12300" selection-end="12300" vertical-scroll-proportion="-16.6">
+        <state line="36" column="95" selection-start="1157" selection-end="1157" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -791,16 +791,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/client/gui/Gui.java">
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/client/gui/inventory/GuiContainerCreative.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="95" selection-start="1157" selection-end="1157" vertical-scroll-proportion="0.0">
+        <state line="274" column="64" selection-start="11215" selection-end="11215" vertical-scroll-proportion="-5.8">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/controls/GuiColourPicker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="67" selection-start="3899" selection-end="3899" vertical-scroll-proportion="0.6896552">
+        <state line="132" column="66" selection-start="4025" selection-end="4025" vertical-scroll-proportion="0.35344827">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
