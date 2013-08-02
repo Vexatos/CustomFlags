@@ -1,0 +1,54 @@
+<component name="libraryTable">
+  <library name="scala-compiler-2.10.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/net/java/jutils/jutils/1.0.0/jutils-1.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/org/bouncycastle/bcprov-jdk15on/1.47/bcprov-jdk15on-1.47.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/net/sourceforge/argo/argo/2.25/argo-2.25.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/commons-io/commons-io/2.4/commons-io-2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/org/lwjgl/lwjgl/lwjgl_util/2.9.0/lwjgl_util-2.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/com/paulscode/soundsystem/20120107/soundsystem-20120107.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/com/paulscode/libraryjavasound/20101123/libraryjavasound-20101123.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/org/lwjgl/lwjgl/lwjgl/2.9.0/lwjgl-2.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/versions/1.6.2/1.6.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/lzma/lzma/0.0.1/lzma-0.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/minecraft_server.1.6.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/net/java/jinput/jinput/2.0.5/jinput-2.0.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/org/ow2/asm/asm-all/4.1/asm-all-4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/com/paulscode/librarylwjglopenal/20100824/librarylwjglopenal-20100824.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/net/minecraft/launchwrapper/1.3/launchwrapper-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/com/paulscode/codecwav/20101023/codecwav-20101023.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/net/sf/jopt-simple/jopt-simple/4.5/jopt-simple-4.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/com/paulscode/codecjorbis/20101023/codecjorbis-20101023.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/com/google/guava/guava/14.0/guava-14.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/com/google/code/gson/gson/2.2.2/gson-2.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/argo/argo/2.25_fixed/argo-2.25_fixed.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/commons-io/commons-io/2.4/commons-io-2.4-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/org/lwjgl/lwjgl/lwjgl_util/2.9.0/lwjgl_util-2.9.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/net/sourceforge/argo/argo/2.25/argo-2.25.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/net/java/jutils/jutils/1.0.0/jutils-1.0.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/net/sourceforge/argo/argo/2.25/argo-2.25-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/net/sf/jopt-simple/jopt-simple/4.5/jopt-simple-4.5-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/org/ow2/asm/asm-all/4.1/asm-all-4.1-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/org/bouncycastle/bcprov-jdk15on/1.47/bcprov-jdk15on-1.47-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/org/lwjgl/lwjgl/lwjgl/2.9.0/lwjgl-2.9.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/com/google/guava/guava/14.0/guava-14.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/com/google/code/gson/gson/2.2.2/gson-2.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/net/java/jinput/jinput/2.0.5/jinput-2.0.5-sources.jar!/applet/src" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/net/java/jinput/jinput/2.0.5/jinput-2.0.5-sources.jar!/coreAPI/src/java" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/net/java/jinput/jinput/2.0.5/jinput-2.0.5-sources.jar!/coreAPI/build/src/java" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/net/java/jinput/jinput/2.0.5/jinput-2.0.5-sources.jar!/plugins/OSX/src/java" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/net/java/jinput/jinput/2.0.5/jinput-2.0.5-sources.jar!/plugins/awt/src" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/net/java/jinput/jinput/2.0.5/jinput-2.0.5-sources.jar!/plugins/linux/src/java" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/net/java/jinput/jinput/2.0.5/jinput-2.0.5-sources.jar!/plugins/wintab/src/java" />
+      <root url="jar://$PROJECT_DIR$/mcp/jars/libraries/net/java/jinput/jinput/2.0.5/jinput-2.0.5-sources.jar!/plugins/windows/src/java" />
+    </SOURCES>
+  </library>
+</component>

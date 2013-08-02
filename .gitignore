@@ -5,17 +5,31 @@
 *.war
 *.ear
 
-#Ignore EVERYTHING
+#Ignore all
 /*
-/*/
 
 #Don't ignore
 !.getignore
 !README.md
 !auto-commit.sh
+!/mcp
+!/.idea
+
+#Ignore All in mcp
+/mcp/*
+
+#Don't Ignore src
+!/mcp/src
+
+#Ignore
+/mcp/src/minecraft/*
+
+!/mcp/src/minecraft/mods
+!/mcp/src/minecraft/assets
+!/mcp/src/minecraft/mcmod.info
 
 #Don't Ignore Custom Flags Src
-!/mcp/*
+!/**/custom_flags
 
 #Not planning on having any assets/images (Personal Challange) But don't ignore it either if I change the plan
 !/mcp/src/minecraft/assets/*
