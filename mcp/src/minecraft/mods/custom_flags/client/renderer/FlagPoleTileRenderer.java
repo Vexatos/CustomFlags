@@ -1,5 +1,6 @@
 package mods.custom_flags.client.renderer;
 
+import mods.custom_flags.client.utils.ImageCahce;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
@@ -77,6 +78,23 @@ public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
         tess.addVertexWithUV(7F / 16F, 1, 9F / 16F, icon.getInterpolatedU(10), icon.getInterpolatedV(10));
         tess.addVertexWithUV(9F / 16F, 1, 9F / 16F, icon.getInterpolatedU(6), icon.getInterpolatedV(10));
         tess.draw();
+
+
+        //if(has Flag Attached)
+        {
+            ImageCahce.setTexture(null);
+
+
+            tess.startDrawingQuads();
+            tess.addVertex(0, 0, 0);
+            tess.addVertex(9F/16F, 0, 0);
+            tess.addVertex(9F/16F, 1, 0);
+            tess.addVertex(0, 1, 0);
+            tess.draw();
+
+        }
+
+
         /*
         tess.startDrawingQuads();
         tess.addVertex(7F / 16F, 0, 9F / 16F);

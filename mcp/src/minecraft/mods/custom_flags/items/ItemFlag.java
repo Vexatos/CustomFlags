@@ -58,5 +58,11 @@ public class ItemFlag extends Item {
     }
 
 
-
+    public String getKey(ItemStack stack) {
+        if(hasImageData(stack)){
+            return Integer.toString(stack.getTagCompound().getInteger("imgKey"));
+        }else{
+            return "default";
+        }
+    }
 }

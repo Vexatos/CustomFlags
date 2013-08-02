@@ -18,10 +18,17 @@ import net.minecraft.world.World;
  */
 public class ImageCahce {
 
-    private ItemStack temp;
-    private World tempWorld;
+    private static ItemStack temp;
 
-    private final LoadingCache<String, DynamicTexture> imageCahce =
+    private static final DynamicTexture defaultTexture;
+
+    static{
+        defaultTexture = new DynamicTexture(ImageData.IMAGE_RES, ImageData.IMAGE_RES);
+
+        ImageData.defaultImage.setTexture(defaultTexture.func_110565_c());
+    }
+
+    private static final LoadingCache<String, DynamicTexture> imageCahce =
             CacheBuilder.newBuilder().maximumSize(CustomFlags.CAHCE_SIZE).
                     build(
                             new CacheLoader<String, DynamicTexture>() {
@@ -42,10 +49,31 @@ public class ImageCahce {
                                 }
 
                             }
-                    );;
-
+                    );
     {
         CacheBuilder.newBuilder().build();
     }
+
+
+    public static void setTexture(ItemStack stack){
+
+        try{
+            if (stack != null &&
+                    stack.getItem() instanceof ItemFlag &&
+                    ((ItemFlag) stack.getItem()).hasImageData(stack)) {
+                temp = stack;
+                imageCahce.get(((ItemFlag)stack.getItem()).getKey(stack)).func_110564_a();
+
+            }else{
+                defaultTexture.func_110564_a();
+            }
+        }catch(Exception e){
+            defaultTexture.func_110564_a();
+        }
+
+    }
+
+
+
 
 }

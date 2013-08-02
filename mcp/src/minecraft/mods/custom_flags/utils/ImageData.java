@@ -120,4 +120,10 @@ public class ImageData {
                         ((rgb & 0x000F) << 4)) |
                 0x0F080808;
     }
+
+    public void setTexture(int[] pixalArray){
+        for(int i = 0; i < pixalArray.length; i++){
+            pixalArray[i] = pixels[i];
+        }
+    }
 }
