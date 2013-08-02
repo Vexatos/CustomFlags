@@ -29,8 +29,13 @@ public class FlagPoleItemRenderer implements IItemRenderer {
         float size = 1.5F;
         switch (type) {
             case ENTITY:
-                GL11.glTranslatef(1F, 0, 1F);
                 size = 1;
+                GL11.glTranslatef(-0.5F, 0, 0F);
+                if(item.isOnItemFrame()){
+                    GL11.glTranslatef(0,-0.25F, 0);
+                    size = 0.75F;
+                }
+
             case EQUIPPED:
 
                 tess.startDrawingQuads();
@@ -65,7 +70,6 @@ public class FlagPoleItemRenderer implements IItemRenderer {
                 tess.addVertexWithUV(9F/16F, 0, 2F/16F, icon.getInterpolatedU(16), icon.getInterpolatedV(0));
                 tess.addVertexWithUV(9F/16F, 0, 0F/16F, icon.getInterpolatedU(12), icon.getInterpolatedV(0));
                 tess.draw();
-
 
                 icon = Block.wood.getIcon(0,0);
 
