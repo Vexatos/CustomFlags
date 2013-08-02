@@ -132,10 +132,10 @@ public class GuiColourPicker extends GuiButton {
         }
 
         GL11.glPushMatrix();
+        GL11.glColor3f(1,1,1);
 
         GL11.glEnable(GL11.GL_BLEND);
-        GL11.glBlendFunc(GL11.GL_ONE_MINUS_DST_COLOR, GL11.GL_ONE);
-        this.zLevel++;
+        GL11.glBlendFunc(GL11.GL_ONE_MINUS_DST_COLOR, GL11.GL_ZERO);
         //Saturation Line (Horiz)
         drawRect2(sb_start_x, sb_start_y + (int)((1-selectedHSB[1]) * 48),sb_start_x+48, sb_start_y + (int)((1-selectedHSB[1]) * 48)+1, 0xFFFFFFFF);
 
@@ -145,7 +145,8 @@ public class GuiColourPicker extends GuiButton {
         //Hue Line
         drawRect2(hue_start_x, sb_start_y + (int)(selectedHSB[0] * 48), hue_start_x+12, sb_start_y + (int)(selectedHSB[0] * 48)+1, 0xFFFFFFFF);
 
-        this.zLevel--;
+        //Alpha line
+        drawRect2(alpha_start_x, sb_start_y + (int)((1-selected_alpha) * 48), alpha_start_x+12, sb_start_y + (int)((1-selected_alpha) * 48)+1, 0xFFFFFFFF);
 
         GL11.glDisable(GL11.GL_BLEND);
         GL11.glPopMatrix();

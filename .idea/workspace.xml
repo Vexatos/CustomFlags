@@ -11,7 +11,7 @@
     <file path="/CustomFlags.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375409622903" ignored="false" />
     <file path="/BlockFlag.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375409579859" ignored="false" />
     <file path="/fragment.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375409824368" ignored="false" />
-    <file path="/GuiColourPicker.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375413976890" ignored="false" />
+    <file path="/GuiColourPicker.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375414570647" ignored="false" />
     <file path="/GuiContainerCreative.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375411809067" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +85,7 @@
       <file leaf-file-name="GuiColourPicker.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/controls/GuiColourPicker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="132" column="66" selection-start="4025" selection-end="4025" vertical-scroll-proportion="0.35344827">
+            <state line="41" column="79" selection-start="1376" selection-end="1376" vertical-scroll-proportion="-0.6034483">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -623,7 +623,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -800,7 +800,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/controls/GuiColourPicker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="66" selection-start="4025" selection-end="4025" vertical-scroll-proportion="0.35344827">
+        <state line="41" column="79" selection-start="1376" selection-end="1376" vertical-scroll-proportion="-0.6034483">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
