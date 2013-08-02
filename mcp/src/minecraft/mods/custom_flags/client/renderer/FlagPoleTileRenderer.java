@@ -18,6 +18,15 @@ import org.lwjgl.opengl.GL11;
  * TODO: Add discription
  */
 public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
+
+
+
+    public static float getZLevel(float x){
+        return Math.pow(x, 0.5) * Math.sin(Math.PI * ( x * 3 + )
+
+
+    }
+
     @Override
     public void renderTileEntityAt(TileEntity tileentity, double d0, double d1, double d2, float f) {
 
@@ -82,14 +91,16 @@ public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
 
         //if(has Flag Attached)
         {
+
             ImageCahce.setTexture(null);
 
-
             tess.startDrawingQuads();
-            tess.addVertex(0, 0, 0);
-            tess.addVertex(9F/16F, 0, 0);
-            tess.addVertex(9F/16F, 1, 0);
-            tess.addVertex(0, 1, 0);
+
+            tess.addVertexWithUV(7F / 16F, 0, 8F / 16F, 0, 0);
+            tess.addVertexWithUV(-7F /16F, 0, 8F / 16F, 1, 0);
+            tess.addVertexWithUV(-7F /16F, 1, 8F / 16F, 1, 1);
+            tess.addVertexWithUV(7F / 16F, 1, 8F / 16F, 0, 1);
+
             tess.draw();
 
         }
@@ -105,8 +116,6 @@ public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
         */
 
         GL11.glPopMatrix();
-
-
 
     }
 }
