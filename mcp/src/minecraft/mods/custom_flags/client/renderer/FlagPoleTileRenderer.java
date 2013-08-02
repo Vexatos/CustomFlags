@@ -20,11 +20,11 @@ import org.lwjgl.opengl.GL11;
 public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
 
 
+    public static final int sections = 8;
+    public static final int period = 500;
 
-    public static float getZLevel(float x){
-        return Math.pow(x, 0.5) * Math.sin(Math.PI * ( x * 3 + )
-
-
+    public static double getZLevel(float x){
+        return Math.pow(x, 0.75) * Math.sin(Math.PI * ( x * 3 + ((float)(System.currentTimeMillis()%period)) / (0.5F*(float)period))) / 4;
     }
 
     @Override
@@ -94,14 +94,27 @@ public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
 
             ImageCahce.setTexture(null);
 
-            tess.startDrawingQuads();
 
-            tess.addVertexWithUV(7F / 16F, 0, 8F / 16F, 0, 0);
-            tess.addVertexWithUV(-7F /16F, 0, 8F / 16F, 1, 0);
-            tess.addVertexWithUV(-7F /16F, 1, 8F / 16F, 1, 1);
-            tess.addVertexWithUV(7F / 16F, 1, 8F / 16F, 0, 1);
+            for(int i = 0; i < 8; i++){
+                tess.startDrawingQuads();
 
-            tess.draw();
+                double z1 = getZLevel((float)(i) / 8F);
+                double z2 = getZLevel((float)(i+1) / 8F);
+
+                tess.addVertexWithUV(7F / 16F-(float)(i) / 8F, 0, 8F / 16F+z1,   (float)(i) / 8F, 0);
+                tess.addVertexWithUV(7F /16F- (float)(i+1) / 8F, 0, 8F / 16F+z2, (float)(i+1) / 8F, 0);
+                tess.addVertexWithUV(7F /16F-(float)(i+1) / 8F, 1, 8F / 16F+z2,    (float)(i+1) / 8F, 1);
+                tess.addVertexWithUV(7F / 16F- (float)(i) / 8F, 1, 8F / 16F+z1,  (float)(i) / 8F, 1);
+
+                tess.addVertexWithUV(7F / 16F- (float)(i) / 8F, 1, 8F / 16F+z1,  (float)(i) / 8F, 1);
+                tess.addVertexWithUV(7F /16F-(float)(i+1) / 8F, 1, 8F / 16F+z2,    (float)(i+1) / 8F, 1);
+                tess.addVertexWithUV(7F /16F- (float)(i+1) / 8F, 0, 8F / 16F+z2, (float)(i+1) / 8F, 0);
+                tess.addVertexWithUV(7F / 16F-(float)(i) / 8F, 0, 8F / 16F+z1,   (float)(i) / 8F, 0);
+
+                tess.draw();
+            }
+
+
 
         }
 
