@@ -3,6 +3,7 @@ package mods.custom_flags.items;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import mods.custom_flags.utils.ImageData;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -20,6 +21,8 @@ public class ItemFlag extends Item {
     public ItemFlag(int id) {
         super(id);
 
+        this.setCreativeTab(CreativeTabs.tabDecorations);
+        this.setUnlocalizedName("custom_flags:flag");
         this.setMaxStackSize(1);
     }
 

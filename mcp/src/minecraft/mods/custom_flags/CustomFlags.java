@@ -8,6 +8,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import mods.custom_flags.blocks.BlockFlagPole;
 import mods.custom_flags.blocks.TileEntityFlagPole;
+import mods.custom_flags.items.ItemFlag;
 import net.minecraftforge.common.Configuration;
 
 import static cpw.mods.fml.common.Mod.*;
@@ -32,8 +33,7 @@ public class CustomFlags {
     public static int CAHCE_SIZE;
 
     public static BlockFlagPole blockFlagPole;
-
-
+    public static ItemFlag itemFlag;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
@@ -45,6 +45,8 @@ public class CustomFlags {
         CAHCE_SIZE = config.get(Configuration.CATEGORY_GENERAL, "Cache Size", 25).getInt(25);
 
         blockFlagPole = new BlockFlagPole(config.getBlock("Flag Pole", 2700).getInt(2700));
+        itemFlag = new ItemFlag(config.getItem(Configuration.CATEGORY_GENERAL, "Flag", 24532).getInt());
+
 
         GameRegistry.registerBlock(blockFlagPole, "flagpole");
         GameRegistry.registerTileEntity(TileEntityFlagPole.class, "flagpole_tile");

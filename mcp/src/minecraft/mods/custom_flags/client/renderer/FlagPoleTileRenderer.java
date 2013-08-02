@@ -20,7 +20,7 @@ import org.lwjgl.opengl.GL11;
 public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
 
 
-    public static final int sections = 10;
+    public static final int sections = 32;
     public static final int period = 500;
 
     public static double getZLevel(float x){
@@ -40,7 +40,6 @@ public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
         GL11.glColor3f(1,1,1);
 
         Tessellator tess = Tessellator.instance;
-
 
         tess.startDrawingQuads();
         tess.addVertexWithUV(7F / 16F, 0, 9F / 16F, icon.getInterpolatedU(0), icon.getInterpolatedV(0));
@@ -91,7 +90,6 @@ public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
 
         //if(has Flag Attached)
         {
-
             ImageCahce.setTexture(null);
 
             for(int i = 0; i < 8; i++){
@@ -112,8 +110,6 @@ public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
 
                 tess.draw();
             }
-
-
 
         }
 
