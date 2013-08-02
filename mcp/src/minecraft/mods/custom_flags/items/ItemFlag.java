@@ -1,4 +1,4 @@
-package mods.custom_flags;
+package mods.custom_flags.items;
 
 /**
  * User: nerd-boy
