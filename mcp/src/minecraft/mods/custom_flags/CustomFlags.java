@@ -1,19 +1,13 @@
 package mods.custom_flags;
 
-import com.sun.org.apache.xalan.internal.utils.ObjectFactory;
-import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.client.registry.ClientRegistry;
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import mods.custom_flags.blocks.BlockFlagPole;
 import mods.custom_flags.blocks.TileEntityFlagPole;
-import mods.custom_flags.client.renderer.FlagPoleTileRenderer;
-import mods.custom_flags.utils.ImageData;
 import net.minecraftforge.common.Configuration;
 
 import static cpw.mods.fml.common.Mod.*;
@@ -31,6 +25,9 @@ public class CustomFlags {
 
     @Instance("custom_flags")
     public static CustomFlags INSTANCE;
+
+    @SidedProxy(clientSide = "mods.custom_flags.client.ClientProxy", serverSide = "mods.custom_flags.CommonProxy")
+    public static CommonProxy PROXY;
 
     public static int CAHCE_SIZE;
 
@@ -66,8 +63,8 @@ public class CustomFlags {
     public void postInit(FMLPostInitializationEvent event){
         //Register render handelers
 
-        //TODO Move to proxy
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFlagPole.class, new FlagPoleTileRenderer());
+        PROXY.registerRenderers();
+        PROXY.registerLanguages();
 
 
     }
