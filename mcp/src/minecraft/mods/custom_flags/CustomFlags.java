@@ -5,11 +5,14 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import mods.custom_flags.blocks.BlockFlagPole;
 import mods.custom_flags.blocks.TileEntityFlagPole;
 import mods.custom_flags.items.FlagRecipie;
 import mods.custom_flags.items.ItemFlag;
+import mods.custom_flags.packet.CustomFlagsPacketHandeler;
+import mods.custom_flags.packet.FlagTileEntityDescripPacket;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.common.Configuration;
 
@@ -24,6 +27,9 @@ import static cpw.mods.fml.common.Mod.*;
  */
 
 @Mod(modid = "custom_flags", name="Custom Flags", version = "dev 1")
+@NetworkMod(packetHandler = CustomFlagsPacketHandeler.class, channels = {
+        FlagTileEntityDescripPacket.channel
+})
 public class CustomFlags {
 
     @Instance("custom_flags")

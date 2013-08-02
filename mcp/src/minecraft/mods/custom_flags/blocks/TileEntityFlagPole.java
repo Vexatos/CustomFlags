@@ -2,6 +2,7 @@ package mods.custom_flags.blocks;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.packet.Packet;
 import net.minecraft.tileentity.TileEntity;
 
 /**
@@ -20,13 +21,27 @@ public class TileEntityFlagPole extends TileEntity {
     public void readFromNBT(NBTTagCompound par1NBTTagCompound) {
         super.readFromNBT(par1NBTTagCompound);
 
-        //ItemStack.loadItemStackFromNBT(par1NBTTagCompound);
+        if(par1NBTTagCompound.hasKey("flag")){
+            ItemStack.loadItemStackFromNBT((NBTTagCompound) par1NBTTagCompound.getTag("flag"));
+        }else{
+            flag = null;
+        }
 
     }
 
     @Override
     public void writeToNBT(NBTTagCompound par1NBTTagCompound) {
         super.writeToNBT(par1NBTTagCompound);
+
+        if(flag != null){
+            NBTTagCompound flagCompound = new NBTTagCompound();
+            flag.writeToNBT(flagCompound);
+        }
+    }
+
+    @Override
+    public Packet getDescriptionPacket() {
+        return super.getDescriptionPacket();
     }
 
     public boolean hasFlag(){
