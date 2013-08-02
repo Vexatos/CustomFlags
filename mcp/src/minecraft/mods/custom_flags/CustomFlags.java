@@ -20,7 +20,7 @@ public class CustomFlags {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
-
+        //Load Config, register blocks & Items
     }
 
     @EventHandler

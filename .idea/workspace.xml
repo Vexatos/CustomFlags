@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e688ddff-badf-4b93-be44-68768cf1d7b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auto-commit.sh" afterPath="$PROJECT_DIR$/auto-commit.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java" />
     </list>
     <ignored path="Custom Flags.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375405629691" ignored="false" />
-    <file path="/CustomFlags.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375406234609" ignored="false" />
+    <file path="/CustomFlags.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375407443561" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +71,7 @@
       <file leaf-file-name="CustomFlags.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="166" selection-start="340" selection-end="340" vertical-scroll-proportion="0.22133939">
+            <state line="22" column="46" selection-start="614" selection-end="614" vertical-scroll-proportion="0.37457433">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -432,7 +430,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="166" selection-start="340" selection-end="340" vertical-scroll-proportion="0.22133939">
+        <state line="22" column="46" selection-start="614" selection-end="614" vertical-scroll-proportion="0.37457433">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
