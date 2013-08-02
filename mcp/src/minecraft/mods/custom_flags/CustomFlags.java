@@ -49,7 +49,6 @@ public class CustomFlags {
         blockFlagPole = new BlockFlagPole(config.getBlock("Flag Pole", 2700).getInt(2700));
         itemFlag = new ItemFlag(config.getItem(Configuration.CATEGORY_GENERAL, "Flag", 24532).getInt());
 
-
         GameRegistry.registerBlock(blockFlagPole, "flagpole");
         GameRegistry.registerTileEntity(TileEntityFlagPole.class, "flagpole_tile");
 
