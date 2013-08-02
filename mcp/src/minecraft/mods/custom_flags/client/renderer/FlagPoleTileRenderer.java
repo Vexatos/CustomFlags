@@ -21,25 +21,47 @@ public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
     public void renderTileEntityAt(TileEntity tileentity, double d0, double d1, double d2, float f) {
 
         Minecraft.getMinecraft().renderEngine.func_110577_a(TextureMap.field_110575_b);
-        Icon icon = Block.wood.getIcon(0,0);
-
-        System.out.println("Render");
+        Icon icon = Block.wood.getIcon(2,0);
 
         GL11.glPushMatrix();
 
         GL11.glTranslated(d0, d1, d2);
 
+        GL11.glColor3f(1,1,1);
+
         Tessellator tess = Tessellator.instance;
+
+
         tess.startDrawingQuads();
-
-
-        tess.addVertexWithUV(-1F / 16F, 0, -1F / 16F, icon.getInterpolatedU(0), icon.getInterpolatedV(0));
-        tess.addVertexWithUV(1F/16F, 0, -1F/16F, icon.getInterpolatedU(2), icon.getInterpolatedV(0));
-        tess.addVertexWithUV(1F/16F, 0, 1, icon.getInterpolatedU(2), icon.getInterpolatedV(16));
-        tess.addVertexWithUV(-1F/16F, 0, 1, icon.getInterpolatedU(0), icon.getInterpolatedV(16));
-
-
+        tess.addVertexWithUV(7F / 16F, 0, 9F / 16F, icon.getInterpolatedU(0), icon.getInterpolatedV(0));
+        tess.addVertexWithUV(9F / 16F, 0, 9F / 16F, icon.getInterpolatedU(4), icon.getInterpolatedV(0));
+        tess.addVertexWithUV(9F / 16F, 1, 9F / 16F, icon.getInterpolatedU(4), icon.getInterpolatedV(16));
+        tess.addVertexWithUV(7F / 16F, 1, 9F / 16F, icon.getInterpolatedU(0), icon.getInterpolatedV(16));
         tess.draw();
+
+        tess.startDrawingQuads();
+        tess.addVertexWithUV(9F / 16F, 0, 9F / 16F, icon.getInterpolatedU(4), icon.getInterpolatedV(0));
+        tess.addVertexWithUV(9F / 16F, 0, 7F / 16F, icon.getInterpolatedU(8), icon.getInterpolatedV(0));
+        tess.addVertexWithUV(9F / 16F, 1, 7F / 16F, icon.getInterpolatedU(8), icon.getInterpolatedV(16));
+        tess.addVertexWithUV(9F / 16F, 1, 9F / 16F, icon.getInterpolatedU(4), icon.getInterpolatedV(16));
+        tess.draw();
+
+
+        tess.startDrawingQuads();
+        tess.addVertexWithUV(9F / 16F, 0, 7F / 16F, icon.getInterpolatedU(8), icon.getInterpolatedV(0));
+        tess.addVertexWithUV(7F / 16F, 0, 7F / 16F, icon.getInterpolatedU(12), icon.getInterpolatedV(0));
+        tess.addVertexWithUV(7F / 16F, 1, 7F / 16F, icon.getInterpolatedU(12), icon.getInterpolatedV(16));
+        tess.addVertexWithUV(9F / 16F, 1, 7F / 16F, icon.getInterpolatedU(8), icon.getInterpolatedV(16));
+        tess.draw();
+
+        /*
+        tess.startDrawingQuads();
+        tess.addVertex(7F / 16F, 0, 9F / 16F);
+        tess.addVertex(9F / 16F, 0, 9F / 16F);
+        tess.addVertex(9F / 16F, 1, 9F / 16F);
+        tess.addVertex(7F / 16F, 1, 9F / 16F);
+        tess.draw();
+        */
 
         GL11.glPopMatrix();
 

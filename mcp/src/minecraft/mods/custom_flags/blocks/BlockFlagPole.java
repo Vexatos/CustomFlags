@@ -30,12 +30,22 @@ public class BlockFlagPole extends BlockContainer{
     }
 
     @Override
+    public boolean isOpaqueCube() {
+        return false;
+    }
+
+    @Override
+    public boolean renderAsNormalBlock() {
+        return false;
+    }
+
+    @Override
     public TileEntity createNewTileEntity(World world) {
         return new TileEntityFlagPole();
     }
 
     @Override
     public Icon getIcon(int par1, int par2) {
-        return Block.planks.getIcon(0,0);
+        return Block.wood.getIcon(2,0);
     }
 }
