@@ -33,6 +33,7 @@ public class FlagPoleItemRenderer implements IItemRenderer {
                 GL11.glTranslatef(-0.5F, 0, 0F);
                 if(item.isOnItemFrame()){
                     GL11.glTranslatef(0,-0.25F, 0);
+                    
                     size = 0.75F;
                 }
 
