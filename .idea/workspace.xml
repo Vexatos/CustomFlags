@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e688ddff-badf-4b93-be44-68768cf1d7b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/TileEntityFlagPole.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/TileEntityFlagPole.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="e688ddff-badf-4b93-be44-68768cf1d7b0" name="Default" comment="" />
     <ignored path="Custom Flags.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -68,10 +64,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CustomFlags.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="CustomFlags.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="65" selection-start="1061" selection-end="1061" vertical-scroll-proportion="0.1551095" vertical-offset="136" max-vertical-offset="1224">
+            <state line="49" column="88" selection-start="1701" selection-end="1701" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1224">
               <folding />
             </state>
           </provider>
@@ -120,22 +116,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FlagTileEntityDescripPacket.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="FlagTileEntityDescripPacket.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/packet/FlagTileEntityDescripPacket.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="3" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
+            <state line="8" column="3" selection-start="224" selection-end="224" vertical-scroll-proportion="0.24817519" vertical-offset="0" max-vertical-offset="548">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="auto-commit.cmd" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/auto-commit.cmd">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -194,13 +181,13 @@
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/ImageData.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/client/gui/GuiEnchantment.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/renderer/FlagPoleTileRenderer.java" />
-        <option value="$PROJECT_DIR$/auto-commit.cmd" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/TileEntityFlagPole.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/CustomFlagsPacketHandeler.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/packet/AbstractPacket.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/packet/FlagTileEntityDescripPacket.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/packet/CustomFlagsPacketHandeler.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java" />
+        <option value="$PROJECT_DIR$/auto-commit.cmd" />
       </list>
     </option>
   </component>
@@ -696,13 +683,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auto-commit.cmd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="569">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/inventory/InventoryBasic.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="61" column="18" selection-start="1692" selection-end="1694" vertical-scroll-proportion="-7.24" vertical-offset="805" max-vertical-offset="3264">
@@ -720,15 +700,6 @@
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/TileEntityFlagPole.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="43" column="8" selection-start="1053" selection-end="1089" vertical-scroll-proportion="0.0" vertical-offset="400" max-vertical-offset="969">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/packet/FlagTileEntityDescripPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="3" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -763,8 +734,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="65" selection-start="1061" selection-end="1061" vertical-scroll-proportion="0.1551095" vertical-offset="136" max-vertical-offset="1224">
+        <state line="49" column="88" selection-start="1701" selection-end="1701" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1224">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auto-commit.cmd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="569">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/packet/FlagTileEntityDescripPacket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="3" selection-start="224" selection-end="224" vertical-scroll-proportion="0.24817519" vertical-offset="0" max-vertical-offset="548">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
