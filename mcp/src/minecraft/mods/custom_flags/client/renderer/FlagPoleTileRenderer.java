@@ -54,6 +54,29 @@ public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
         tess.addVertexWithUV(9F / 16F, 1, 7F / 16F, icon.getInterpolatedU(8), icon.getInterpolatedV(16));
         tess.draw();
 
+
+        tess.startDrawingQuads();
+        tess.addVertexWithUV(7F / 16F, 0, 7F / 16F, icon.getInterpolatedU(12), icon.getInterpolatedV(0));
+        tess.addVertexWithUV(7F / 16F, 0, 9F / 16F, icon.getInterpolatedU(16), icon.getInterpolatedV(0));
+        tess.addVertexWithUV(7F / 16F, 1, 9F / 16F, icon.getInterpolatedU(16), icon.getInterpolatedV(16));
+        tess.addVertexWithUV(7F / 16F, 1, 7F / 16F, icon.getInterpolatedU(12), icon.getInterpolatedV(16));
+        tess.draw();
+
+        icon = Block.wood.getIcon(0,0);
+
+        tess.startDrawingQuads();
+        tess.addVertexWithUV(7F / 16F, 0, 7F / 16F, icon.getInterpolatedU(6), icon.getInterpolatedV(6));
+        tess.addVertexWithUV(9F / 16F, 0, 7F / 16F, icon.getInterpolatedU(10), icon.getInterpolatedV(6));
+        tess.addVertexWithUV(9F / 16F, 0, 9F / 16F, icon.getInterpolatedU(10), icon.getInterpolatedV(10));
+        tess.addVertexWithUV(7F / 16F, 0, 9F / 16F, icon.getInterpolatedU(6), icon.getInterpolatedV(10));
+        tess.draw();
+
+        tess.startDrawingQuads();
+        tess.addVertexWithUV(9F / 16F, 1, 7F / 16F, icon.getInterpolatedU(6), icon.getInterpolatedV(6));
+        tess.addVertexWithUV(7F / 16F, 1, 7F / 16F, icon.getInterpolatedU(10), icon.getInterpolatedV(6));
+        tess.addVertexWithUV(7F / 16F, 1, 9F / 16F, icon.getInterpolatedU(10), icon.getInterpolatedV(10));
+        tess.addVertexWithUV(9F / 16F, 1, 9F / 16F, icon.getInterpolatedU(6), icon.getInterpolatedV(10));
+        tess.draw();
         /*
         tess.startDrawingQuads();
         tess.addVertex(7F / 16F, 0, 9F / 16F);
