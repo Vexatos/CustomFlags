@@ -4,6 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.DynamicTexture;
+import org.lwjgl.opengl.GL11;
 
 import java.awt.*;
 
@@ -91,6 +92,8 @@ public class GuiColourPicker extends GuiButton {
     public void drawButton(Minecraft mc, int mouse_x, int mouse_y) {
         //super.drawButton(mc, mouse_x, mouse_y);
 
+        GL11.glColor3f(1,1,1);
+
         //Draw the saturation / brightness square
         sb_buffer.func_110564_a();
         this.drawTexturedModalRect(sb_start_x, sb_start_y, 48, 48, 0,0, 1,1);
@@ -102,15 +105,35 @@ public class GuiColourPicker extends GuiButton {
         if(isSwitchOn(ALPHA_SELECTION)){
             background_buffer.func_110564_a();
             this.drawTexturedModalRect(alpha_start_x, sb_start_y, 12, 48, 0,0, 2, 8);
+
+            this.drawGradientRect(alpha_start_x, sb_start_y, alpha_start_x+12, sb_start_y+48, selectedRGB | 0xFF000000, selectedRGB & 0x00FFFFFF);
         }
 
 
         if(isSwitchOn(COLOUR_DISPLAY)){
             background_buffer.func_110564_a();
             this.drawTexturedModalRect(sb_start_x, sb_start_y+52, 48, 12, 0,0, 8, 2);
+
+            drawRect(sb_start_x, sb_start_y+52, sb_start_x+48, sb_start_y+64, selectedRGB);
         }
 
+        GL11.glEnable(GL11.GL_BLEND);
+        GL11.glBlendFunc(GL11.GL_ONE_MINUS_DST_COLOR, GL11.GL_ONE_MINUS_SRC_COLOR);
 
+        //Saturation Line (Horiz)
+        drawRect2(sb_start_x, sb_start_y + (int)(selectedHSB[1] * 48),sb_start_x+48, sb_start_y + (int)(selectedHSB[1] * 48)+1, 0xFFFFFFFF);
+
+        //Brightness Line (Vertical)
+        drawRect2(sb_start_x, sb_start_y + (int)((1-selectedHSB[2]) * 48),sb_start_x+48, sb_start_y + (int)((1-selectedHSB[2]) * 48)+1, 0xFFFFFFFF);
+
+
+
+        //Hue Line
+        drawRect2(hue_start_x, sb_start_y + (int)(selectedHSB[0] * 48), hue_start_x+12, sb_start_y + (int)(selectedHSB[0] * 48)+1, 0xFFFFFFFF);
+
+
+
+        GL11.glDisable(GL11.GL_BLEND);
     }
 
     private void selectColour(int rgb) {
@@ -139,6 +162,39 @@ public class GuiColourPicker extends GuiButton {
         tessellator.addVertexWithUV((double)(x + width), (double)(y + height), (double)this.zLevel, (double)((float)(tex_x + tex_width) * f), (double)((float)(tex_y + tex_height) * f1));
         tessellator.addVertexWithUV((double)(x + width), (double)(y + 0), (double)this.zLevel, (double)((float)(tex_x + tex_width) * f), (double)((float)(tex_y + 0) * f1));
         tessellator.addVertexWithUV((double)(x + 0), (double)(y + 0), (double)this.zLevel, (double)((float)(tex_x + 0) * f), (double)((float)(tex_y + 0) * f1));
+        tessellator.draw();
+    }
+
+
+    public static void drawRect2(int x1, int y1, int x2, int y2, int colour)
+    {
+        int j1;
+
+        if (x1 < x2)
+        {
+            j1 = x1;
+            x1 = x2;
+            x2 = j1;
+        }
+
+        if (y1 < y2)
+        {
+            j1 = y1;
+            y1 = y2;
+            y2 = j1;
+        }
+
+        float f = (float)(colour >> 24 & 255) / 255.0F;
+        float f1 = (float)(colour >> 16 & 255) / 255.0F;
+        float f2 = (float)(colour >> 8 & 255) / 255.0F;
+        float f3 = (float)(colour & 255) / 255.0F;
+        Tessellator tessellator = Tessellator.instance;
+        GL11.glColor4f(f1, f2, f3, f);
+        tessellator.startDrawingQuads();
+        tessellator.addVertex((double)x1, (double)y2, 0.0D);
+        tessellator.addVertex((double)x2, (double)y2, 0.0D);
+        tessellator.addVertex((double)x2, (double)y1, 0.0D);
+        tessellator.addVertex((double)x1, (double)y1, 0.0D);
         tessellator.draw();
     }
 }
