@@ -24,7 +24,7 @@ public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
     public static final int period = 500;
 
     public static double getZLevel(float x){
-        return Math.pow(x, 0.75) * Math.sin(Math.PI * ( x * 3 + ((float)(System.currentTimeMillis()%period)) / (0.5F*(float)period))) / 4;
+        return Math.pow(x, 0.75) * Math.sin(Math.PI * ( -x * 3 + ((float)(System.currentTimeMillis()%period)) / (0.5F*(float)period))) / 4;
     }
 
     @Override
