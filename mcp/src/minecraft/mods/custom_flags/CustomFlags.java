@@ -30,6 +30,6 @@ public class CustomFlags {
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event){
-
+        //Register render handelers
     }
 }
