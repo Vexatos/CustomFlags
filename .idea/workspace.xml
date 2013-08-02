@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e688ddff-badf-4b93-be44-68768cf1d7b0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auto-commit.sh" afterPath="$PROJECT_DIR$/auto-commit.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Custom Flags.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -96,7 +95,7 @@
       <file leaf-file-name="auto-commit.sh" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/auto-commit.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="40" selection-end="70" vertical-scroll-proportion="0.080789946">
+            <state line="3" column="0" selection-start="40" selection-end="40" vertical-scroll-proportion="0.080789946">
               <folding />
             </state>
           </provider>
@@ -630,7 +629,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/auto-commit.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="40" selection-end="70" vertical-scroll-proportion="0.080789946">
+        <state line="3" column="0" selection-start="40" selection-end="40" vertical-scroll-proportion="0.080789946">
           <folding />
         </state>
       </provider>
