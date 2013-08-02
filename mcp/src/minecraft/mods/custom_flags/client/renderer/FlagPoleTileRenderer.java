@@ -20,7 +20,7 @@ import org.lwjgl.opengl.GL11;
 public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
 
 
-    public static final int sections = 8;
+    public static final int sections = 16;
     public static final int period = 500;
 
     public static double getZLevel(float x){
@@ -101,15 +101,15 @@ public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
                 double z1 = getZLevel((float)(i) / 8F);
                 double z2 = getZLevel((float)(i+1) / 8F);
 
-                tess.addVertexWithUV(7F / 16F-(float)(i) / 8F, 0, 8F / 16F+z1,   (float)(i) / 8F, 0);
-                tess.addVertexWithUV(7F /16F- (float)(i+1) / 8F, 0, 8F / 16F+z2, (float)(i+1) / 8F, 0);
-                tess.addVertexWithUV(7F /16F-(float)(i+1) / 8F, 1, 8F / 16F+z2,    (float)(i+1) / 8F, 1);
-                tess.addVertexWithUV(7F / 16F- (float)(i) / 8F, 1, 8F / 16F+z1,  (float)(i) / 8F, 1);
+                tess.addVertexWithUV(7F / 16F-(float)(i) / 8F, 0, 8F / 16F+z1,   (float)(i) / 8F, 0.01);
+                tess.addVertexWithUV(7F /16F- (float)(i+1) / 8F, 0, 8F / 16F+z2, (float)(i+1) / 8F, 0.01);
+                tess.addVertexWithUV(7F /16F-(float)(i+1) / 8F, 1, 8F / 16F+z2,    (float)(i+1) / 8F, 0.99);
+                tess.addVertexWithUV(7F / 16F- (float)(i) / 8F, 1, 8F / 16F+z1,  (float)(i) / 8F, 0.99);
 
-                tess.addVertexWithUV(7F / 16F- (float)(i) / 8F, 1, 8F / 16F+z1,  (float)(i) / 8F, 1);
-                tess.addVertexWithUV(7F /16F-(float)(i+1) / 8F, 1, 8F / 16F+z2,    (float)(i+1) / 8F, 1);
-                tess.addVertexWithUV(7F /16F- (float)(i+1) / 8F, 0, 8F / 16F+z2, (float)(i+1) / 8F, 0);
-                tess.addVertexWithUV(7F / 16F-(float)(i) / 8F, 0, 8F / 16F+z1,   (float)(i) / 8F, 0);
+                tess.addVertexWithUV(7F / 16F- (float)(i) / 8F, 1, 8F / 16F+z1,  (float)(i) / 8F, 0.99);
+                tess.addVertexWithUV(7F /16F-(float)(i+1) / 8F, 1, 8F / 16F+z2,    (float)(i+1) / 8F, 0.99);
+                tess.addVertexWithUV(7F /16F- (float)(i+1) / 8F, 0, 8F / 16F+z2, (float)(i+1) / 8F, 0.01);
+                tess.addVertexWithUV(7F / 16F-(float)(i) / 8F, 0, 8F / 16F+z1,   (float)(i) / 8F, 0.01);
 
                 tess.draw();
             }
