@@ -2,9 +2,11 @@ package mods.custom_flags.utils;
 
 import net.minecraft.item.ItemDye;
 
+import javax.imageio.ImageIO;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.nio.ByteBuffer;
 
 /**
@@ -14,18 +16,28 @@ import java.nio.ByteBuffer;
  */
 public class ImageData {
 
-    public static final int IMAGE_RES = 2;
+    public static final int IMAGE_RES = 32;
     private int[] pixels;
 
+    public static final ImageData defaultImage;
+    public static byte[] defaultData;
 
-    public static ImageData defaultImage = new ImageData(
-            0xFFFF0000,
-            0xFFFFFF00,
-            0xFF00FF00,
-            0xFF0000FF
-    );
 
-    public static byte[] defaultData = defaultImage.getByteArray();
+    static{
+        BufferedImage image = null;
+        try {
+           image = ImageIO.read(ImageData.class.getResourceAsStream("Test.png"));
+            //defaultImage = new ImageData(0xFFFF0000, 0xFFFFFF00, 0xFF00FF00, 0xFF0000FF);
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+        defaultImage = new ImageData(image, 32, 32);
+
+        defaultData = defaultImage.getByteArray();
+    }
+
+
 
     public ImageData(int c1, int c2, int c3, int c4){
         pixels = new int[IMAGE_RES * IMAGE_RES];
@@ -33,22 +45,22 @@ public class ImageData {
         for(int y = 0; y < IMAGE_RES / 2; y++){
 
             for(int x = 0; x < IMAGE_RES / 2; x++){
-                pixels[x+IMAGE_RES*y] = c1;
+                pixels[x*IMAGE_RES+y] = c1;
             }
 
             for(int x = IMAGE_RES/2; x < IMAGE_RES; x++){
-                pixels[x+IMAGE_RES*y] = c2;
+                pixels[x*IMAGE_RES+y] = c2;
             }
 
         }
         for(int y = IMAGE_RES/2; y < IMAGE_RES; y++){
 
             for(int x = 0; x < IMAGE_RES / 2; x++){
-                pixels[x+IMAGE_RES*y] = c3;
+                pixels[x*IMAGE_RES+y] = c3;
             }
 
             for(int x = IMAGE_RES/2; x < IMAGE_RES; x++){
-                pixels[x+IMAGE_RES*y] = c4;
+                pixels[x*IMAGE_RES+y] = c4;
             }
 
         }
@@ -71,6 +83,7 @@ public class ImageData {
         for(int x = 0; x < scaled.getWidth(); x++){
             for(int y = 0; y < scaled.getHeight(); y++){
                 pixels[x + y*width] = roundColour(scaled.getRGB(x, y));
+                System.out.println(Integer.toHexString(pixels[x + y*width]));
             }
         }
     }

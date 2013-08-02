@@ -20,7 +20,7 @@ import org.lwjgl.opengl.GL11;
 public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
 
 
-    public static final int sections = 16;
+    public static final int sections = 10;
     public static final int period = 500;
 
     public static double getZLevel(float x){
@@ -94,22 +94,21 @@ public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
 
             ImageCahce.setTexture(null);
 
-
             for(int i = 0; i < 8; i++){
                 tess.startDrawingQuads();
 
                 double z1 = getZLevel((float)(i) / 8F);
                 double z2 = getZLevel((float)(i+1) / 8F);
 
-                tess.addVertexWithUV(7F / 16F-(float)(i) / 8F, 0, 8F / 16F+z1,   (float)(i) / 8F, 0.01);
-                tess.addVertexWithUV(7F /16F- (float)(i+1) / 8F, 0, 8F / 16F+z2, (float)(i+1) / 8F, 0.01);
-                tess.addVertexWithUV(7F /16F-(float)(i+1) / 8F, 1, 8F / 16F+z2,    (float)(i+1) / 8F, 0.99);
-                tess.addVertexWithUV(7F / 16F- (float)(i) / 8F, 1, 8F / 16F+z1,  (float)(i) / 8F, 0.99);
+                tess.addVertexWithUV(7F / 16F-(float)(i) / 8F, 0, 8F / 16F+z1,   (float)(i) / 8F, 0.999);
+                tess.addVertexWithUV(7F /16F- (float)(i+1) / 8F, 0, 8F / 16F+z2, (float)(i+1) / 8F, 0.999);
+                tess.addVertexWithUV(7F /16F-(float)(i+1) / 8F, 1, 8F / 16F+z2,    (float)(i+1) / 8F, 0.001);
+                tess.addVertexWithUV(7F / 16F- (float)(i) / 8F, 1, 8F / 16F+z1,  (float)(i) / 8F, 0.001);
 
-                tess.addVertexWithUV(7F / 16F- (float)(i) / 8F, 1, 8F / 16F+z1,  (float)(i) / 8F, 0.99);
-                tess.addVertexWithUV(7F /16F-(float)(i+1) / 8F, 1, 8F / 16F+z2,    (float)(i+1) / 8F, 0.99);
-                tess.addVertexWithUV(7F /16F- (float)(i+1) / 8F, 0, 8F / 16F+z2, (float)(i+1) / 8F, 0.01);
-                tess.addVertexWithUV(7F / 16F-(float)(i) / 8F, 0, 8F / 16F+z1,   (float)(i) / 8F, 0.01);
+                tess.addVertexWithUV(7F / 16F- (float)(i) / 8F, 1, 8F / 16F+z1,  (float)(i) / 8F, 0.001);
+                tess.addVertexWithUV(7F /16F-(float)(i+1) / 8F, 1, 8F / 16F+z2,    (float)(i+1) / 8F, 0.001);
+                tess.addVertexWithUV(7F /16F- (float)(i+1) / 8F, 0, 8F / 16F+z2, (float)(i+1) / 8F, 0.999);
+                tess.addVertexWithUV(7F / 16F-(float)(i) / 8F, 0, 8F / 16F+z1,   (float)(i) / 8F, 0.999);
 
                 tess.draw();
             }
@@ -119,14 +118,6 @@ public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
         }
 
 
-        /*
-        tess.startDrawingQuads();
-        tess.addVertex(7F / 16F, 0, 9F / 16F);
-        tess.addVertex(9F / 16F, 0, 9F / 16F);
-        tess.addVertex(9F / 16F, 1, 9F / 16F);
-        tess.addVertex(7F / 16F, 1, 9F / 16F);
-        tess.draw();
-        */
 
         GL11.glPopMatrix();
 

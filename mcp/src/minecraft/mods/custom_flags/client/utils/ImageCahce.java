@@ -65,9 +65,11 @@ public class ImageCahce {
                 imageCahce.get(((ItemFlag)stack.getItem()).getKey(stack)).func_110564_a();
 
             }else{
+                ImageData.defaultImage.setTexture(defaultTexture.func_110565_c());
                 defaultTexture.func_110564_a();
             }
         }catch(Exception e){
+            ImageData.defaultImage.setTexture(defaultTexture.func_110565_c());
             defaultTexture.func_110564_a();
         }
 
