@@ -49,14 +49,14 @@ public class ImageData {
             }
 
             for(int x = IMAGE_RES/2; x < IMAGE_RES; x++){
-                pixels[x*IMAGE_RES+y] = c2;
+                pixels[x*IMAGE_RES+y] = c3;
             }
 
         }
         for(int y = IMAGE_RES/2; y < IMAGE_RES; y++){
 
             for(int x = 0; x < IMAGE_RES / 2; x++){
-                pixels[x*IMAGE_RES+y] = c3;
+                pixels[x*IMAGE_RES+y] = c2;
             }
 
             for(int x = IMAGE_RES/2; x < IMAGE_RES; x++){

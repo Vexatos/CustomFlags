@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e688ddff-badf-4b93-be44-68768cf1d7b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/ClientProxy.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/ClientProxy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/renderer/FlagItemRenderer.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/renderer/FlagItemRenderer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/items/ItemFlag.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/items/ItemFlag.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/items/FlagRecipie.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/items/FlagRecipie.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/ImageData.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/ImageData.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Custom Flags.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,10 +69,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="CustomFlags.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="63" column="15" selection-start="2042" selection-end="2042" vertical-scroll-proportion="0.9357798" vertical-offset="340" max-vertical-offset="1190">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ItemFlag.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/items/ItemFlag.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="58" selection-start="2609" selection-end="2609" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1734">
+            <state line="87" column="58" selection-start="2609" selection-end="2609" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1734">
               <folding />
             </state>
           </provider>
@@ -86,13 +96,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FlagRecipie.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="FlagRecipie.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/items/FlagRecipie.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="8" selection-start="387" selection-end="400" vertical-scroll-proportion="0.4047619" vertical-offset="0" max-vertical-offset="629">
+            <state line="55" column="9" selection-start="1656" selection-end="1656" vertical-scroll-proportion="0.0" vertical-offset="945" max-vertical-offset="2091">
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3087#3096#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Block.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/block/Block.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="134" column="30" selection-start="10620" selection-end="10625" vertical-scroll-proportion="-6.76" vertical-offset="1242" max-vertical-offset="40511">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShapedRecipes.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/item/crafting/ShapedRecipes.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="111" column="5" selection-start="1869" selection-end="3521" vertical-scroll-proportion="0.0" vertical-offset="1408" max-vertical-offset="2601">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -117,51 +146,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientProxy.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/ClientProxy.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="559" selection-end="559" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IItemRenderer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraftforge/client/IItemRenderer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="135" column="16" selection-start="5111" selection-end="5111" vertical-scroll-proportion="0.0" vertical-offset="1833" max-vertical-offset="2380">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ItemRenderer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/client/renderer/ItemRenderer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="374" column="28" selection-start="17529" selection-end="17529" vertical-scroll-proportion="0.0" vertical-offset="5449" max-vertical-offset="12189">
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MapItemRenderer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/client/gui/MapItemRenderer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="54" selection-start="2882" selection-end="2882" vertical-scroll-proportion="0.0" vertical-offset="621" max-vertical-offset="1904">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ImageData.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/ImageData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="125" column="0" selection-start="3632" selection-end="3632" vertical-scroll-proportion="0.0" vertical-offset="1952" max-vertical-offset="2499">
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+            <state line="46" column="17" selection-start="1116" selection-end="1116" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="2499">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ItemArmor.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/item/ItemArmor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="0" selection-start="1261" selection-end="1261" vertical-scroll-proportion="87.04" vertical-offset="2448" max-vertical-offset="4250">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -192,14 +190,14 @@
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CommonProxy.java" />
         <option value="$PROJECT_DIR$/auto-commit.sh" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/utils/ImageCahce.java" />
-        <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/ImageData.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/renderer/FlagPoleTileRenderer.java" />
-        <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/renderer/FlagPoleItemRenderer.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/items/ItemFlag.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/ClientProxy.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/renderer/FlagItemRenderer.java" />
+        <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/items/FlagRecipie.java" />
+        <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/ImageData.java" />
       </list>
     </option>
   </component>
@@ -311,6 +309,96 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="net" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Custom Flags" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ModJam" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mcp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="minecraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="net" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="minecraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Custom Flags" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ModJam" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mcp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="minecraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="net" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="minecraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="item" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Custom Flags" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ModJam" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mcp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="minecraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="custom_flags" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -342,66 +430,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Custom Flags" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ModJam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mcp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="minecraft" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="custom_flags" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="items" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Custom Flags" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ModJam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mcp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="minecraft" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="custom_flags" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -566,7 +594,7 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32881355" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295583" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39933258" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -576,8 +604,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34175533" sideWeight="0.6700565" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3299435" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34175533" sideWeight="0.6704417" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3295583" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -676,32 +704,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/Test.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/utils/ImageCahce.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="78" selection-start="2554" selection-end="2554" vertical-scroll-proportion="0.0" vertical-offset="682" max-vertical-offset="1275">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/en_US.lang">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="50" selection-end="50" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="102" selection-start="1639" selection-end="1639" vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="1156">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/client/renderer/tileentity/TileEntityRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="178" column="0" selection-start="8182" selection-end="8182" vertical-scroll-proportion="1.4154135" vertical-offset="1865" max-vertical-offset="3213" />
@@ -719,20 +721,6 @@
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraftforge/client/IItemRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="135" column="16" selection-start="5111" selection-end="5111" vertical-scroll-proportion="0.0" vertical-offset="1833" max-vertical-offset="2380">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/item/ItemMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="4" selection-start="742" selection-end="14362" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5967">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/ImageData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="0" selection-start="3632" selection-end="3632" vertical-scroll-proportion="0.0" vertical-offset="325" max-vertical-offset="2618">
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
@@ -753,25 +741,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/renderer/FlagPoleItemRenderer.java">
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/ClientProxy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="8" selection-start="659" selection-end="758" vertical-scroll-proportion="0.0" vertical-offset="65" max-vertical-offset="2601">
+        <state line="12" column="0" selection-start="559" selection-end="559" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/ClientProxy.java">
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/item/ItemMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="559" selection-end="559" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+        <state line="25" column="4" selection-start="742" selection-end="14362" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5967">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/items/ItemFlag.java">
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/block/Block.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="58" selection-start="2609" selection-end="2609" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1734">
+        <state line="134" column="30" selection-start="10620" selection-end="10625" vertical-scroll-proportion="-6.76" vertical-offset="1242" max-vertical-offset="40511">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/item/crafting/ShapedRecipes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="111" column="5" selection-start="1869" selection-end="3521" vertical-scroll-proportion="0.0" vertical-offset="1408" max-vertical-offset="2601">
           <folding />
         </state>
       </provider>
@@ -783,12 +778,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/items/FlagRecipie.java">
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/renderer/FlagPoleItemRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="8" selection-start="387" selection-end="400" vertical-scroll-proportion="0.4047619" vertical-offset="0" max-vertical-offset="629">
+        <state line="21" column="8" selection-start="659" selection-end="758" vertical-scroll-proportion="0.0" vertical-offset="65" max-vertical-offset="2601">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/items/ItemFlag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="58" selection-start="2609" selection-end="2609" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1734">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/item/ItemArmor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="0" selection-start="1261" selection-end="1261" vertical-scroll-proportion="87.04" vertical-offset="2448" max-vertical-offset="4250">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/ImageData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="17" selection-start="1116" selection-end="1116" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="2499">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/items/FlagRecipie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="9" selection-start="1656" selection-end="1656" vertical-scroll-proportion="0.0" vertical-offset="945" max-vertical-offset="2091">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3087#3096#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="15" selection-start="2042" selection-end="2042" vertical-scroll-proportion="0.9357798" vertical-offset="340" max-vertical-offset="1190">
+          <folding />
         </state>
       </provider>
     </entry>

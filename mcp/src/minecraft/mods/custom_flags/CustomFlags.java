@@ -8,7 +8,9 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import mods.custom_flags.blocks.BlockFlagPole;
 import mods.custom_flags.blocks.TileEntityFlagPole;
+import mods.custom_flags.items.FlagRecipie;
 import mods.custom_flags.items.ItemFlag;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.common.Configuration;
 
 import static cpw.mods.fml.common.Mod.*;
@@ -50,6 +52,8 @@ public class CustomFlags {
 
         GameRegistry.registerBlock(blockFlagPole, "flagpole");
         GameRegistry.registerTileEntity(TileEntityFlagPole.class, "flagpole_tile");
+
+        GameRegistry.addRecipe(new FlagRecipie());
 
         if(config.hasChanged()){
             config.save();
