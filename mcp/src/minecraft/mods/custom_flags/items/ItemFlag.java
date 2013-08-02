@@ -82,8 +82,6 @@ public class ItemFlag extends ItemMap {
         }
     }
 
-
-
     public MapData getMapData(ItemStack par1ItemStack, World par2World)
     {return null;}
 

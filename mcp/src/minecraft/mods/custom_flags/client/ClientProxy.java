@@ -5,6 +5,7 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 import mods.custom_flags.CommonProxy;
 import mods.custom_flags.CustomFlags;
 import mods.custom_flags.blocks.TileEntityFlagPole;
+import mods.custom_flags.client.renderer.FlagItemRenderer;
 import mods.custom_flags.client.renderer.FlagPoleItemRenderer;
 import mods.custom_flags.client.renderer.FlagPoleTileRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
@@ -28,5 +29,6 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFlagPole.class, new FlagPoleTileRenderer());
 
         MinecraftForgeClient.registerItemRenderer(CustomFlags.blockFlagPole.blockID, new FlagPoleItemRenderer());
+        MinecraftForgeClient.registerItemRenderer(CustomFlags.itemFlag.itemID, new FlagItemRenderer());
     }
 }
