@@ -28,6 +28,8 @@ public class CustomFlags {
 
     public static BlockFlagPole blockFlagPole;
 
+
+
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
         //Load Config, register blocks & Items
