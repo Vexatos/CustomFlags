@@ -4,3 +4,22 @@
 *.jar
 *.war
 *.ear
+
+#Ignore EVERYTHING
+/*
+/*/
+
+#Don't ignore
+!.getignore
+!README.md
+!auto-commit.sh
+
+#Don't Ignore Custom Flags Src
+!/mcp/*
+
+#Not planning on having any assets/images (Personal Challange) But don't ignore it either if I change the plan
+!/mcp/src/minecraft/assets/*
+!/mcp/src/minecraft/assets/*/
+
+
+!*.iml
