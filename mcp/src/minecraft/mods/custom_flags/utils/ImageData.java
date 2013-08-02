@@ -13,7 +13,7 @@ public class ImageData {
     private int[] pixels;
 
 
-    public static ImageData defaultImage = new ImageData(ItemDye.dyeColors[]);
+    public static ImageData defaultImage = new ImageData(ItemDye.dyeColors[0], ItemDye.dyeColors[15], ItemDye.dyeColors[15], ItemDye.dyeColors[0]);
 
 
     public ImageData(int c1, int c2, int c3, int c4){
