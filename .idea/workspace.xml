@@ -3,19 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="e688ddff-badf-4b93-be44-68768cf1d7b0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/BlockFlagPole.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/BlockFlagPole.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/ImageData.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/ImageData.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Custom Flags.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375411558989" ignored="false" />
-    <file path="/CustomFlags.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375409622903" ignored="false" />
+    <file path="/CustomFlags.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375418550221" ignored="false" />
     <file path="/BlockFlag.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375409579859" ignored="false" />
     <file path="/fragment.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375409824368" ignored="false" />
     <file path="/GuiColourPicker.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375414570647" ignored="false" />
     <file path="/GuiContainerCreative.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375411809067" ignored="false" />
     <file path="/ImageData.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375416090578" ignored="false" />
-    <file path="/BlockFlagPole.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375417721088" ignored="false" />
+    <file path="/BlockFlagPole.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375418350783" ignored="false" />
+    <file path="/TileEntityFlagPole.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375418368790" ignored="false" />
+    <file path="/FlagPoleTileRenderer.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375418685895" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,8 +81,28 @@
       <file leaf-file-name="CustomFlags.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="104" selection-start="1491" selection-end="1491" vertical-scroll-proportion="0.0">
+            <state line="68" column="105" selection-start="2144" selection-end="2144" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TileEntityFlagPole.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/TileEntityFlagPole.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="37" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FlagPoleTileRenderer.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/renderer/FlagPoleTileRenderer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="8" selection-start="1006" selection-end="1006" vertical-scroll-proportion="0.62432915">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -141,10 +163,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BlockFlagPole.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="BlockFlagPole.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/BlockFlagPole.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="57" selection-start="648" selection-end="648" vertical-scroll-proportion="0.5344828">
+            <state line="26" column="144" selection-start="669" selection-end="669" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -171,11 +193,13 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/BlockFlag.java" />
-        <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/client/gui/inventory/GuiContainerCreative.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/controls/GuiColourPicker.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/ImageData.java" />
+        <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/TileEntityFlagPole.java" />
+        <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/BlockFlagPole.java" />
+        <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/renderer/FlagPoleTileRenderer.java" />
       </list>
     </option>
   </component>
@@ -438,7 +462,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controls" />
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="renderer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Custom Flags" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CustomFlags" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mcp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="minecraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="custom_flags" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -632,7 +690,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24946581" sideWeight="0.670354" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32964602" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32964602" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -754,13 +812,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="104" selection-start="1491" selection-end="1491" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/client/gui/Gui.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="95" selection-start="1157" selection-end="1157" vertical-scroll-proportion="0.0">
@@ -798,9 +849,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="105" selection-start="2144" selection-end="2144" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/BlockFlagPole.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="57" selection-start="648" selection-end="648" vertical-scroll-proportion="0.5344828">
+        <state line="26" column="144" selection-start="669" selection-end="669" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/TileEntityFlagPole.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="37" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/renderer/FlagPoleTileRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="8" selection-start="1006" selection-end="1006" vertical-scroll-proportion="0.62432915">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

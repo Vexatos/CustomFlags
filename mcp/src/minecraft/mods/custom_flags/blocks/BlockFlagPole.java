@@ -24,10 +24,14 @@ public class BlockFlagPole extends BlockContainer{
         this.setUnlocalizedName("custom_flags:flagpole");
     }
 
+    @Override
+    public int getRenderType() {
+        return -1;
+    }
 
     @Override
     public TileEntity createNewTileEntity(World world) {
-        return null;
+        return new TileEntityFlagPole();
     }
 
     @Override
