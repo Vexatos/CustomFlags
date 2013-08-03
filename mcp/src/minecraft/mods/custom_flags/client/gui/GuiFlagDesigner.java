@@ -11,6 +11,7 @@ import mods.custom_flags.items.ItemFlag;
 import mods.custom_flags.packet.UpdateHeldFlagImagePacket;
 import mods.custom_flags.utils.ImageData;
 import mods.custom_flags.utils.Utils;
+import mods.custom_flags.utils.swing.ImageFileViewer;
 import mods.custom_flags.utils.swing.ImageFilter;
 import mods.custom_flags.utils.swing.ImagePreviewPanel;
 import net.minecraft.client.gui.GuiButton;
@@ -74,9 +75,7 @@ public class GuiFlagDesigner extends GuiScreen{
         fc = new JFileChooser();
         fc.addChoosableFileFilter(new ImageFilter());
         fc.setAcceptAllFileFilterUsed(false);
-        ImagePreviewPanel preview = new ImagePreviewPanel();
-        fc.setAccessory(preview);
-        fc.addPropertyChangeListener(preview);
+        fc.setFileView(new ImageFileViewer());
 
         ItemStack item = player.getHeldItem();
         if(item != null && item.getItem() instanceof ItemFlag){
@@ -103,9 +102,7 @@ public class GuiFlagDesigner extends GuiScreen{
         this.guiLeft = (this.width - this.xSize) / 2;
         this.guiTop = (this.height - ySize) / 2;
 
-
-        colourPicker = new GuiColourPicker(ID_COLOUR_PICKER, 100+canvusSize+guiLeft, guiTop+25, 0xAA000000, 7);
-
+        colourPicker = new GuiColourPicker(ID_COLOUR_PICKER, 100+canvusSize+guiLeft, guiTop+25, 0xFF000000, 7);
 
         this.buttonList.add(new GuiButton(ID_OK, guiLeft+100+canvusSize, guiTop+canvusSize+5, 80, 20, StatCollector.translateToLocal("button.ok")));
         this.buttonList.add(new GuiButton(ID_SAVE, guiLeft + 90, guiTop, 75, 20,StatCollector.translateToLocal( "button.save")));
