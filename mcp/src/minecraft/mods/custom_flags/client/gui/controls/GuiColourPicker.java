@@ -5,6 +5,7 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.item.ItemDye;
+import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 import paulscode.sound.libraries.SourceJavaSound;
 
@@ -32,9 +33,9 @@ public class GuiColourPicker extends GuiButton {
     private int dragState = 0;
 
     private static final int DRAG_NONE = 0;
-    private static final int SB_NONE = 1;
-    private static final int HUE_NONE = 2;
-    private static final int ALPHA_NONE = 3;
+    private static final int DRAG_SB = 1;
+    private static final int DRAG_HUE = 2;
+    private static final int DRAG_ALPHA = 3;
 
 
     static{
@@ -102,19 +103,22 @@ public class GuiColourPicker extends GuiButton {
         }
     }
 
+    @Override
+    public void mouseReleased(int par1, int par2) {
+        super.mouseReleased(par1, par2);
+        dragState = DRAG_NONE;
+    }
 
     @Override
     public boolean mousePressed(Minecraft par1Minecraft, int x, int y) {
-
-
-
-
         if(x >= hue_start_x && x < 12+hue_start_x && y >= sb_start_y && y < 48+sb_start_y){
             float hue = ((float)(y-sb_start_y) / 48F);
             hue = Math.max(hue, 0);
             hue = Math.min(hue, 1);
 
             selectColour(hue, selectedHSB[1], selectedHSB[2], selected_alpha);
+
+            dragState = DRAG_HUE;
             return true;
         }
 
@@ -124,7 +128,7 @@ public class GuiColourPicker extends GuiButton {
                 y >= sb_start_y &&
                 y < sb_start_y+48){
 
-            float sat = (float)(y-sb_start_y) / 48F;
+            float sat = 1-((float)(y-sb_start_y) / 48F);
             sat = Math.max(sat, 0);
             sat = Math.min(sat, 1);
 
@@ -133,6 +137,9 @@ public class GuiColourPicker extends GuiButton {
             bright = Math.min(bright, 1);
 
             selectColour(selectedHSB[0], sat, bright, selected_alpha);
+
+            dragState = DRAG_SB;
+
             return true;
         }
 
@@ -145,6 +152,8 @@ public class GuiColourPicker extends GuiButton {
                 alpha = Math.min(alpha, 1);
 
                 selectColour(selectedHSB[0], selectedHSB[1], selectedHSB[2], alpha);
+
+                dragState = DRAG_ALPHA;
             return true;
         }
 
@@ -219,6 +228,39 @@ public class GuiColourPicker extends GuiButton {
         GL11.glPopMatrix();
 
         GL11.glPopMatrix();
+
+
+        if(Mouse.isButtonDown(0)){
+
+            switch (dragState){
+                case DRAG_HUE:
+                    float hue = ((float)(mouse_y-sb_start_y) / 48F);
+                    hue = Math.max(hue, 0);
+                    hue = Math.min(hue, 1);
+
+                    selectColour(hue, selectedHSB[1], selectedHSB[2], selected_alpha);
+                    break;
+                case DRAG_ALPHA:
+                    float alpha = 1-((float)(mouse_y-sb_start_y) / 48F);
+                    alpha = Math.max(alpha, 0);
+                    alpha = Math.min(alpha, 1);
+
+                    selectColour(selectedHSB[0], selectedHSB[1], selectedHSB[2], alpha);
+                    break;
+                case DRAG_SB:
+                    float sat = 1-((float)(mouse_y-sb_start_y) / 48F);
+                    sat = Math.max(sat, 0);
+                    sat = Math.min(sat, 1);
+
+                    float bright = (float)(mouse_x-sb_start_x) / 48F;
+                    bright = Math.max(bright, 0);
+                    bright = Math.min(bright, 1);
+
+                    selectColour(selectedHSB[0], sat, bright, selected_alpha);
+                    break;
+            }
+
+        }
     }
 
     public void selectColour(int rgb) {

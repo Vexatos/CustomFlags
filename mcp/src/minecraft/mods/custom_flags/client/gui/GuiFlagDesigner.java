@@ -23,6 +23,7 @@ import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraft.util.StringTranslate;
+import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 import paulscode.sound.libraries.SourceJavaSound;
@@ -149,7 +150,7 @@ public class GuiFlagDesigner extends GuiScreen{
             }
         }
 
-        selectedTool.drawOverlay(x,y,current,overlay,colourPicker.getRGB(),false);
+        selectedTool.drawOverlay(x,y,current,overlay,colourPicker.getRGB(), Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT));
 
     }
 
