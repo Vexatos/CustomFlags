@@ -33,7 +33,8 @@ import javax.swing.*;
  */
 
 @Mod(modid = "custom_flags", name="Custom Flags", version = "dev 1")
-@NetworkMod(packetHandler = CustomFlagsPacketHandeler.class, channels = {
+@NetworkMod(packetHandler = CustomFlagsPacketHandeler.class, clientSideRequired = true,
+        channels = {
         FlagTileEntityDescripPacket.channel, UpdateHeldFlagImagePacket.channel
 })
 public class CustomFlags {

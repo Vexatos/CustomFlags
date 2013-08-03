@@ -9,6 +9,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -74,4 +75,19 @@ public class BlockFlagPole extends BlockContainer{
     public Icon getIcon(int par1, int par2) {
         return Block.wood.getIcon(2,0);
     }
+
+    @Override
+    public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6) {
+        super.breakBlock(par1World, par2, par3, par4, par5, par6);
+
+        //if(FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER){
+            TileEntity te = par1World.getBlockTileEntity(par2, par3, par4);
+            if(te != null && te instanceof TileEntityFlagPole){
+                ItemStack flag = ((TileEntityFlagPole)te).getFlag();
+                par1World.spawnEntityInWorld(new EntityItem(par1World, par2, par3, par4, flag));
+            }
+        //}
+    }
+
+
 }

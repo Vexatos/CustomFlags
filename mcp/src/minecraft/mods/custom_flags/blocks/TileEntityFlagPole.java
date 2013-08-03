@@ -18,6 +18,8 @@ public class TileEntityFlagPole extends TileEntity {
     public TileEntityFlagPole(){
     }
 
+
+
     @Override
     public void readFromNBT(NBTTagCompound par1NBTTagCompound) {
         System.out.println("Read NBT");
