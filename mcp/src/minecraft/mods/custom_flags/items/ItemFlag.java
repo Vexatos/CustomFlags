@@ -4,6 +4,7 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.PacketDispatcher;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import mods.custom_flags.CustomFlags;
 import mods.custom_flags.packet.UpdateHeldFlagImagePacket;
 import mods.custom_flags.utils.ImageData;
 import net.minecraft.creativetab.CreativeTabs;
@@ -15,6 +16,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.MapData;
+import net.minecraftforge.common.MinecraftForge;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -39,9 +41,13 @@ public class ItemFlag extends ItemMap {
     }
 
     @Override
-    public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
+    public ItemStack onItemRightClick(ItemStack par1ItemStack, World world, EntityPlayer player) {
 
         if(FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT){
+
+            player.openGui(CustomFlags.INSTANCE, 0, world, (int)player.posX, (int)player.posY, (int)player.posZ);
+
+            /*
             JFileChooser fc = new JFileChooser();
 
             if(fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
@@ -54,10 +60,11 @@ public class ItemFlag extends ItemMap {
                     e.printStackTrace();
                 }
             }
+            */
         }
 
 
-        return super.onItemRightClick(par1ItemStack, par2World, par3EntityPlayer);
+        return super.onItemRightClick(par1ItemStack, world, player);
     }
 
     @SideOnly(Side.CLIENT)
