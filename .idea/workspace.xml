@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e688ddff-badf-4b93-be44-68768cf1d7b0" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Aaron\Documents\Minecraft Mods\ModJam\mcp\src\minecraft\mods\custom_flags\utils\swing\ImageFileView.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/GuiFlagDesigner.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/GuiFlagDesigner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/swing/ImagePreviewPanel.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/swing/ImagePreviewPanel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Custom Flags.iws" />
@@ -88,11 +87,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImagePreviewPanel.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ImagePreviewPanel.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/swing/ImagePreviewPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="18" selection-start="80" selection-end="80" vertical-scroll-proportion="0.0" vertical-offset="1126" max-vertical-offset="1768">
-              <folding />
+            <state line="27" column="12" selection-start="751" selection-end="751" vertical-scroll-proportion="-0.61275274" vertical-offset="853" max-vertical-offset="1496">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -126,10 +127,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GuiFlagDesigner.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="GuiFlagDesigner.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/GuiFlagDesigner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="32" selection-start="2655" selection-end="2655" vertical-scroll-proportion="0.34022257" vertical-offset="1027" max-vertical-offset="4471">
+            <state line="73" column="32" selection-start="2655" selection-end="2655" vertical-scroll-proportion="0.0" vertical-offset="1027" max-vertical-offset="4471">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -200,8 +201,8 @@
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/TileEntityFlagPole.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/BlockFlagPole.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/swing/ImageFileView.java" />
-        <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/swing/ImagePreviewPanel.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/GuiFlagDesigner.java" />
+        <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/swing/ImagePreviewPanel.java" />
       </list>
     </option>
   </component>
@@ -634,7 +635,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1511" height="1040" extended-state="0" />
+    <frame x="0" y="0" width="1511" height="1040" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -652,8 +653,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25189787" sideWeight="0.7785311" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22146893" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25189787" sideWeight="0.779661" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22033899" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -862,16 +863,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/swing/ImagePreviewPanel.java">
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/GuiFlagDesigner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="18" selection-start="80" selection-end="80" vertical-scroll-proportion="0.0" vertical-offset="1126" max-vertical-offset="1768">
-          <folding />
+        <state line="73" column="32" selection-start="2655" selection-end="2655" vertical-scroll-proportion="0.0" vertical-offset="1027" max-vertical-offset="4471">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/GuiFlagDesigner.java">
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/swing/ImagePreviewPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="32" selection-start="2655" selection-end="2655" vertical-scroll-proportion="0.34022257" vertical-offset="1027" max-vertical-offset="4471">
+        <state line="27" column="12" selection-start="751" selection-end="751" vertical-scroll-proportion="-0.61275274" vertical-offset="853" max-vertical-offset="1496">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
