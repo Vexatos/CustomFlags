@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.item.ItemDye;
 import org.lwjgl.opengl.GL11;
+import paulscode.sound.libraries.SourceJavaSound;
 
 import java.awt.*;
 
@@ -97,6 +98,30 @@ public class GuiColourPicker extends GuiButton {
     public boolean mousePressed(Minecraft par1Minecraft, int x, int y) {
 
 
+
+
+        if(x >= hue_start_x && x < 12+hue_start_x && y >= sb_start_y && y < 48+sb_start_y){
+            float hue = ((float)(y-sb_start_y) / 48F);
+            hue = Math.max(hue, 0);
+            hue = Math.min(hue, 1);
+
+            selectColour(hue, selectedHSB[1], selectedHSB[2], selected_alpha);
+            return true;
+        }
+
+
+        if(isSwitchOn(ALPHA_SELECTION) &&
+                x >= alpha_start_x && x < 12+alpha_start_x && y >= sb_start_y && y < 48+sb_start_y){
+                float alpha = 1 - ((float)(y-sb_start_y) / 48F);
+                alpha = Math.max(alpha, 0);
+                alpha = Math.min(alpha, 1);
+
+                selectColour(selectedHSB[0], selectedHSB[1], selectedHSB[2], alpha);
+            return true;
+        }
+
+
+
         if(isSwitchOn(DEFAULT_COLOURS)){
             if(x >= xPosition && x < 48+xPosition && y >= yPosition && y < 12+yPosition){
                 selectColour(ItemDye.dyeColors[((x - xPosition) / 6) + (((y - yPosition) / 6) * 8)] | 0xFF000000);
@@ -172,7 +197,14 @@ public class GuiColourPicker extends GuiButton {
         this.selectedRGB = rgb;
         this.selectedHSB = Color.RGBtoHSB((rgb&0x00FF0000) >> 16, (rgb&0x0000FF00) >> 8, (rgb&0x000000FF), new float[3]);
         selected_alpha = ((float)((rgb & 0xFF000000) >>> 24)) / 255F;
-        System.out.println(((rgb & 0xFF000000) >>> 24));
+
+        calculateBuffers();
+    }
+
+    public void selectColour(float hue, float sat, float bright, float alpha) {
+        this.selectedHSB = new float[]{hue, sat, bright};
+        this.selected_alpha = alpha;
+        this.selectedRGB = (Color.HSBtoRGB(hue, sat, bright) & 0x00FFFFFF) | (((int)(alpha * 255)) << 24);
 
         calculateBuffers();
     }
