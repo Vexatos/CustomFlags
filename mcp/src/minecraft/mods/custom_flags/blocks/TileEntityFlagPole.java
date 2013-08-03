@@ -21,15 +21,13 @@ public class TileEntityFlagPole extends TileEntity {
     @Override
     public void readFromNBT(NBTTagCompound par1NBTTagCompound) {
         System.out.println("Read NBT");
-        System.out.println(flag);
         super.readFromNBT(par1NBTTagCompound);
 
         if(par1NBTTagCompound.hasKey("flag")){
-            ItemStack.loadItemStackFromNBT((NBTTagCompound) par1NBTTagCompound.getTag("flag"));
+            flag = ItemStack.loadItemStackFromNBT((NBTTagCompound) par1NBTTagCompound.getTag("flag"));
         }else{
             flag = null;
         }
-
     }
 
     @Override

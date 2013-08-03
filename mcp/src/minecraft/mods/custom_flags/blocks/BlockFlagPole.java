@@ -1,6 +1,8 @@
 package mods.custom_flags.blocks;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.PacketDispatcher;
+import cpw.mods.fml.relauncher.Side;
 import mods.custom_flags.items.ItemFlag;
 import mods.custom_flags.packet.FlagTileEntityDescripPacket;
 import net.minecraft.block.Block;
@@ -35,8 +37,13 @@ public class BlockFlagPole extends BlockContainer{
         TileEntity te = world.getBlockTileEntity(x,y,z);
         ItemStack stack = par5EntityPlayer.getCurrentEquippedItem();
         if(te != null && te instanceof TileEntityFlagPole && stack != null && stack.getItem() instanceof ItemFlag){
-            ((TileEntityFlagPole) te).setFlag(stack);
-            PacketDispatcher.sendPacketToAllPlayers(FlagTileEntityDescripPacket.generatePacket(x,y,z,stack));
+            System.out.println(FMLCommonHandler.instance().getEffectiveSide());
+            if(FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER){
+                ((TileEntityFlagPole) te).setFlag(stack);
+
+                PacketDispatcher.sendPacketToAllPlayers(te.getDescriptionPacket());
+            }
+            //PacketDispatcher.sendPacketToAllPlayers(FlagTileEntityDescripPacket.generatePacket(x,y,z,stack));
             //PacketDispatcher.sendPacketToServer(FlagTileEntityDescripPacket.generatePacket(x,y,z,stack));
         }
 
