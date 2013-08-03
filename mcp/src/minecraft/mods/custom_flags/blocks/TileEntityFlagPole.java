@@ -20,6 +20,8 @@ public class TileEntityFlagPole extends TileEntity {
 
     @Override
     public void readFromNBT(NBTTagCompound par1NBTTagCompound) {
+        System.out.println("Read NBT");
+        System.out.println(flag);
         super.readFromNBT(par1NBTTagCompound);
 
         if(par1NBTTagCompound.hasKey("flag")){
@@ -33,11 +35,18 @@ public class TileEntityFlagPole extends TileEntity {
     @Override
     public void writeToNBT(NBTTagCompound par1NBTTagCompound) {
         super.writeToNBT(par1NBTTagCompound);
+        System.out.println("Write NBT");
+        System.out.println(flag);
 
         if(flag != null){
             NBTTagCompound flagCompound = new NBTTagCompound();
             flag.writeToNBT(flagCompound);
+
+            par1NBTTagCompound.setCompoundTag("flag", flagCompound);
         }
+
+        System.out.println(par1NBTTagCompound.hasKey("flag"));
+
     }
 
 
@@ -52,6 +61,7 @@ public class TileEntityFlagPole extends TileEntity {
     }
 
     public void setFlag(ItemStack flag) {
+        System.out.println("SET FLAG");
         this.flag = flag;
     }
 

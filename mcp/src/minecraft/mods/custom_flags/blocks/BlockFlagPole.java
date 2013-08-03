@@ -37,6 +37,7 @@ public class BlockFlagPole extends BlockContainer{
         if(te != null && te instanceof TileEntityFlagPole && stack != null && stack.getItem() instanceof ItemFlag){
             ((TileEntityFlagPole) te).setFlag(stack);
             PacketDispatcher.sendPacketToAllPlayers(FlagTileEntityDescripPacket.generatePacket(x,y,z,stack));
+            //PacketDispatcher.sendPacketToServer(FlagTileEntityDescripPacket.generatePacket(x,y,z,stack));
         }
 
         return super.onBlockActivated(world, x, y, z, par5EntityPlayer, par6, par7, par8, par9);
