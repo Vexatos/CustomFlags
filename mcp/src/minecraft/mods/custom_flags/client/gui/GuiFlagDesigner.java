@@ -124,8 +124,30 @@ public class GuiFlagDesigner extends GuiScreen{
 
     }
 
+    @Override
+    public void handleMouseInput() {
+        super.handleMouseInput();
+
+        int x = (Mouse.getEventX() * this.width / this.mc.displayWidth -90 -guiLeft)/canvusMult;
+        int y = (this.height - Mouse.getEventY() * this.height / this.mc.displayHeight - 1 - 25- guiTop)/canvusMult;
 
 
+        if(Mouse.isButtonDown(0)){
+            selectedTool.draw(x, y, current, colourPicker.getRGB(),false);
+        }
+
+        selectedTool.drawOverlay(x,y,current,overlay,colourPicker.getRGB(),false);
+
+    }
+
+    @Override
+    public void onGuiClosed() {
+        super.onGuiClosed();
+        int[] overPixels = overlay.func_110565_c();
+        for(int i = 0; i < overPixels.length; i++){
+            overPixels[i] = 0x00000000;
+        }
+    }
 
     /**
      * Draws the screen and all the components in it.
@@ -138,24 +160,12 @@ public class GuiFlagDesigner extends GuiScreen{
         canvus_back.func_110564_a();
         drawTexturedModalRect(90 + guiLeft, 25+guiTop, canvusSize, canvusSize, 0, 0, 32, 32);
 
-
-
-
-        int x = (Mouse.getEventX() * this.width / this.mc.displayWidth -90 -guiLeft)/canvusMult;
-        int y = (this.height - Mouse.getEventY() * this.height / this.mc.displayHeight - 1 - 25- guiTop)/canvusMult;
-
-
-        if(Mouse.isButtonDown(0)){
-            selectedTool.draw(x, y, current, colourPicker.getRGB(),false);
-        }
-
-
-        selectedTool.drawOverlay(x,y,current,overlay,colourPicker.getRGB(),false);
+        overlay.func_110564_a();
         drawTexturedModalRect(90 + guiLeft, 25 + guiTop, canvusSize, canvusSize, 0, 0, 1, 1);
+
 
         super.drawScreen(par1, par2, par3);
     }
-
 
 
     @Override
