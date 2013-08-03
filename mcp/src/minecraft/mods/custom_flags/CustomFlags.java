@@ -80,11 +80,9 @@ public class CustomFlags {
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event){
-        //Register render handelers
 
         PROXY.registerRenderers();
         PROXY.registerLanguages();
-
 
     }
 }

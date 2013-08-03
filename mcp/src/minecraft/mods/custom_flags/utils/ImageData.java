@@ -24,16 +24,7 @@ public class ImageData {
 
 
     static{
-        BufferedImage image = null;
-        try {
-           image = ImageIO.read(ImageData.class.getResourceAsStream("Test.png"));
-            //defaultImage = new ImageData(0xFFFF0000, 0xFFFFFF00, 0xFF00FF00, 0xFF0000FF);
-        } catch (IOException e) {
-            e.printStackTrace();
-
-        }
-        defaultImage = new ImageData(image, 32, 32);
-
+        defaultImage = new ImageData(0xFFFF0000, 0xFFFFFF00, 0xFF00FF00, 0xFF0000FF);
         defaultData = defaultImage.getByteArray();
     }
 
