@@ -13,6 +13,7 @@ import mods.custom_flags.items.FlagRecipie;
 import mods.custom_flags.items.ItemFlag;
 import mods.custom_flags.packet.CustomFlagsPacketHandeler;
 import mods.custom_flags.packet.FlagTileEntityDescripPacket;
+import mods.custom_flags.packet.UpdateHeldFlagImagePacket;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.common.Configuration;
 
@@ -28,7 +29,7 @@ import static cpw.mods.fml.common.Mod.*;
 
 @Mod(modid = "custom_flags", name="Custom Flags", version = "dev 1")
 @NetworkMod(packetHandler = CustomFlagsPacketHandeler.class, channels = {
-        FlagTileEntityDescripPacket.channel
+        FlagTileEntityDescripPacket.channel, UpdateHeldFlagImagePacket.channel
 })
 public class CustomFlags {
 

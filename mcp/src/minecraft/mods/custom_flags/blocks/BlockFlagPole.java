@@ -36,13 +36,13 @@ public class BlockFlagPole extends BlockContainer{
 
         TileEntity te = world.getBlockTileEntity(x,y,z);
         ItemStack stack = par5EntityPlayer.getCurrentEquippedItem();
-        if(te != null && te instanceof TileEntityFlagPole && stack != null && stack.getItem() instanceof ItemFlag){
-            System.out.println(FMLCommonHandler.instance().getEffectiveSide());
+        if(te != null && te instanceof TileEntityFlagPole && stack != null && stack.getItem() instanceof ItemFlag){;
             if(FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER){
                 ((TileEntityFlagPole) te).setFlag(stack);
-
                 PacketDispatcher.sendPacketToAllPlayers(te.getDescriptionPacket());
             }
+
+            return true;
             //PacketDispatcher.sendPacketToAllPlayers(FlagTileEntityDescripPacket.generatePacket(x,y,z,stack));
             //PacketDispatcher.sendPacketToServer(FlagTileEntityDescripPacket.generatePacket(x,y,z,stack));
         }

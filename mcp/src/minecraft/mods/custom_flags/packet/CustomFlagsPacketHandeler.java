@@ -16,6 +16,7 @@ public class CustomFlagsPacketHandeler implements IPacketHandler{
 
     public CustomFlagsPacketHandeler(){
         packetMap.put(FlagTileEntityDescripPacket.channel, new FlagTileEntityDescripPacket());
+        packetMap.put(UpdateHeldFlagImagePacket.channel, new UpdateHeldFlagImagePacket());
     }
 
     @Override

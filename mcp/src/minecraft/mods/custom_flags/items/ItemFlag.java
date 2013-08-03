@@ -1,25 +1,24 @@
 package mods.custom_flags.items;
 
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.network.PacketDispatcher;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import mods.custom_flags.packet.UpdateHeldFlagImagePacket;
 import mods.custom_flags.utils.ImageData;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.MapColor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemMap;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.packet.Packet;
-import net.minecraft.network.packet.Packet131MapData;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.storage.MapData;
-import net.minecraft.world.storage.MapInfo;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.image.BufferedImage;
 import java.util.List;
 
 /**
@@ -41,7 +40,24 @@ public class ItemFlag extends ItemMap {
 
     @Override
     public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
-        boolean right = super.onItemRightClick(par1ItemStack, par2World, par3EntityPlayer);
+
+        if(FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT){
+            JFileChooser fc = new JFileChooser();
+
+            if(fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
+                try{
+                    BufferedImage image = ImageIO.read(fc.getSelectedFile());
+                    this.setImageData(par1ItemStack, new ImageData(image, 32, 32).getByteArray(), par3EntityPlayer.worldObj);
+
+                    PacketDispatcher.sendPacketToServer(UpdateHeldFlagImagePacket.generatePacket(par3EntityPlayer.username, par1ItemStack));
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }
+
+
+        return super.onItemRightClick(par1ItemStack, par2World, par3EntityPlayer);
     }
 
     @SideOnly(Side.CLIENT)
