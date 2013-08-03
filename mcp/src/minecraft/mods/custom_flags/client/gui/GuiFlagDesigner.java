@@ -11,28 +11,23 @@ import mods.custom_flags.items.ItemFlag;
 import mods.custom_flags.packet.UpdateHeldFlagImagePacket;
 import mods.custom_flags.utils.ImageData;
 import mods.custom_flags.utils.Utils;
-import mods.custom_flags.utils.swing.ImageFileView;
 import mods.custom_flags.utils.swing.ImageFilter;
+import mods.custom_flags.utils.swing.ImagePreviewPanel;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
-import net.minecraft.util.StringTranslate;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
-import paulscode.sound.libraries.SourceJavaSound;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 
 /**
  * Created by Aaron on 3/08/13.
@@ -79,7 +74,9 @@ public class GuiFlagDesigner extends GuiScreen{
         fc = new JFileChooser();
         fc.addChoosableFileFilter(new ImageFilter());
         fc.setAcceptAllFileFilterUsed(false);
-        fc.setFileView(new ImageFileView());
+        ImagePreviewPanel preview = new ImagePreviewPanel();
+        fc.setAccessory(preview);
+        fc.addPropertyChangeListener(preview);
 
         ItemStack item = player.getHeldItem();
         if(item != null && item.getItem() instanceof ItemFlag){
