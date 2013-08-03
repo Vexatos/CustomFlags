@@ -154,7 +154,7 @@ public class GuiColourPicker extends GuiButton {
         GL11.glPopMatrix();
     }
 
-    private void selectColour(int rgb) {
+    public void selectColour(int rgb) {
         this.selectedRGB = rgb;
         this.selectedHSB = Color.RGBtoHSB((rgb&0x00FF0000) >> 16, (rgb&0x0000FF00) >> 8, (rgb&0x000000FF), new float[3]);
         selected_alpha = ((float)((rgb & 0xFF000000) >>> 24)) / 255F;

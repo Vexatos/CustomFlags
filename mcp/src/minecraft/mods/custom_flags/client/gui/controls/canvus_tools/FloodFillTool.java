@@ -33,7 +33,9 @@ public class FloodFillTool implements ITool {
             System.out.println(Integer.toHexString(targetColour));
 
 
-            floodFill(x, y, pixelsCurrent, targetColour, rgb);
+            if(rgb != targetColour){
+                floodFill(x, y, pixelsCurrent, targetColour, rgb);
+            }
 
         }
     }
@@ -46,10 +48,11 @@ public class FloodFillTool implements ITool {
 
             if(pixals[x+ImageData.IMAGE_RES*y] == targetColour){
                 pixals[x+ImageData.IMAGE_RES*y] = newColour;
+
                 floodFill(x+1, y, pixals, targetColour, newColour);
                 floodFill(x-1, y, pixals, targetColour, newColour);
                 floodFill(x, y+1, pixals, targetColour, newColour);
-                floodFill(1, y-1, pixals, targetColour, newColour);
+                floodFill(x, y-1, pixals, targetColour, newColour);
             }
 
         }

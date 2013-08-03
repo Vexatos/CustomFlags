@@ -3,6 +3,7 @@ package mods.custom_flags.client.gui;
 import cpw.mods.fml.common.network.PacketDispatcher;
 import mods.custom_flags.client.gui.controls.GuiColourPicker;
 import mods.custom_flags.client.gui.controls.GuiToggleButton;
+import mods.custom_flags.client.gui.controls.canvus_tools.EyeDropperTool;
 import mods.custom_flags.client.gui.controls.canvus_tools.FloodFillTool;
 import mods.custom_flags.client.gui.controls.canvus_tools.ITool;
 import mods.custom_flags.client.gui.controls.canvus_tools.PenTool;
@@ -123,6 +124,7 @@ public class GuiFlagDesigner extends GuiScreen{
 
         tools[0] = new PenTool();
         tools[1] = new FloodFillTool();
+        tools[2] = new EyeDropperTool();
 
         selectedTool = tools[0];
 
@@ -137,8 +139,13 @@ public class GuiFlagDesigner extends GuiScreen{
 
 
         if(Mouse.isButtonDown(0)){
-            selectedTool.draw(x, y, current, colourPicker.getRGB(),false);
-            System.out.println(selectedTool.getClass());
+            if(selectedTool instanceof EyeDropperTool){
+                if (x > -1 &&  x < ImageData.IMAGE_RES && y > -1 && y < ImageData.IMAGE_RES){
+                    colourPicker.selectColour(current.func_110565_c()[x+ImageData.IMAGE_RES*y]);
+                }
+            }else{
+                selectedTool.draw(x, y, current, colourPicker.getRGB(),false);
+            }
         }
 
         selectedTool.drawOverlay(x,y,current,overlay,colourPicker.getRGB(),false);
