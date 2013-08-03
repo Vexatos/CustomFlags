@@ -1,6 +1,7 @@
 package mods.custom_flags.client.gui;
 
 import mods.custom_flags.client.gui.controls.GuiColourPicker;
+import mods.custom_flags.client.gui.controls.GuiToggleButton;
 import mods.custom_flags.items.ItemFlag;
 import mods.custom_flags.utils.ImageData;
 import mods.custom_flags.utils.Utils;
@@ -14,6 +15,8 @@ import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.StatCollector;
+import net.minecraft.util.StringTranslate;
 import paulscode.sound.libraries.SourceJavaSound;
 
 import javax.imageio.ImageIO;
@@ -28,12 +31,16 @@ import java.io.IOException;
 public class GuiFlagDesigner extends GuiScreen{
 
     private GuiColourPicker colourPicker;
+    private GuiToggleButton[] toggleButtons;
 
     private static final int ID_SAVE = 0;
     private static final int ID_LOAD = 1;
     private static final int ID_OK = 2;
     private static final int ID_COLOUR_PICKER = 3;
     private int guiLeft, guiTop, xSize, ySize;
+
+    private static final String[] labels = new String[]{"tool.pen", "tool.flood","tool.dropper"};
+
 
     private static final int canvusMult = 5;
     private static final int canvusSize = canvusMult * 32;
@@ -53,6 +60,7 @@ public class GuiFlagDesigner extends GuiScreen{
         pixels[3] = 0xFF666666;
     }
 
+
     public GuiFlagDesigner(EntityPlayer player) {
         this.player = player;
 
@@ -60,7 +68,6 @@ public class GuiFlagDesigner extends GuiScreen{
         fc.addChoosableFileFilter(new ImageFilter());
         fc.setAcceptAllFileFilterUsed(false);
         fc.setFileView(new ImageFileView());
-
 
         ItemStack item = player.getHeldItem();
         if(item != null && item.getItem() instanceof ItemFlag){
@@ -91,10 +98,16 @@ public class GuiFlagDesigner extends GuiScreen{
         colourPicker = new GuiColourPicker(ID_COLOUR_PICKER, 100+canvusSize+guiLeft, guiTop+25, 0xFF000000, 7);
 
 
-        this.buttonList.add(new GuiButton(ID_OK, guiLeft+100+canvusSize, guiTop+canvusSize+5, 80, 20, "button.ok"));
-        this.buttonList.add(new GuiButton(ID_SAVE, guiLeft + 90, guiTop, 75, 20, "button.save"));
-        this.buttonList.add(new GuiButton(ID_LOAD, guiLeft + 20 + canvusSize, guiTop, 75, 20, "button.load"));
+        this.buttonList.add(new GuiButton(ID_OK, guiLeft+100+canvusSize, guiTop+canvusSize+5, 80, 20, StatCollector.translateToLocal("button.ok")));
+        this.buttonList.add(new GuiButton(ID_SAVE, guiLeft + 90, guiTop, 75, 20,StatCollector.translateToLocal( "button.save")));
+        this.buttonList.add(new GuiButton(ID_LOAD, guiLeft + 20 + canvusSize, guiTop, 75, 20, StatCollector.translateToLocal("button.load")));
         this.buttonList.add(colourPicker);
+
+        toggleButtons = new GuiToggleButton[3];
+        for(int i = 0; i < toggleButtons.length; i++){
+            toggleButtons[i] = new GuiToggleButton(10+ i, guiLeft, guiTop+25+i*22, 80, 20, StatCollector.translateToLocal(labels[i]), i==0);
+            this.buttonList.add(toggleButtons[i]);
+        }
 
     }
 
@@ -121,6 +134,12 @@ public class GuiFlagDesigner extends GuiScreen{
     protected void actionPerformed(GuiButton par1GuiButton) {
         super.actionPerformed(par1GuiButton);
 
+        if(par1GuiButton.id >=10 && par1GuiButton.id < 10+toggleButtons.length){
+            for(int i = 0; i < toggleButtons.length; i++){
+                toggleButtons[i].setToggle(i+10==par1GuiButton.id);
+            }
+        }
+
         switch (par1GuiButton.id){
             case ID_SAVE:
                 if(fc.showSaveDialog(null) == JFileChooser.APPROVE_OPTION){
@@ -141,8 +160,6 @@ public class GuiFlagDesigner extends GuiScreen{
 
                         f.createNewFile();
 
-                        System.out.println(f.getAbsolutePath());
-                        System.out.println(Utils.getExtention(f.getName()));
                         ImageIO.write(image, "png", f);
 
                     } catch (Throwable e) {

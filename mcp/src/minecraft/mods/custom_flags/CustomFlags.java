@@ -86,7 +86,6 @@ public class CustomFlags {
     public void postInit(FMLPostInitializationEvent event){
 
         PROXY.registerRenderers();
-        PROXY.registerLanguages();
 
         NetworkRegistry.instance().registerGuiHandler(this, new CustomFlagsGuiHandeler());
 

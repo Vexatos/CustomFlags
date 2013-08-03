@@ -8,8 +8,6 @@ package mods.custom_flags;
  */
 public class CommonProxy {
 
-    public void registerLanguages(){}
-
     public void registerRenderers(){}
 
 }

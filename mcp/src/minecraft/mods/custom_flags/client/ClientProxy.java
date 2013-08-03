@@ -20,11 +20,6 @@ import net.minecraftforge.common.MinecraftForge;
 public class ClientProxy extends CommonProxy {
 
     @Override
-    public void registerLanguages() {
-        LanguageHelper.loadAllLanguages("Custom Flags", "custom_flags", "custom_flags");
-    }
-
-    @Override
     public void registerRenderers() {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFlagPole.class, new FlagPoleTileRenderer());
 
