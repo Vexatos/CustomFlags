@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e688ddff-badf-4b93-be44-68768cf1d7b0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/BlockFlagPole.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/BlockFlagPole.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/packet/FlagTileEntityDescripPacket.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/packet/FlagTileEntityDescripPacket.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/TileEntityFlagPole.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/TileEntityFlagPole.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Custom Flags.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -103,10 +100,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BlockFlagPole.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="BlockFlagPole.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/BlockFlagPole.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="96" selection-start="965" selection-end="965" vertical-scroll-proportion="0.5487288" vertical-offset="132" max-vertical-offset="969">
+            <state line="32" column="1" selection-start="912" selection-end="912" vertical-scroll-proportion="0.0" vertical-offset="183" max-vertical-offset="1088">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NetClientHandler.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/client/multiplayer/NetClientHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="325" column="9" selection-start="14498" selection-end="14498" vertical-scroll-proportion="0.0" vertical-offset="2219" max-vertical-offset="28747">
               <folding />
             </state>
           </provider>
@@ -124,10 +130,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FlagTileEntityDescripPacket.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="FlagTileEntityDescripPacket.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/packet/FlagTileEntityDescripPacket.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="96" selection-start="1333" selection-end="1333" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="1241">
+            <state line="43" column="0" selection-start="1432" selection-end="1432" vertical-scroll-proportion="0.07103825" vertical-offset="692" max-vertical-offset="1241">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -160,17 +166,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="406" column="0" selection-start="13006" selection-end="13006" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6766">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FlagPoleItemRenderer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/renderer/FlagPoleItemRenderer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="8" selection-start="659" selection-end="758" vertical-scroll-proportion="0.0" vertical-offset="132" max-vertical-offset="2516">
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -413,7 +408,7 @@
       <recent name="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.UnnamedLaunch">
+  <component name="RunManager" selected="Application.Client">
     <configuration default="false" name="ImageData" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="mods.custom_flags.utils.ImageData" />
       <option name="VM_PARAMETERS" />
@@ -491,7 +486,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="UnnamedLaunch" type="Application" factoryName="Application">
+    <configuration default="false" name="Client" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="net.minecraft.launchwrapper.Launch" />
       <option name="VM_PARAMETERS" value="-Djava.library.path=versions/1.6.2/1.6.2-natives -Xincgc -Xmx1024M -Xms1024M" />
       <option name="PROGRAM_PARAMETERS" value="--version 1.6 --tweakClass cpw.mods.fml.common.launcher.FMLTweaker" />
@@ -530,7 +525,7 @@
       <method />
     </configuration>
     <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="Application.UnnamedLaunch" />
+      <item index="0" class="java.lang.String" itemvalue="Application.Client" />
       <item index="1" class="java.lang.String" itemvalue="Application.ServerLaunchWrapper" />
       <item index="2" class="java.lang.String" itemvalue="Application.ImageData" />
     </list>
@@ -555,7 +550,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1511" height="1040" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -563,7 +558,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39887005" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39887005" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -571,8 +566,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25189787" sideWeight="0.60112995" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32768363" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25189787" sideWeight="0.67344636" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32655367" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -672,13 +667,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/entity/player/InventoryPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="586" column="31" selection-start="16997" selection-end="17020" vertical-scroll-proportion="-7.08" vertical-offset="9598" max-vertical-offset="14620">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/packet/AbstractPacket.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="22" selection-start="296" selection-end="296" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
@@ -780,15 +768,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/packet/FlagTileEntityDescripPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="96" selection-start="1333" selection-end="1333" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="1241">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/TileEntityFlagPole.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="0" selection-start="1049" selection-end="1049" vertical-scroll-proportion="0.0" vertical-offset="506" max-vertical-offset="1139">
@@ -800,8 +779,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/BlockFlagPole.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="96" selection-start="965" selection-end="965" vertical-scroll-proportion="0.5487288" vertical-offset="132" max-vertical-offset="969">
+        <state line="32" column="1" selection-start="912" selection-end="912" vertical-scroll-proportion="0.0" vertical-offset="183" max-vertical-offset="1088">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/client/multiplayer/NetClientHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="325" column="9" selection-start="14498" selection-end="14498" vertical-scroll-proportion="0.0" vertical-offset="2219" max-vertical-offset="28747">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/packet/FlagTileEntityDescripPacket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="0" selection-start="1432" selection-end="1432" vertical-scroll-proportion="0.07103825" vertical-offset="692" max-vertical-offset="1241">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

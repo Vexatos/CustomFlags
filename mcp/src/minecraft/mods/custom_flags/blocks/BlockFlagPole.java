@@ -1,10 +1,14 @@
 package mods.custom_flags.blocks;
 
+import cpw.mods.fml.common.network.PacketDispatcher;
+import mods.custom_flags.items.ItemFlag;
+import mods.custom_flags.packet.FlagTileEntityDescripPacket;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
@@ -27,6 +31,13 @@ public class BlockFlagPole extends BlockContainer{
 
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
+
+        TileEntity te = world.getBlockTileEntity(x,y,z);
+        ItemStack stack = par5EntityPlayer.getCurrentEquippedItem();
+        if(te != null && te instanceof TileEntityFlagPole && stack != null && stack.getItem() instanceof ItemFlag){
+            ((TileEntityFlagPole) te).setFlag(stack);
+            PacketDispatcher.sendPacketToAllPlayers(FlagTileEntityDescripPacket.generatePacket(x,y,z,stack));
+        }
 
         return super.onBlockActivated(world, x, y, z, par5EntityPlayer, par6, par7, par8, par9);
     }
