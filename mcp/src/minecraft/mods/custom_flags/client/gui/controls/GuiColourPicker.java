@@ -47,7 +47,6 @@ public class GuiColourPicker extends GuiButton {
         }
     }
 
-
     private int selectedRGB;
     private float[] selectedHSB;
     private float selected_alpha;
@@ -92,6 +91,21 @@ public class GuiColourPicker extends GuiButton {
                 pixels[s * RES + b] = Color.getHSBColor(selectedHSB[0], 1-(float)s / RES, (float)b / RES).getRGB() | 0xFF000000;
             }
         }
+    }
+
+    @Override
+    public boolean mousePressed(Minecraft par1Minecraft, int x, int y) {
+
+
+        if(isSwitchOn(DEFAULT_COLOURS)){
+            if(x >= xPosition && x < 48+xPosition && y >= yPosition && y < 12+yPosition){
+                selectColour(ItemDye.dyeColors[((x - xPosition) / 6) + (((y - yPosition) / 6) * 8)] | 0xFF000000);
+                return true;
+            }
+        }
+
+
+        return super.mousePressed(par1Minecraft, x, y);
     }
 
     @Override
