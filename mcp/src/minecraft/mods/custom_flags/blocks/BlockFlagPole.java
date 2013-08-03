@@ -37,7 +37,9 @@ public class BlockFlagPole extends BlockContainer{
 
         TileEntity te = world.getBlockTileEntity(x,y,z);
         ItemStack stack = par5EntityPlayer.getCurrentEquippedItem();
-        if(te != null && te instanceof TileEntityFlagPole && stack != null && stack.getItem() instanceof ItemFlag){;
+        if(te != null && te instanceof TileEntityFlagPole && stack != null && stack.getItem() instanceof ItemFlag){
+            par5EntityPlayer.inventory.decrStackSize(par5EntityPlayer.inventory.currentItem, 1);
+
             if(FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER){
                 ((TileEntityFlagPole) te).setFlag(stack);
                 PacketDispatcher.sendPacketToAllPlayers(te.getDescriptionPacket());
@@ -78,15 +80,15 @@ public class BlockFlagPole extends BlockContainer{
 
     @Override
     public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6) {
-        super.breakBlock(par1World, par2, par3, par4, par5, par6);
 
-        //if(FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER){
+        if(FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER){
             TileEntity te = par1World.getBlockTileEntity(par2, par3, par4);
             if(te != null && te instanceof TileEntityFlagPole){
                 ItemStack flag = ((TileEntityFlagPole)te).getFlag();
                 par1World.spawnEntityInWorld(new EntityItem(par1World, par2, par3, par4, flag));
             }
-        //}
+        }
+        super.breakBlock(par1World, par2, par3, par4, par5, par6);
     }
 
 
