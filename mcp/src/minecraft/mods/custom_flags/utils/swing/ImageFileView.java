@@ -1,5 +1,7 @@
 package mods.custom_flags.utils.swing;
 
+import mods.custom_flags.utils.Utils;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileView;
@@ -12,7 +14,7 @@ public class ImageFileView extends FileView{
 
     @Override
     public Icon getIcon(File f) {
-        if(getExtention(f.getName()) != null){
+        if(Utils.getExtention(f.getName()) != null){
             try{
                 return new ImageIcon(ImageIO.read(f));
             }catch (Exception e){
@@ -23,14 +25,5 @@ public class ImageFileView extends FileView{
             return super.getIcon(f);
     }
 
-    private static String getExtention(String pathname) {
 
-        int index = pathname.lastIndexOf('.');
-
-        if(index >= 0){
-            return pathname.substring(index);
-        }else{
-            return null;
-        }
-    }
 }

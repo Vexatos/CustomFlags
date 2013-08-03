@@ -3,6 +3,9 @@ package mods.custom_flags.client.gui;
 import mods.custom_flags.client.gui.controls.GuiColourPicker;
 import mods.custom_flags.items.ItemFlag;
 import mods.custom_flags.utils.ImageData;
+import mods.custom_flags.utils.Utils;
+import mods.custom_flags.utils.swing.ImageFileView;
+import mods.custom_flags.utils.swing.ImageFilter;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -12,7 +15,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by Aaron on 3/08/13.
@@ -23,7 +30,8 @@ public class GuiFlagDesigner extends GuiScreen{
 
     private static final int ID_SAVE = 0;
     private static final int ID_LOAD = 1;
-    private static final int ID_COLOUR_PICKER = 2;
+    private static final int ID_OK = 2;
+    private static final int ID_COLOUR_PICKER = 3;
     private int guiLeft, guiTop, xSize, ySize;
 
     private static final int canvusMult = 6;
@@ -31,6 +39,8 @@ public class GuiFlagDesigner extends GuiScreen{
 
     private static final DynamicTexture canvus_back = new DynamicTexture(2,2);
     private static final DynamicTexture current = new DynamicTexture(ImageData.IMAGE_RES, ImageData.IMAGE_RES);
+
+    private JFileChooser fc;
 
     private EntityPlayer player;
 
@@ -44,6 +54,12 @@ public class GuiFlagDesigner extends GuiScreen{
 
     public GuiFlagDesigner(EntityPlayer player) {
         this.player = player;
+
+        fc = new JFileChooser();
+        fc.addChoosableFileFilter(new ImageFilter());
+        fc.setAcceptAllFileFilterUsed(false);
+        fc.setFileView(new ImageFileView());
+
 
         ItemStack item = player.getHeldItem();
         if(item != null && item.getItem() instanceof ItemFlag){
@@ -105,11 +121,38 @@ public class GuiFlagDesigner extends GuiScreen{
         super.actionPerformed(par1GuiButton);
 
         switch (par1GuiButton.id){
+            case ID_SAVE:
+                if(fc.showSaveDialog(null) == JFileChooser.APPROVE_OPTION){
+                    BufferedImage image = new BufferedImage(ImageData.IMAGE_RES, ImageData.IMAGE_RES, BufferedImage.TYPE_4BYTE_ABGR);
+                    int[] pixels = current.func_110565_c();
+                    for(int x = 0; x < image.getWidth(); x++){
+                        for(int y = 0; y < image.getHeight(); y++){
+                            pixels[x+ImageData.IMAGE_RES*y] = image.getRGB(x,y);
+                        }
+                    }
+
+                    try {
+
+                        File f = fc.getSelectedFile();
+                        if(Utils.getExtention(f.getName()) == null){
+                            f = new File(f.getParentFile(), f.getName()+".png");
+                        }
+
+                        ImageIO.write(image, Utils.getExtention(f.getName()), f);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                break;
             case ID_LOAD:
-                //JFileChooser fc = new JFileChooser(null);
-
-
-
+                if(fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
+                    try{
+                        ImageData image = new ImageData(ImageIO.read(fc.getSelectedFile()), ImageData.IMAGE_RES, ImageData.IMAGE_RES);
+                        image.setTexture(current.func_110565_c());
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
                 break;
         }
     }
