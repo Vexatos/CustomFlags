@@ -94,6 +94,9 @@ public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
 
             if(((TileEntityFlagPole) tileentity).hasFlag())
             {
+                GL11.glEnable(GL11.GL_BLEND);
+                GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+
                 ImageCahce.setTexture(((TileEntityFlagPole) tileentity).getFlag());
 
                 for(int i = 0; i < 8; i++){
@@ -114,6 +117,8 @@ public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
 
                     tess.draw();
                 }
+
+                GL11.glDisable(GL11.GL_BLEND);
 
             }
 

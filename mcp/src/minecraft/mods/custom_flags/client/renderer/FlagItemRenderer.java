@@ -26,6 +26,10 @@ public class FlagItemRenderer implements IItemRenderer {
         Tessellator tess = Tessellator.instance;
         ImageCahce.setTexture(item);
 
+        GL11.glEnable(GL11.GL_BLEND);
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+
+
         switch (type) {
             case ENTITY:
 
@@ -57,6 +61,20 @@ public class FlagItemRenderer implements IItemRenderer {
 
                 break;
             case EQUIPPED_FIRST_PERSON:
+
+                f9 = 0.4F;
+                GL11.glScalef(f9, f9, f9);
+
+
+
+
+
+
+
+
+
+
+
                 break;
             case INVENTORY:
 
@@ -80,5 +98,8 @@ public class FlagItemRenderer implements IItemRenderer {
 
                 break;
         }
+
+        GL11.glDisable(GL11.GL_BLEND);
+
     }
 }

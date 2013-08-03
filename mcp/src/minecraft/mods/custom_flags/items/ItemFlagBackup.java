@@ -1,27 +1,20 @@
 package mods.custom_flags.items;
 
 import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.network.PacketDispatcher;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import mods.custom_flags.CustomFlags;
-import mods.custom_flags.packet.UpdateHeldFlagImagePacket;
 import mods.custom_flags.utils.ImageData;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemMap;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.MapData;
-import net.minecraftforge.common.MinecraftForge;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.image.BufferedImage;
 import java.util.List;
 
 /**
@@ -30,10 +23,10 @@ import java.util.List;
  * Time: 11:52 AM
  * TODO: Add discription
  */
-public class ItemFlag extends Item {
+public class ItemFlagBackup extends ItemMap {
 
 
-    public ItemFlag(int id) {
+    public ItemFlagBackup(int id) {
         super(id);
 
         this.setCreativeTab(CreativeTabs.tabDecorations);
@@ -111,5 +104,35 @@ public class ItemFlag extends Item {
         }
     }
 
+    public MapData getMapData(ItemStack par1ItemStack, World par2World)
+    {return null;}
 
+    public void updateMapData(World par1World, Entity par2Entity, MapData par3MapData)
+    {}
+    /**
+     * Called each tick as long the item is on a player inventory. Uses by maps to check if is on a player hand and
+     * update it's contents.
+     */
+    public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5)
+    {}
+
+    /**
+     * returns null if no update is to be sent
+     */
+    public Packet createMapDataPacket(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+    {return null;}
+
+    /**
+     * Called when item is crafted/smelted. Used only by maps so far.
+     */
+    public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+    {}
+
+    @SideOnly(Side.CLIENT)
+
+    /**
+     * allows items to add custom lines of information to the mouseover description
+     */
+    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
+    {}
 }

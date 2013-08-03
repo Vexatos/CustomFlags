@@ -24,6 +24,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraft.util.StringTranslate;
 import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.GL11;
 import paulscode.sound.libraries.SourceJavaSound;
 
 import javax.imageio.ImageIO;
@@ -105,7 +106,7 @@ public class GuiFlagDesigner extends GuiScreen{
         this.guiTop = (this.height - ySize) / 2;
 
 
-        colourPicker = new GuiColourPicker(ID_COLOUR_PICKER, 100+canvusSize+guiLeft, guiTop+25, 0xFF000000, 7);
+        colourPicker = new GuiColourPicker(ID_COLOUR_PICKER, 100+canvusSize+guiLeft, guiTop+25, 0xAA000000, 7);
 
 
         this.buttonList.add(new GuiButton(ID_OK, guiLeft+100+canvusSize, guiTop+canvusSize+5, 80, 20, StatCollector.translateToLocal("button.ok")));
@@ -172,9 +173,11 @@ public class GuiFlagDesigner extends GuiScreen{
         canvus_back.func_110564_a();
         drawTexturedModalRect(90 + guiLeft, 25+guiTop, canvusSize, canvusSize, 0, 0, 32, 32);
 
+        GL11.glEnable(GL11.GL_BLEND);
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
         overlay.func_110564_a();
         drawTexturedModalRect(90 + guiLeft, 25 + guiTop, canvusSize, canvusSize, 0, 0, 1, 1);
-
+        GL11.glDisable(GL11.GL_BLEND);
 
         super.drawScreen(par1, par2, par3);
     }
