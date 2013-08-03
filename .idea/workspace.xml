@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e688ddff-badf-4b93-be44-68768cf1d7b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/swing/ImagePreviewPanel.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/swing/ImagePreviewPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="e688ddff-badf-4b93-be44-68768cf1d7b0" name="Default" comment="" />
     <ignored path="Custom Flags.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -90,7 +87,7 @@
       <file leaf-file-name="ImagePreviewPanel.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/swing/ImagePreviewPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="12" selection-start="751" selection-end="751" vertical-scroll-proportion="-0.61275274" vertical-offset="853" max-vertical-offset="1496">
+            <state line="26" column="75" selection-start="704" selection-end="734" vertical-scroll-proportion="0.6874028" vertical-offset="0" max-vertical-offset="1496">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -635,7 +632,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1511" height="1040" extended-state="1" />
+    <frame x="0" y="0" width="1511" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -874,7 +871,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/swing/ImagePreviewPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="12" selection-start="751" selection-end="751" vertical-scroll-proportion="-0.61275274" vertical-offset="853" max-vertical-offset="1496">
+        <state line="26" column="75" selection-start="704" selection-end="734" vertical-scroll-proportion="0.6874028" vertical-offset="0" max-vertical-offset="1496">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
