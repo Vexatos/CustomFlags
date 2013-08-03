@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e688ddff-badf-4b93-be44-68768cf1d7b0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/GuiFlagDesigner.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/GuiFlagDesigner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/ImageData.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/ImageData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/assets/custom_flags/lang/en_US.lang" afterPath="$PROJECT_DIR$/mcp/src/minecraft/assets/custom_flags/lang/en_US.lang" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Custom Flags.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -92,7 +89,7 @@
       <file leaf-file-name="GuiFlagDesigner.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/GuiFlagDesigner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="47" selection-start="1996" selection-end="1996" vertical-scroll-proportion="0.26881722" vertical-offset="717" max-vertical-offset="3638">
+            <state line="118" column="21" selection-start="4394" selection-end="4394" vertical-scroll-proportion="0.42114696" vertical-offset="1771" max-vertical-offset="3723">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -103,7 +100,7 @@
       <file leaf-file-name="GuiScreen.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/client/gui/GuiScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="15" selection-start="1745" selection-end="1745" vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="5253">
+            <state line="187" column="16" selection-start="5287" selection-end="5287" vertical-scroll-proportion="0.0" vertical-offset="3027" max-vertical-offset="5253">
               <folding />
             </state>
           </provider>
@@ -817,13 +814,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/client/gui/GuiScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="15" selection-start="1745" selection-end="1745" vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="5253">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/assets/custom_flags/lang/en_UK.lang">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="20" selection-start="21" selection-end="27" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
@@ -831,9 +821,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/client/gui/GuiScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="187" column="16" selection-start="5287" selection-end="5287" vertical-scroll-proportion="0.0" vertical-offset="3027" max-vertical-offset="5253">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/GuiFlagDesigner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="47" selection-start="1996" selection-end="1996" vertical-scroll-proportion="0.26881722" vertical-offset="717" max-vertical-offset="3638">
+        <state line="118" column="21" selection-start="4394" selection-end="4394" vertical-scroll-proportion="0.42114696" vertical-offset="1771" max-vertical-offset="3723">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

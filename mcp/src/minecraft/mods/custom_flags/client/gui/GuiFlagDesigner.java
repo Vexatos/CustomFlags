@@ -114,6 +114,11 @@ public class GuiFlagDesigner extends GuiScreen{
 
     }
 
+    @Override
+    protected void mouseMovedOrUp(int par1, int par2, int par3) {
+        super.mouseMovedOrUp(par1, par2, par3);
+    }
+
     /**
      * Draws the screen and all the components in it.
      */
