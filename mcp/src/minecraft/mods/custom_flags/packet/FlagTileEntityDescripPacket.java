@@ -1,6 +1,5 @@
 package mods.custom_flags.packet;
 
-import com.sun.xml.internal.messaging.saaj.util.ByteInputStream;
 import cpw.mods.fml.common.network.Player;
 import mods.custom_flags.blocks.TileEntityFlagPole;
 import net.minecraft.entity.player.EntityPlayer;

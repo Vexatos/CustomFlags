@@ -22,8 +22,12 @@ public class ImageCahce {
 
     private static final DynamicTexture defaultTexture;
 
+    private static final DynamicTexture test1;
+
     static{
         defaultTexture = new DynamicTexture(ImageData.IMAGE_RES, ImageData.IMAGE_RES);
+
+        test1 = new DynamicTexture(ImageData.IMAGE_RES, ImageData.IMAGE_RES);
 
         ImageData.defaultImage.setTexture(defaultTexture.func_110565_c());
     }
@@ -57,6 +61,20 @@ public class ImageCahce {
 
     public static void setTexture(ItemStack stack){
 
+        if (stack != null &&
+                stack.getItem() instanceof ItemFlag &&
+                ((ItemFlag) stack.getItem()).hasImageData(stack)) {
+
+
+            ImageData id =  new ImageData(((ItemFlag) stack.getItem()).getImageData(stack));
+            id.setTexture(test1.func_110565_c());
+            test1.func_110564_a();
+        }else{
+            ImageData.defaultImage.setTexture(defaultTexture.func_110565_c());
+            defaultTexture.func_110564_a();
+        }
+
+        /*
         try{
             if (stack != null &&
                     stack.getItem() instanceof ItemFlag &&
@@ -72,6 +90,8 @@ public class ImageCahce {
             ImageData.defaultImage.setTexture(defaultTexture.func_110565_c());
             defaultTexture.func_110564_a();
         }
+        */
+
 
     }
 
