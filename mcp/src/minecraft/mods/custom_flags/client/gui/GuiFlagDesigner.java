@@ -19,6 +19,7 @@ import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraft.util.StringTranslate;
+import org.lwjgl.input.Mouse;
 import paulscode.sound.libraries.SourceJavaSound;
 
 import javax.imageio.ImageIO;
@@ -114,10 +115,8 @@ public class GuiFlagDesigner extends GuiScreen{
 
     }
 
-    @Override
-    protected void mouseMovedOrUp(int par1, int par2, int par3) {
-        super.mouseMovedOrUp(par1, par2, par3);
-    }
+
+
 
     /**
      * Draws the screen and all the components in it.
@@ -132,6 +131,13 @@ public class GuiFlagDesigner extends GuiScreen{
 
         current.func_110564_a();
         drawTexturedModalRect(90 + guiLeft, 25+guiTop, canvusSize, canvusSize, 0, 0, 1, 1);
+
+
+        int x = Mouse.getEventX() * this.width / this.mc.displayWidth -90 -guiLeft;
+        int y = this.height - Mouse.getEventY() * this.height / this.mc.displayHeight - 1 - 25- guiTop;
+
+        System.out.println(x/canvusMult+", "+y/canvusMult);
+
 
 
 
