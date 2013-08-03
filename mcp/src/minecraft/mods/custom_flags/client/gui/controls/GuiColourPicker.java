@@ -110,6 +110,17 @@ public class GuiColourPicker extends GuiButton {
         }
 
 
+        if( x >= sb_start_x &&
+                x < sb_start_x+48 &&
+                y >= sb_start_y &&
+                y < sb_start_y){
+
+            float
+
+        }
+
+
+
         if(isSwitchOn(ALPHA_SELECTION) &&
                 x >= alpha_start_x && x < 12+alpha_start_x && y >= sb_start_y && y < 48+sb_start_y){
                 float alpha = 1 - ((float)(y-sb_start_y) / 48F);

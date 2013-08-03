@@ -12,6 +12,7 @@
 !.getignore
 !README.md
 !auto-commit.sh
+!auto-commit.bat
 !/mcp
 !/.idea
 
