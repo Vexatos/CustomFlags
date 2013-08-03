@@ -29,7 +29,6 @@ public class ImageData {
     }
 
 
-
     public ImageData(int c1, int c2, int c3, int c4){
         pixels = new int[IMAGE_RES * IMAGE_RES];
 
