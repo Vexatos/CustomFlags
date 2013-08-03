@@ -14,10 +14,11 @@ import mods.custom_flags.items.ItemFlag;
 import mods.custom_flags.packet.CustomFlagsPacketHandeler;
 import mods.custom_flags.packet.FlagTileEntityDescripPacket;
 import mods.custom_flags.packet.UpdateHeldFlagImagePacket;
-import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.Configuration;
 
-import static cpw.mods.fml.common.Mod.*;
+//import static cpw.mods.fml.common.Mod.*;
 
 /**
  * User: nerd-boy
@@ -33,7 +34,7 @@ import static cpw.mods.fml.common.Mod.*;
 })
 public class CustomFlags {
 
-    @Instance("custom_flags")
+    @Mod.Instance("custom_flags")
     public static CustomFlags INSTANCE;
 
     @SidedProxy(clientSide = "mods.custom_flags.client.ClientProxy", serverSide = "mods.custom_flags.CommonProxy")
@@ -44,7 +45,7 @@ public class CustomFlags {
     public static BlockFlagPole blockFlagPole;
     public static ItemFlag itemFlag;
 
-    @EventHandler
+    @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event){
         //Load Config, register blocks & Items
 
@@ -59,6 +60,12 @@ public class CustomFlags {
         GameRegistry.registerBlock(blockFlagPole, "flagpole");
         GameRegistry.registerTileEntity(TileEntityFlagPole.class, "flagpole_tile");
 
+        GameRegistry.addRecipe(new ItemStack(blockFlagPole), new Object[]{
+            "S",
+            "S",
+            "S",
+            Character.valueOf('S'), Item.stick});
+
         GameRegistry.addRecipe(new FlagRecipie());
 
         if(config.hasChanged()){
@@ -66,12 +73,12 @@ public class CustomFlags {
         }
     }
 
-    @EventHandler
+    @Mod.EventHandler
     public void init(FMLInitializationEvent event){
 
     }
 
-    @EventHandler
+    @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event){
         //Register render handelers
 
