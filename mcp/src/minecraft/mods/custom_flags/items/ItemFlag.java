@@ -32,7 +32,6 @@ import java.util.List;
  */
 public class ItemFlag extends Item {
 
-
     public ItemFlag(int id) {
         super(id);
 
