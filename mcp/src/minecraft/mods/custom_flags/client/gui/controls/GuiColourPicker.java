@@ -29,6 +29,14 @@ public class GuiColourPicker extends GuiButton {
     public static final int ALPHA_SELECTION = 2;
     public static final int COLOUR_DISPLAY = 4;
 
+    private int dragState = 0;
+
+    private static final int DRAG_NONE = 0;
+    private static final int SB_NONE = 1;
+    private static final int HUE_NONE = 2;
+    private static final int ALPHA_NONE = 3;
+
+
     static{
         int[] pixels = hue_buffer.func_110565_c();
         for(int i = 0; i < pixels.length; i++){
@@ -93,6 +101,7 @@ public class GuiColourPicker extends GuiButton {
             }
         }
     }
+
 
     @Override
     public boolean mousePressed(Minecraft par1Minecraft, int x, int y) {
