@@ -113,10 +113,18 @@ public class GuiColourPicker extends GuiButton {
         if( x >= sb_start_x &&
                 x < sb_start_x+48 &&
                 y >= sb_start_y &&
-                y < sb_start_y){
+                y < sb_start_y+48){
 
-            float
+            float sat = (float)(y-sb_start_y) / 48F;
+            sat = Math.max(sat, 0);
+            sat = Math.min(sat, 1);
 
+            float bright = (float)(x-sb_start_x) / 48F;
+            bright = Math.max(bright, 0);
+            bright = Math.min(bright, 1);
+
+            selectColour(selectedHSB[0], sat, bright, selected_alpha);
+            return true;
         }
 
 
