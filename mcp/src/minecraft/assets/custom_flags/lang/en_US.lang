@@ -1,6 +1,6 @@
 
-item.custom_flags.flag.name=Flag
-tile.custom_flags.flagpole.name=Flag Pole
+item.custom_flags:flag.name=Flag
+tile.custom_flags:flagpole.name=Flag Pole
 
 button.ok=OK
 button.save=Save
@@ -8,4 +8,4 @@ button.load=Load
 
 tool.pen=Pen
 tool.flood=Flood Fill
-tool.dropper=Color Chooser
+tool.dropper=Color Picker

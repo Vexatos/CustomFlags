@@ -85,6 +85,10 @@ public class ImageData {
         }
     }
 
+    public ImageData(int[] ints, int imageRes, int imageRes1) {
+        pixels = ints;
+    }
+
 
     public byte[] getByteArray(){
         ByteBuffer bb = ByteBuffer.allocate(pixels.length * 2);

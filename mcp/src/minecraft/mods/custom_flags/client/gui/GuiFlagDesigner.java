@@ -1,8 +1,10 @@
 package mods.custom_flags.client.gui;
 
+import cpw.mods.fml.common.network.PacketDispatcher;
 import mods.custom_flags.client.gui.controls.GuiColourPicker;
 import mods.custom_flags.client.gui.controls.GuiToggleButton;
 import mods.custom_flags.items.ItemFlag;
+import mods.custom_flags.packet.UpdateHeldFlagImagePacket;
 import mods.custom_flags.utils.ImageData;
 import mods.custom_flags.utils.Utils;
 import mods.custom_flags.utils.swing.ImageFileView;
@@ -47,6 +49,7 @@ public class GuiFlagDesigner extends GuiScreen{
 
     private static final DynamicTexture canvus_back = new DynamicTexture(2,2);
     private static final DynamicTexture current = new DynamicTexture(ImageData.IMAGE_RES, ImageData.IMAGE_RES);
+    private static final DynamicTexture overlay = new DynamicTexture(ImageData.IMAGE_RES, ImageData.IMAGE_RES);
 
     private JFileChooser fc;
 
@@ -141,6 +144,15 @@ public class GuiFlagDesigner extends GuiScreen{
         }
 
         switch (par1GuiButton.id){
+            case ID_OK:
+
+                ItemStack stack = player.getCurrentEquippedItem();
+                if(stack != null && stack.getItem() instanceof ItemFlag){
+                    ((ItemFlag) stack.getItem()).setImageData(stack, new ImageData(current.func_110565_c(), ImageData.IMAGE_RES, ImageData.IMAGE_RES).getByteArray(), player.worldObj);
+                    PacketDispatcher.sendPacketToServer(UpdateHeldFlagImagePacket.generatePacket(player.username, stack));
+                    this.keyTyped('c',1);
+                }
+                break;
             case ID_SAVE:
                 if(fc.showSaveDialog(null) == JFileChooser.APPROVE_OPTION){
                     BufferedImage image = new BufferedImage(ImageData.IMAGE_RES, ImageData.IMAGE_RES, BufferedImage.TYPE_4BYTE_ABGR);
