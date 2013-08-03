@@ -20,6 +20,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.Configuration;
 
+import javax.swing.*;
+
 //import static cpw.mods.fml.common.Mod.*;
 
 /**

@@ -14,6 +14,7 @@ import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
+import paulscode.sound.libraries.SourceJavaSound;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -34,7 +35,7 @@ public class GuiFlagDesigner extends GuiScreen{
     private static final int ID_COLOUR_PICKER = 3;
     private int guiLeft, guiTop, xSize, ySize;
 
-    private static final int canvusMult = 6;
+    private static final int canvusMult = 5;
     private static final int canvusSize = canvusMult * 32;
 
     private static final DynamicTexture canvus_back = new DynamicTexture(2,2);
@@ -87,12 +88,12 @@ public class GuiFlagDesigner extends GuiScreen{
         this.guiTop = (this.height - ySize) / 2;
 
 
-        colourPicker = new GuiColourPicker(ID_COLOUR_PICKER, 100+canvusSize+guiLeft, guiTop, 0xFF000000, 7);
+        colourPicker = new GuiColourPicker(ID_COLOUR_PICKER, 100+canvusSize+guiLeft, guiTop+25, 0xFF000000, 7);
 
 
-
-        this.buttonList.add(new GuiButton(ID_SAVE, guiLeft + 90, guiTop, 80, 20, "button.save"));
-        this.buttonList.add(new GuiButton(ID_LOAD, guiLeft + 10 + canvusSize, guiTop, 80, 20, "button.load"));
+        this.buttonList.add(new GuiButton(ID_OK, guiLeft+100+canvusSize, guiTop+canvusSize+5, 80, 20, "button.ok"));
+        this.buttonList.add(new GuiButton(ID_SAVE, guiLeft + 90, guiTop, 75, 20, "button.save"));
+        this.buttonList.add(new GuiButton(ID_LOAD, guiLeft + 20 + canvusSize, guiTop, 75, 20, "button.load"));
         this.buttonList.add(colourPicker);
 
     }
@@ -127,7 +128,7 @@ public class GuiFlagDesigner extends GuiScreen{
                     int[] pixels = current.func_110565_c();
                     for(int x = 0; x < image.getWidth(); x++){
                         for(int y = 0; y < image.getHeight(); y++){
-                            pixels[x+ImageData.IMAGE_RES*y] = image.getRGB(x,y);
+                            image.setRGB(x, y, pixels[x+ImageData.IMAGE_RES*y]);
                         }
                     }
 
@@ -138,8 +139,13 @@ public class GuiFlagDesigner extends GuiScreen{
                             f = new File(f.getParentFile(), f.getName()+".png");
                         }
 
-                        ImageIO.write(image, Utils.getExtention(f.getName()), f);
-                    } catch (IOException e) {
+                        f.createNewFile();
+
+                        System.out.println(f.getAbsolutePath());
+                        System.out.println(Utils.getExtention(f.getName()));
+                        ImageIO.write(image, "png", f);
+
+                    } catch (Throwable e) {
                         e.printStackTrace();
                     }
                 }

@@ -10,7 +10,7 @@ public class Utils {
         int index = pathname.lastIndexOf('.');
 
         if(index >= 0){
-            return pathname.substring(index);
+            return pathname.substring(index+1);
         }else{
             return null;
         }
