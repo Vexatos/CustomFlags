@@ -2,7 +2,9 @@ package mods.custom_flags.client.renderer;
 
 import mods.custom_flags.client.utils.ImageCahce;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.MathHelper;
 import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
@@ -12,7 +14,7 @@ import org.lwjgl.opengl.GL11;
 public class FlagItemRenderer implements IItemRenderer {
     @Override
     public boolean handleRenderType(ItemStack item, ItemRenderType type) {
-        return type == ItemRenderType.FIRST_PERSON_MAP || type == ItemRenderType.INVENTORY || type == ItemRenderType.EQUIPPED || type == ItemRenderType.ENTITY;
+        return type != ItemRenderType.EQUIPPED_FIRST_PERSON;
     }
 
     @Override
@@ -62,17 +64,12 @@ public class FlagItemRenderer implements IItemRenderer {
                 break;
             case EQUIPPED_FIRST_PERSON:
 
-                f9 = 0.4F;
-                GL11.glScalef(f9, f9, f9);
-
-
-
-
-
-
-
-
-
+                tess.startDrawingQuads();
+                tess.addVertexWithUV(0, 1, 0, 1, 0);
+                tess.addVertexWithUV(1, 1, 0, 0, 0);
+                tess.addVertexWithUV(1, 0, 0, 0, 1);
+                tess.addVertexWithUV(0, 0, 0, 1, 1);
+                tess.draw();
 
 
                 break;

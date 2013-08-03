@@ -112,4 +112,44 @@ public class ItemFlag extends Item {
     }
 
 
+
+
+
+
+
+
+
+    public MapData getMapData(ItemStack par1ItemStack, World par2World)
+    {return null;}
+
+    public void updateMapData(World par1World, Entity par2Entity, MapData par3MapData)
+    {}
+    /**
+     * Called each tick as long the item is on a player inventory. Uses by maps to check if is on a player hand and
+     * update it's contents.
+     */
+    public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5)
+    {}
+
+    /**
+     * returns null if no update is to be sent
+     */
+    public Packet createMapDataPacket(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+    {return null;}
+
+    /**
+     * Called when item is crafted/smelted. Used only by maps so far.
+     */
+    public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+    {}
+
+    @SideOnly(Side.CLIENT)
+
+    /**
+     * allows items to add custom lines of information to the mouseover description
+     */
+    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
+    {}
+
+
 }
