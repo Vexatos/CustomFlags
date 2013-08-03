@@ -26,5 +26,32 @@ public class FloodFillTool implements ITool {
     @Override
     public void draw(int x, int y, DynamicTexture current, int rgb, boolean shift) {
 
+        if (x > -1 &&  x < ImageData.IMAGE_RES && y > -1 && y < ImageData.IMAGE_RES){
+            int[] pixelsCurrent = current.func_110565_c();
+
+            int targetColour = pixelsCurrent[x+ImageData.IMAGE_RES*y];
+            System.out.println(Integer.toHexString(targetColour));
+
+
+            floodFill(x, y, pixelsCurrent, targetColour, rgb);
+
+        }
+    }
+
+    private void floodFill(int x, int y, int[] pixals, int targetColour, int newColour) {
+
+        if (x > -1 &&  x < ImageData.IMAGE_RES && y > -1 && y < ImageData.IMAGE_RES){
+
+            System.out.println(x +", "+y );
+
+            if(pixals[x+ImageData.IMAGE_RES*y] == targetColour){
+                pixals[x+ImageData.IMAGE_RES*y] = newColour;
+                floodFill(x+1, y, pixals, targetColour, newColour);
+                floodFill(x-1, y, pixals, targetColour, newColour);
+                floodFill(x, y+1, pixals, targetColour, newColour);
+                floodFill(1, y-1, pixals, targetColour, newColour);
+            }
+
+        }
     }
 }

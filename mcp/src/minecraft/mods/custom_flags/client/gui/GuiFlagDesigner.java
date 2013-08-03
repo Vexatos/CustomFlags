@@ -3,6 +3,7 @@ package mods.custom_flags.client.gui;
 import cpw.mods.fml.common.network.PacketDispatcher;
 import mods.custom_flags.client.gui.controls.GuiColourPicker;
 import mods.custom_flags.client.gui.controls.GuiToggleButton;
+import mods.custom_flags.client.gui.controls.canvus_tools.FloodFillTool;
 import mods.custom_flags.client.gui.controls.canvus_tools.ITool;
 import mods.custom_flags.client.gui.controls.canvus_tools.PenTool;
 import mods.custom_flags.items.ItemFlag;
@@ -120,6 +121,9 @@ public class GuiFlagDesigner extends GuiScreen{
             tools[i] = new PenTool();
         }
 
+        tools[0] = new PenTool();
+        tools[1] = new FloodFillTool();
+
         selectedTool = tools[0];
 
     }
@@ -134,6 +138,7 @@ public class GuiFlagDesigner extends GuiScreen{
 
         if(Mouse.isButtonDown(0)){
             selectedTool.draw(x, y, current, colourPicker.getRGB(),false);
+            System.out.println(selectedTool.getClass());
         }
 
         selectedTool.drawOverlay(x,y,current,overlay,colourPicker.getRGB(),false);
@@ -176,7 +181,7 @@ public class GuiFlagDesigner extends GuiScreen{
             for(int i = 0; i < toggleButtons.length; i++){
                 toggleButtons[i].setToggle(i+10==par1GuiButton.id);
             }
-            selectedTool = tools[10-par1GuiButton.id];
+            selectedTool = tools[par1GuiButton.id - 10];
         }
 
         switch (par1GuiButton.id){

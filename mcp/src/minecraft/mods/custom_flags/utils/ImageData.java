@@ -33,6 +33,11 @@ public class ImageData {
     public ImageData(int c1, int c2, int c3, int c4){
         pixels = new int[IMAGE_RES * IMAGE_RES];
 
+        c1 = roundColour(c1);
+        c2 = roundColour(c2);
+        c3 = roundColour(c3);
+        c4 = roundColour(c4);
+
         for(int y = 0; y < IMAGE_RES / 2; y++){
 
             for(int x = 0; x < IMAGE_RES / 2; x++){
