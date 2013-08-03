@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
@@ -22,6 +23,12 @@ public class BlockFlagPole extends BlockContainer{
         this.setCreativeTab(CreativeTabs.tabDecorations);
 
         this.setUnlocalizedName("custom_flags:flagpole");
+    }
+
+    @Override
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
+
+        return super.onBlockActivated(world, x, y, z, par5EntityPlayer, par6, par7, par8, par9);
     }
 
     @Override

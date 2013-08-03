@@ -19,9 +19,10 @@ public class FlagTileEntityDescripPacket extends AbstractPacket{
 
     public static final String channel = "CF.FlagDes";
 
-    public Packet250CustomPayload generatePacket(int x, int y, int z, ItemStack stack){
+    public static Packet250CustomPayload generatePacket(int x, int y, int z, ItemStack stack){
 
-        DataOutputStream outputStream = new DataOutputStream(new ByteArrayOutputStream());
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        DataOutputStream outputStream = new DataOutputStream(bos);
 
         try{
             outputStream.writeInt(x);
@@ -33,7 +34,7 @@ public class FlagTileEntityDescripPacket extends AbstractPacket{
             e.printStackTrace();
         }
 
-        return new Packet250CustomPayload(channel, outputStream.get)
+        return new Packet250CustomPayload(channel, bos.toByteArray());
 
     }
 

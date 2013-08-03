@@ -1,5 +1,6 @@
 package mods.custom_flags.blocks;
 
+import mods.custom_flags.packet.FlagTileEntityDescripPacket;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.packet.Packet;
@@ -39,9 +40,11 @@ public class TileEntityFlagPole extends TileEntity {
         }
     }
 
+
+
     @Override
     public Packet getDescriptionPacket() {
-        return super.getDescriptionPacket();
+        return FlagTileEntityDescripPacket.generatePacket(xCoord, yCoord, zCoord, flag);
     }
 
     public boolean hasFlag(){
