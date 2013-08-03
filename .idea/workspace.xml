@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e688ddff-badf-4b93-be44-68768cf1d7b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/CustomFlagsGuiHandeler.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/CustomFlagsGuiHandeler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/GuiFlagDesigner.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/GuiFlagDesigner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/items/ItemFlag.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/items/ItemFlag.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Custom Flags.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -91,22 +89,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommonProxy.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CommonProxy.java">
+      <file leaf-file-name="GuiFlagDesigner.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/GuiFlagDesigner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="13" selection-start="126" selection-end="126" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-              <folding />
+            <state line="110" column="16" selection-start="3496" selection-end="3496" vertical-scroll-proportion="0.62152135" vertical-offset="1535" max-vertical-offset="2312">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GuiFlagDesigner.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/GuiFlagDesigner.java">
+      <file leaf-file-name="GuiColourPicker.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/controls/GuiColourPicker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="61" selection-start="1574" selection-end="1584" vertical-scroll-proportion="0.5672727" vertical-offset="572" max-vertical-offset="1122">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="171" column="4" selection-start="5475" selection-end="6544" vertical-scroll-proportion="0.0" vertical-offset="2586" max-vertical-offset="3723">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -123,19 +121,10 @@
       <file leaf-file-name="CustomFlagsGuiHandeler.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/CustomFlagsGuiHandeler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="5" selection-start="742" selection-end="742" vertical-scroll-proportion="0.0" vertical-offset="43" max-vertical-offset="595">
+            <state line="23" column="45" selection-start="708" selection-end="708" vertical-scroll-proportion="0.0" vertical-offset="43" max-vertical-offset="595">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClientProxy.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/ClientProxy.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="13" selection-start="658" selection-end="658" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -161,7 +150,16 @@
       <file leaf-file-name="GuiContainer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/client/gui/inventory/GuiContainer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="98" column="8" selection-start="3148" selection-end="3247" vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="14824">
+            <state line="343" column="28" selection-start="12392" selection-end="12392" vertical-scroll-proportion="0.0" vertical-offset="3119" max-vertical-offset="14824">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GuiIngameMenu.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/client/gui/GuiIngameMenu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="94" column="37" selection-start="3677" selection-end="3706" vertical-scroll-proportion="0.0" vertical-offset="1122" max-vertical-offset="1683">
               <folding />
             </state>
           </provider>
@@ -197,9 +195,9 @@
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/packet/UpdateHeldFlagImagePacket.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/BlockFlagPole.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/ImageData.java" />
-        <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/CustomFlagsGuiHandeler.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/items/ItemFlag.java" />
+        <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/CustomFlagsGuiHandeler.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/GuiFlagDesigner.java" />
       </list>
     </option>
@@ -343,101 +341,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Custom Flags" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ModJam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mcp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="minecraft" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="custom_flags" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="items" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Custom Flags" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ModJam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mcp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="minecraft" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="custom_flags" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Custom Flags" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ModJam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mcp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="minecraft" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="custom_flags" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -472,6 +376,44 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Custom Flags" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ModJam" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mcp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="minecraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="custom_flags" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controls" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -662,8 +604,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25189787" sideWeight="0.6745763" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32542372" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25189787" sideWeight="0.67683613" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32316384" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -762,22 +704,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/packet/CustomFlagsPacketHandeler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="88" selection-start="793" selection-end="793" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/packet/FlagTileEntityDescripPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="5" selection-start="596" selection-end="1931" vertical-scroll-proportion="0.0" vertical-offset="606" max-vertical-offset="1224">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/packet/UpdateHeldFlagImagePacket.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="38" selection-start="1029" selection-end="1029" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1275">
@@ -804,13 +730,6 @@
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/client/gui/GuiEnchantment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="40" selection-start="898" selection-end="898" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4590">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/client/gui/inventory/GuiContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="8" selection-start="3148" selection-end="3247" vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="14824">
           <folding />
         </state>
       </provider>
@@ -868,9 +787,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/client/gui/inventory/GuiContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="343" column="28" selection-start="12392" selection-end="12392" vertical-scroll-proportion="0.0" vertical-offset="3119" max-vertical-offset="14824">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/client/gui/GuiIngameMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="37" selection-start="3677" selection-end="3706" vertical-scroll-proportion="0.0" vertical-offset="1122" max-vertical-offset="1683">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/controls/GuiColourPicker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="171" column="4" selection-start="5475" selection-end="6544" vertical-scroll-proportion="0.0" vertical-offset="2586" max-vertical-offset="3723">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/utils/CustomFlagsGuiHandeler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="5" selection-start="742" selection-end="742" vertical-scroll-proportion="0.0" vertical-offset="43" max-vertical-offset="595">
+        <state line="23" column="45" selection-start="708" selection-end="708" vertical-scroll-proportion="0.0" vertical-offset="43" max-vertical-offset="595">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -879,7 +819,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/GuiFlagDesigner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="61" selection-start="1574" selection-end="1584" vertical-scroll-proportion="0.5672727" vertical-offset="572" max-vertical-offset="1122">
+        <state line="110" column="16" selection-start="3496" selection-end="3496" vertical-scroll-proportion="0.62152135" vertical-offset="1535" max-vertical-offset="2312">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
