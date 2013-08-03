@@ -48,4 +48,11 @@ public class TileEntityFlagPole extends TileEntity {
         return flag !=  null;
     }
 
+    public void setFlag(ItemStack flag) {
+        this.flag = flag;
+    }
+
+    public ItemStack getFlag() {
+        return flag;
+    }
 }
