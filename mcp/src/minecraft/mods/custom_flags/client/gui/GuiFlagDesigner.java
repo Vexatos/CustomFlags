@@ -146,7 +146,7 @@ public class GuiFlagDesigner extends GuiScreen{
                     colourPicker.selectColour(current.func_110565_c()[x+ImageData.IMAGE_RES*y]);
                 }
             }else{
-                selectedTool.draw(x, y, current, colourPicker.getRGB(),false);
+                selectedTool.draw(x, y, current, colourPicker.getRGB(), Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT));
             }
         }
 

@@ -28,15 +28,19 @@ public class FloodFillTool implements ITool {
 
         if (x > -1 &&  x < ImageData.IMAGE_RES && y > -1 && y < ImageData.IMAGE_RES){
             int[] pixelsCurrent = current.func_110565_c();
+            if(shift){
+                for(int i = 0; i < pixelsCurrent.length; i++){
+                    pixelsCurrent[i] = rgb;
+                }
+            }else{
 
-            int targetColour = pixelsCurrent[x+ImageData.IMAGE_RES*y];
-            System.out.println(Integer.toHexString(targetColour));
+                int targetColour = pixelsCurrent[x+ImageData.IMAGE_RES*y];
 
 
-            if(rgb != targetColour){
-                floodFill(x, y, pixelsCurrent, targetColour, rgb);
+                if(rgb != targetColour){
+                    floodFill(x, y, pixelsCurrent, targetColour, rgb);
+                }
             }
-
         }
     }
 

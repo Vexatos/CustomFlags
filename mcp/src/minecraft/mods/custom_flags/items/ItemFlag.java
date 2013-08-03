@@ -46,23 +46,7 @@ public class ItemFlag extends Item {
         if(FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT){
 
             player.openGui(CustomFlags.INSTANCE, 0, world, (int)player.posX, (int)player.posY, (int)player.posZ);
-
-            /*
-            JFileChooser fc = new JFileChooser();
-
-            if(fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
-                try{
-                    BufferedImage image = ImageIO.read(fc.getSelectedFile());
-                    this.setImageData(par1ItemStack, new ImageData(image, 32, 32).getByteArray(), par3EntityPlayer.worldObj);
-
-                    PacketDispatcher.sendPacketToServer(UpdateHeldFlagImagePacket.generatePacket(par3EntityPlayer.username, par1ItemStack));
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-            */
         }
-
 
         return super.onItemRightClick(par1ItemStack, world, player);
     }
