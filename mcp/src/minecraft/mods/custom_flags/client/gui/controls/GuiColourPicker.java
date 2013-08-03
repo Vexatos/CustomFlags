@@ -217,4 +217,8 @@ public class GuiColourPicker extends GuiButton {
         tessellator.addVertex((double)x1, (double)y1, 0.0D);
         tessellator.draw();
     }
+
+    public int getRGB() {
+        return selectedRGB;
+    }
 }

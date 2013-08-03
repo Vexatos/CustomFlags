@@ -3,6 +3,8 @@ package mods.custom_flags.client.gui;
 import cpw.mods.fml.common.network.PacketDispatcher;
 import mods.custom_flags.client.gui.controls.GuiColourPicker;
 import mods.custom_flags.client.gui.controls.GuiToggleButton;
+import mods.custom_flags.client.gui.controls.canvus_tools.ITool;
+import mods.custom_flags.client.gui.controls.canvus_tools.PenTool;
 import mods.custom_flags.items.ItemFlag;
 import mods.custom_flags.packet.UpdateHeldFlagImagePacket;
 import mods.custom_flags.utils.ImageData;
@@ -35,6 +37,8 @@ public class GuiFlagDesigner extends GuiScreen{
 
     private GuiColourPicker colourPicker;
     private GuiToggleButton[] toggleButtons;
+    private ITool[] tools;
+    private ITool selectedTool;
 
     private static final int ID_SAVE = 0;
     private static final int ID_LOAD = 1;
@@ -108,10 +112,15 @@ public class GuiFlagDesigner extends GuiScreen{
         this.buttonList.add(colourPicker);
 
         toggleButtons = new GuiToggleButton[3];
+        tools = new ITool[3];
         for(int i = 0; i < toggleButtons.length; i++){
             toggleButtons[i] = new GuiToggleButton(10+ i, guiLeft, guiTop+25+i*22, 80, 20, StatCollector.translateToLocal(labels[i]), i==0);
             this.buttonList.add(toggleButtons[i]);
+
+            tools[i] = new PenTool();
         }
+
+        selectedTool = tools[0];
 
     }
 
@@ -129,20 +138,25 @@ public class GuiFlagDesigner extends GuiScreen{
         canvus_back.func_110564_a();
         drawTexturedModalRect(90 + guiLeft, 25+guiTop, canvusSize, canvusSize, 0, 0, 32, 32);
 
-        current.func_110564_a();
-        drawTexturedModalRect(90 + guiLeft, 25+guiTop, canvusSize, canvusSize, 0, 0, 1, 1);
-
-
-        int x = Mouse.getEventX() * this.width / this.mc.displayWidth -90 -guiLeft;
-        int y = this.height - Mouse.getEventY() * this.height / this.mc.displayHeight - 1 - 25- guiTop;
-
-        System.out.println(x/canvusMult+", "+y/canvusMult);
 
 
 
+        int x = (Mouse.getEventX() * this.width / this.mc.displayWidth -90 -guiLeft)/canvusMult;
+        int y = (this.height - Mouse.getEventY() * this.height / this.mc.displayHeight - 1 - 25- guiTop)/canvusMult;
+
+
+        if(Mouse.isButtonDown(0)){
+            selectedTool.draw(x, y, current, colourPicker.getRGB(),false);
+        }
+
+
+        selectedTool.drawOverlay(x,y,current,overlay,colourPicker.getRGB(),false);
+        drawTexturedModalRect(90 + guiLeft, 25 + guiTop, canvusSize, canvusSize, 0, 0, 1, 1);
 
         super.drawScreen(par1, par2, par3);
     }
+
+
 
     @Override
     protected void actionPerformed(GuiButton par1GuiButton) {
@@ -152,6 +166,7 @@ public class GuiFlagDesigner extends GuiScreen{
             for(int i = 0; i < toggleButtons.length; i++){
                 toggleButtons[i].setToggle(i+10==par1GuiButton.id);
             }
+            selectedTool = tools[10-par1GuiButton.id];
         }
 
         switch (par1GuiButton.id){
