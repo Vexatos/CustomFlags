@@ -85,7 +85,8 @@ public class BlockFlagPole extends BlockContainer{
             TileEntity te = par1World.getBlockTileEntity(par2, par3, par4);
             if(te != null && te instanceof TileEntityFlagPole){
                 ItemStack flag = ((TileEntityFlagPole)te).getFlag();
-                par1World.spawnEntityInWorld(new EntityItem(par1World, par2, par3, par4, flag));
+                if(flag != null)
+                    par1World.spawnEntityInWorld(new EntityItem(par1World, par2, par3, par4, flag));
             }
         }
         super.breakBlock(par1World, par2, par3, par4, par5, par6);

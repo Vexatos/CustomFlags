@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e688ddff-badf-4b93-be44-68768cf1d7b0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/BlockFlagPole.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/BlockFlagPole.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Custom Flags.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -81,7 +80,7 @@
       <file leaf-file-name="BlockFlagPole.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/BlockFlagPole.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="5" selection-start="1022" selection-end="1022" vertical-scroll-proportion="0.1891892" vertical-offset="187" max-vertical-offset="1479">
+            <state line="94" column="0" selection-start="3215" selection-end="3215" vertical-scroll-proportion="0.8918919" vertical-offset="799" max-vertical-offset="1496">
               <folding />
             </state>
           </provider>
@@ -693,7 +692,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1511" height="1040" extended-state="0" />
+    <frame x="0" y="0" width="1511" height="1040" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -938,7 +937,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/blocks/BlockFlagPole.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="5" selection-start="1022" selection-end="1022" vertical-scroll-proportion="0.1891892" vertical-offset="187" max-vertical-offset="1479">
+        <state line="94" column="0" selection-start="3215" selection-end="3215" vertical-scroll-proportion="0.8918919" vertical-offset="799" max-vertical-offset="1496">
           <folding />
         </state>
       </provider>
