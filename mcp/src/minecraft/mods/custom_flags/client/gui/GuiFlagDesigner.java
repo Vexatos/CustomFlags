@@ -106,9 +106,9 @@ public class GuiFlagDesigner extends GuiScreen{
 
         switch (par1GuiButton.id){
             case ID_LOAD:
-                JFileChooser fc = new JFileChooser(null);
+                //JFileChooser fc = new JFileChooser(null);
 
-                
+
 
                 break;
         }
