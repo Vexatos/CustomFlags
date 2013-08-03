@@ -66,24 +66,22 @@ public class ImageData {
         }
     }
 
-    public ImageData(BufferedImage before, int width, int height){
-        BufferedImage scaled = before;
+    public ImageData(BufferedImage before, int width, int height){ //How we create the Image Data
+        BufferedImage scaled = before; // Copy the Cuffered Image
 
-        if(before.getWidth() != width || before.getHeight() != height){
-            System.out.println("scaling");
-            scaled = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-            AffineTransform at = new AffineTransform();
-            at.scale((float)width / before.getWidth(), (float)height / before.getHeight());
+        if(before.getWidth() != width || before.getHeight() != height){ //If the hight of the image is not our targert
+            scaled = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB); //Create a new empty image of the target size
+            AffineTransform at = new AffineTransform(); //Create a new Affine Transform
+            at.scale((float)width / before.getWidth(), (float)height / before.getHeight()); //Scale the image to the size we want
             AffineTransformOp scaleOp =
-                    new AffineTransformOp(at, AffineTransformOp.TYPE_BILINEAR);
-            scaled = scaleOp.filter(before, scaled);
+                    new AffineTransformOp(at, AffineTransformOp.TYPE_BILINEAR); // use the bi linear transfomation mode
+            scaled = scaleOp.filter(before, scaled); //Scale it
         }
 
-        pixels = new int[width * height];
-        for(int x = 0; x < scaled.getWidth(); x++){
-            for(int y = 0; y < scaled.getHeight(); y++){
-                pixels[x + y*width] = roundColour(scaled.getRGB(x, y));
-                System.out.println(Integer.toHexString(pixels[x + y*width]));
+        pixels = new int[width * height]; //Create a new 2d array of pixals
+        for(int x = 0; x < scaled.getWidth(); x++){ //loop over each pixal column
+            for(int y = 0; y < scaled.getHeight(); y++){ //loop over each pixel in column
+                pixels[x + y*width] = roundColour(scaled.getRGB(x, y)); //round the colour and place it in the pixel array
             }
         }
     }
