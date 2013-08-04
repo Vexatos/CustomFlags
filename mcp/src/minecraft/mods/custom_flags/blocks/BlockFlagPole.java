@@ -37,8 +37,6 @@ public class BlockFlagPole extends BlockContainer{
         this.setUnlocalizedName("custom_flags:flagpole");
 
         setBlockBounds(6F/16F, 0, 6F/16F, 10F/16F, 1,  10F/16F);
-
-        Opcodes.IF
     }
 
     @Override
