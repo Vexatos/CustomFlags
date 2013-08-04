@@ -1,0 +1,20 @@
+[
+{
+  "modid": "custom_flags",
+  "name": "Iron Chest",
+  "description": "",
+  "version": "@VERSION@",
+  "mcversion": "1.6.2",
+  "updateUrl": "",
+  "authors": [
+    "merd-boy"
+  ],
+  "credits": "By nerd-boymmr",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]
