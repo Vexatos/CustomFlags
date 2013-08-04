@@ -51,48 +51,37 @@ public class PenTool implements ITool {
 
     private void drawLine(int x0, int x1, int y0, int y1, int[] pixelsCurrent, int rgb) {
 
-        boolean steep = Math.abs(y1 - y0) > Math.abs(x1- x0);
-        if(steep){
-            int temp = x0;
-            x0 = x1;
-            x1 = temp;
+        int dx = Math.abs(x1 - x0);
+        int dy = Math.abs(y1 - y0);
+        int sx = x0<x1 ? 1 : -1;
+        int sy = y0<y1 ? 1 : -1;
+        int err = dx - dy;
 
-            temp = y0;
-            y0 = y1;
-            y1 = temp;
-        }
-        if(x0 > x1){
-            int temp = x0;
-            x0 = x1;
-            x1 = temp;
 
-            temp = y0;
-            y0 = y1;
-            y1 = temp;
-        }
-
-        int deltaX = x1 - x0;
-        int deltaY = Math.abs(y1 - y0);
-
-        int error = deltaX / 2;
-        int yStep = y0<y1?1:-1;
-        int y = y0;
-        for(int x = x0; x < x1; x++){
-            if (x > -1 &&  x < ImageData.IMAGE_RES && y > -1 && y < ImageData.IMAGE_RES){
-                if(steep){
-                    pixelsCurrent[y+ImageData.IMAGE_RES*x] = rgb;
-                }else{
-                    pixelsCurrent[x+ImageData.IMAGE_RES*y] = rgb;
+        boolean done = false;
+        while(!done){
+            if (x0 > -1 &&  x0 < ImageData.IMAGE_RES && y0 > -1 && y0 < ImageData.IMAGE_RES){
+                pixelsCurrent[x0+ImageData.IMAGE_RES*y0] = rgb;
+            }
+            if(x0 == x1 && y0 == y1){
+                done = true;
+            }
+            int e2 = 2*err;
+            if(e2 > -dy && !done){
+                err = err - dy;
+                x0 = x0 + sx;
+            }
+            if(x0 == x1 && y0 == y1 && !done){
+                if (x0 > -1 &&  x0 < ImageData.IMAGE_RES && y0 > -1 && y0 < ImageData.IMAGE_RES){
+                    pixelsCurrent[x0+ImageData.IMAGE_RES*y0] = rgb;
                 }
+                done = true;
             }
-
-            error = error - deltaY;
-            if(error < 0){
-                y = y + yStep;
-                error = error - deltaX;
+            if(e2 < dx && !done){
+                err = err + dx;
+                y0 = y0 + sy;
             }
         }
-
     }
 
 
