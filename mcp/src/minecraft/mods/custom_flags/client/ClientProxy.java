@@ -29,7 +29,5 @@ public class ClientProxy extends CommonProxy {
         MinecraftForgeClient.registerItemRenderer(CustomFlags.blockFlagPole.blockID, new FlagPoleItemRenderer());
         MinecraftForgeClient.registerItemRenderer(CustomFlags.itemFlag.itemID, new FlagItemRenderer());
 
-
-        TickRegistry.registerTickHandler(new MapTextureReplacer(), Side.CLIENT);
     }
 }

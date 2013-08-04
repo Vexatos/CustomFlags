@@ -31,7 +31,7 @@ import java.util.List;
  * Time: 11:52 AM
  * TODO: Add discription
  */
-public class ItemFlag extends ItemMap {
+public class ItemFlag extends Item {
 
     public ItemFlag(int id) {
         super(id);

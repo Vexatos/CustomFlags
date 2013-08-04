@@ -3,8 +3,15 @@ item.custom_flags:flag.name=Flag
 tile.custom_flags:flagpole.name=Flag Pole
 
 button.ok=OK
+button.cancel=Cancel
 button.save=Save
 button.load=Load
+button.load.sections=Load Section
+
+gui.splitter.number.x.sections = Number of X Sections
+gui.splitter.number.y.sections = Number of\nY Sections
+gui.splitter.x.section = X Section
+gui.splitter.y.section = Y Section
 
 tool.pen=Pen
 tool.flood=Flood Fill
