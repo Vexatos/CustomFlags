@@ -1,15 +1,15 @@
 [
 {
   "modid": "custom_flags",
-  "name": "Iron Chest",
-  "description": "",
-  "version": "@VERSION@",
+  "name": "Custom Flags",
+  "description": "Have you ever had an awesome design but wished you could show it off in minecraft?\nWell now you can",
+  "version": "1.0",
   "mcversion": "1.6.2",
   "updateUrl": "",
   "authors": [
     "merd-boy"
   ],
-  "credits": "By nerd-boymmr",
+  "credits": "By nerd-boy",
   "logoFile": "",
   "screenshots": [
   ],
