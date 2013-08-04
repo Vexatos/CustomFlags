@@ -16,6 +16,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
+import org.objectweb.asm.util.ASMifier;
 
 import java.util.List;
 
@@ -35,6 +36,8 @@ public class BlockFlagPole extends BlockContainer{
         this.setUnlocalizedName("custom_flags:flagpole");
 
         setBlockBounds(6F/16F, 0, 6F/16F, 10F/16F, 1,  10F/16F);
+
+        
     }
 
     @Override
