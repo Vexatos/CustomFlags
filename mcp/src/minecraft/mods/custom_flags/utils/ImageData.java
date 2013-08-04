@@ -1,12 +1,8 @@
 package mods.custom_flags.utils;
 
-import net.minecraft.item.ItemDye;
-
-import javax.imageio.ImageIO;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.nio.ByteBuffer;
 
 /**

@@ -7,7 +7,6 @@ import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.item.ItemDye;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
-import paulscode.sound.libraries.SourceJavaSound;
 
 import java.awt.*;
 

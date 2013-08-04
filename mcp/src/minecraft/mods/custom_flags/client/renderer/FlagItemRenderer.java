@@ -2,9 +2,7 @@ package mods.custom_flags.client.renderer;
 
 import mods.custom_flags.client.utils.ImageCahce;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.MathHelper;
 import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 

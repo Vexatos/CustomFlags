@@ -1,7 +1,6 @@
 package mods.custom_flags.utils.swing;
 
 import mods.custom_flags.utils.Utils;
-import net.minecraft.util.Util;
 
 import javax.swing.filechooser.FileFilter;
 import java.io.File;

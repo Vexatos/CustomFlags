@@ -1,6 +1,5 @@
 package mods.custom_flags.client.gui;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import cpw.mods.fml.common.network.PacketDispatcher;
 import mods.custom_flags.client.gui.controls.GuiColourPicker;
 import mods.custom_flags.client.gui.controls.GuiToggleButton;
@@ -78,6 +77,7 @@ public class GuiFlagDesigner extends GuiScreen{
         fc.addChoosableFileFilter(new ImageFilter());
         fc.setAcceptAllFileFilterUsed(false);
         fc.setFileView(new ImageFileViewer());
+
 
         ItemStack item = player.getHeldItem();
         if(item != null && item.getItem() instanceof ItemFlag){
@@ -256,6 +256,8 @@ public class GuiFlagDesigner extends GuiScreen{
 
                             image.setTexture(current.func_110565_c());
                         }
+
+                        dialog.dispose();
 
                     }catch (Exception e){
                         e.printStackTrace();

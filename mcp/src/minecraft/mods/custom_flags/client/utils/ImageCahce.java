@@ -8,7 +8,6 @@ import mods.custom_flags.items.ItemFlag;
 import mods.custom_flags.utils.ImageData;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 
 /**
  * User: nerd-boy

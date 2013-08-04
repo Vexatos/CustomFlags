@@ -7,7 +7,6 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
 import mods.custom_flags.blocks.BlockFlagPole;
 import mods.custom_flags.blocks.TileEntityFlagPole;
 import mods.custom_flags.items.FlagRecipie;
@@ -19,8 +18,6 @@ import mods.custom_flags.utils.CustomFlagsGuiHandeler;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.Configuration;
-
-import javax.swing.*;
 
 import static cpw.mods.fml.common.registry.GameRegistry.*;
 

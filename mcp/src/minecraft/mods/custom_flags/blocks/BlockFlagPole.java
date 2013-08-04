@@ -4,7 +4,6 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.PacketDispatcher;
 import cpw.mods.fml.relauncher.Side;
 import mods.custom_flags.items.ItemFlag;
-import mods.custom_flags.packet.FlagTileEntityDescripPacket;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;

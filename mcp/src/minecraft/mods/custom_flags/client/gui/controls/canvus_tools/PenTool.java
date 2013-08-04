@@ -1,13 +1,16 @@
 package mods.custom_flags.client.gui.controls.canvus_tools;
 
 import mods.custom_flags.utils.ImageData;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 
 /**
  * Created by Aaron on 3/08/13.
  */
 public class PenTool implements ITool {
+
+    private int last_x = ImageData.IMAGE_RES / 2;
+    private int last_y = ImageData.IMAGE_RES / 2;
+
     @Override
     public void drawOverlay(int x, int y, DynamicTexture current, DynamicTexture overlay, int rgb, boolean shift) {
         int[] pixelsOverlay = overlay.func_110565_c();
@@ -28,9 +31,18 @@ public class PenTool implements ITool {
     public void draw(int x, int y, DynamicTexture current, int rgb, boolean shift) {
         int[] pixelsCurrent = current.func_110565_c();
 
-        if (x > -1 &&  x < ImageData.IMAGE_RES && y > -1 && y < ImageData.IMAGE_RES){
-            pixelsCurrent[x+ImageData.IMAGE_RES*y] = rgb;
+        if(shift){
+
+            
+
+        }else{
+            if (x > -1 &&  x < ImageData.IMAGE_RES && y > -1 && y < ImageData.IMAGE_RES){
+                pixelsCurrent[x+ImageData.IMAGE_RES*y] = rgb;
+            }
         }
+
+        last_x = x;
+        last_y = y;
     }
 
 

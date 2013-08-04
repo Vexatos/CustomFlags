@@ -1,10 +1,6 @@
 package mods.custom_flags.client;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.registry.TickRegistry;
-import cpw.mods.fml.relauncher.Side;
 import mods.custom_flags.CommonProxy;
 import mods.custom_flags.CustomFlags;
 import mods.custom_flags.blocks.TileEntityFlagPole;
@@ -12,7 +8,6 @@ import mods.custom_flags.client.renderer.FlagItemRenderer;
 import mods.custom_flags.client.renderer.FlagPoleItemRenderer;
 import mods.custom_flags.client.renderer.FlagPoleTileRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
-import net.minecraftforge.common.MinecraftForge;
 
 /**
  * User: nerd-boy

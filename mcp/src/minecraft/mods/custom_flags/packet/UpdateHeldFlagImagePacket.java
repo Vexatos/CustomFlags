@@ -1,14 +1,12 @@
 package mods.custom_flags.packet;
 
 import cpw.mods.fml.common.network.Player;
-import mods.custom_flags.blocks.TileEntityFlagPole;
 import mods.custom_flags.items.ItemFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.INetworkManager;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.Packet250CustomPayload;
-import net.minecraft.tileentity.TileEntity;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

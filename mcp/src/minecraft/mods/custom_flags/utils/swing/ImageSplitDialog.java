@@ -2,20 +2,17 @@ package mods.custom_flags.utils.swing;
 
 import net.minecraft.util.StatCollector;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
+import javax.swing.*;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class ImageSplitDialog extends JDialog {
 
@@ -23,38 +20,14 @@ public class ImageSplitDialog extends JDialog {
 	private JLabel imageLabel;
 
     public BufferedImage imageSection;
-	
-	private static BufferedImage defaultImage;
-	static{
-		try{
-			defaultImage = ImageIO.read(ImageSplitDialog.class.getResource("modjam.png"));
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-	}
-	
+
 	private BufferedImage image;
 	private JSlider y2slider;
 	private JSlider x2slider;
 	private JSlider x1slider;
 	private JSlider y1slider;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			ImageSplitDialog dialog = new ImageSplitDialog();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public ImageSplitDialog() {
-		this(defaultImage);
-	}
+
 
 	/**
 	 * Create the dialog.
@@ -63,7 +36,9 @@ public class ImageSplitDialog extends JDialog {
 		setBounds(100, 100, 453, 470);
 		image = bi;
         setModal(true);
-		
+		this.setAlwaysOnTop(true);
+
+
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -98,7 +73,7 @@ public class ImageSplitDialog extends JDialog {
 		x1slider.setMaximum(4);
 		x1slider.setMajorTickSpacing(1);
 		
-		JLabel lblNewLabel_1 = new JLabel(StatCollector.translateToLocal("gui.splitter.x_section"));
+		JLabel lblNewLabel_1 = new JLabel(StatCollector.translateToLocal("gui.splitter.x.section"));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		
 
@@ -114,7 +89,7 @@ public class ImageSplitDialog extends JDialog {
 		y2slider.setPaintLabels(true);
 		y2slider.setOrientation(SwingConstants.VERTICAL);
 		
-		JLabel lblYSection = new JLabel(StatCollector.translateToLocal("gui.splitter.y_section"));
+		JLabel lblYSection = new JLabel(StatCollector.translateToLocal("gui.splitter.y.section"));
 		lblYSection.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		y1slider = new JSlider();
@@ -128,7 +103,7 @@ public class ImageSplitDialog extends JDialog {
 		y1slider.setMaximum(4);
 		y1slider.setMajorTickSpacing(1);
 
-        String[] split = StatCollector.translateToLocal("gui.splitter.number_y_sections").split("\n");
+        String[] split = StatCollector.translateToLocal("gui.splitter.number.y.sections").split("\\*");
         JLabel lblNewLabel_2 = new JLabel();
         JLabel lblYSections = new JLabel();
         if(split.length > 1){
