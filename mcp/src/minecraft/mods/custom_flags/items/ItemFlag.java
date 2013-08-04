@@ -7,6 +7,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import mods.custom_flags.CustomFlags;
 import mods.custom_flags.packet.UpdateHeldFlagImagePacket;
 import mods.custom_flags.utils.ImageData;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -30,7 +31,7 @@ import java.util.List;
  * Time: 11:52 AM
  * TODO: Add discription
  */
-public class ItemFlag extends Item {
+public class ItemFlag extends ItemMap {
 
     public ItemFlag(int id) {
         super(id);
@@ -49,6 +50,10 @@ public class ItemFlag extends Item {
         }
 
         return super.onItemRightClick(par1ItemStack, world, player);
+    }
+
+    @Override
+    public void registerIcons(IconRegister par1IconRegister) {
     }
 
     @SideOnly(Side.CLIENT)

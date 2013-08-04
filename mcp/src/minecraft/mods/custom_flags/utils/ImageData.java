@@ -62,14 +62,14 @@ public class ImageData {
     }
 
     public ImageData(BufferedImage before, int width, int height){ //How we create the Image Data
-        BufferedImage scaled = before; // Copy the Cuffered Image
+        BufferedImage scaled = before; // Copy the Buffered Image
 
         if(before.getWidth() != width || before.getHeight() != height){ //If the hight of the image is not our targert
             scaled = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB); //Create a new empty image of the target size
             AffineTransform at = new AffineTransform(); //Create a new Affine Transform
             at.scale((float)width / before.getWidth(), (float)height / before.getHeight()); //Scale the image to the size we want
             AffineTransformOp scaleOp =
-                    new AffineTransformOp(at, AffineTransformOp.TYPE_BILINEAR); // use the bi linear transfomation mode
+                    new AffineTransformOp(at, AffineTransformOp.TYPE_BICUBIC); // use the bi linear transfomation mode
             scaled = scaleOp.filter(before, scaled); //Scale it
         }
 

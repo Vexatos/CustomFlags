@@ -14,7 +14,7 @@ import org.lwjgl.opengl.GL11;
 public class FlagItemRenderer implements IItemRenderer {
     @Override
     public boolean handleRenderType(ItemStack item, ItemRenderType type) {
-        return type != ItemRenderType.FIRST_PERSON_MAP;
+        return type != ItemRenderType.EQUIPPED_FIRST_PERSON;
     }
 
     @Override

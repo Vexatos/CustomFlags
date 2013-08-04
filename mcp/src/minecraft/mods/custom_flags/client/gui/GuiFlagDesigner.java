@@ -14,6 +14,7 @@ import mods.custom_flags.utils.Utils;
 import mods.custom_flags.utils.swing.ImageFileViewer;
 import mods.custom_flags.utils.swing.ImageFilter;
 import mods.custom_flags.utils.swing.ImagePreviewPanel;
+import mods.custom_flags.utils.swing.ImageSplitDialog;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.Tessellator;
@@ -27,6 +28,8 @@ import org.lwjgl.opengl.GL11;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -43,7 +46,8 @@ public class GuiFlagDesigner extends GuiScreen{
     private static final int ID_SAVE = 0;
     private static final int ID_LOAD = 1;
     private static final int ID_OK = 2;
-    private static final int ID_COLOUR_PICKER = 3;
+    private static final int ID_LOAD_SECTION = 3;
+    private static final int ID_COLOUR_PICKER = 4;
     private int guiLeft, guiTop, xSize, ySize;
 
     private static final String[] labels = new String[]{"tool.pen", "tool.flood","tool.dropper"};
@@ -105,8 +109,9 @@ public class GuiFlagDesigner extends GuiScreen{
         colourPicker = new GuiColourPicker(ID_COLOUR_PICKER, 100+canvusSize+guiLeft, guiTop+25, 0xFF000000, 7);
 
         this.buttonList.add(new GuiButton(ID_OK, guiLeft+100+canvusSize, guiTop+canvusSize+5, 80, 20, StatCollector.translateToLocal("button.ok")));
-        this.buttonList.add(new GuiButton(ID_SAVE, guiLeft + 90, guiTop, 75, 20,StatCollector.translateToLocal( "button.save")));
-        this.buttonList.add(new GuiButton(ID_LOAD, guiLeft + 20 + canvusSize, guiTop, 75, 20, StatCollector.translateToLocal("button.load")));
+        this.buttonList.add(new GuiButton(ID_SAVE, guiLeft + 70, guiTop, 75, 20,StatCollector.translateToLocal( "button.save")));
+        this.buttonList.add(new GuiButton(ID_LOAD, guiLeft + 70+80, guiTop, 75, 20, StatCollector.translateToLocal("button.load")));
+        this.buttonList.add(new GuiButton(ID_LOAD_SECTION, guiLeft + 70+80+80, guiTop, 75, 20, StatCollector.translateToLocal("button.load.section")));
         this.buttonList.add(colourPicker);
 
         toggleButtons = new GuiToggleButton[3];
@@ -229,6 +234,41 @@ public class GuiFlagDesigner extends GuiScreen{
                 if(fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
                     try{
                         ImageData image = new ImageData(ImageIO.read(fc.getSelectedFile()), ImageData.IMAGE_RES, ImageData.IMAGE_RES);
+                        image.setTexture(current.func_110565_c());
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
+                break;
+            case ID_LOAD_SECTION:
+                if(fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
+                    try{
+                        int max_x = 4;
+                        int max_y = 4;
+
+                        int targetX = 0;
+                        int targetY = 0;
+
+                        BufferedImage original = ImageIO.read(fc.getSelectedFile());
+
+                        ImageSplitDialog dialog = new ImageSplitDialog(original, 4, 4);
+                        dialog.setLocationRelativeTo(null);
+                        dialog.setVisible(true);
+
+
+
+                        BufferedImage croped = original.getSubimage(
+                                (int)(((float)targetX / max_x)*original.getWidth()),
+                                (int)(((float)targetY / max_y)*original.getHeight()),
+                                (int)(((float)(targetX+1) / max_x)*original.getWidth()),
+                                (int)(((float)(targetY+1) / max_y)*original.getHeight())
+                        );
+
+                        System.out.println(croped.getWidth());
+
+                        ImageData image = new ImageData(croped,
+                                ImageData.IMAGE_RES, ImageData.IMAGE_RES);
+
                         image.setTexture(current.func_110565_c());
                     }catch (Exception e){
                         e.printStackTrace();

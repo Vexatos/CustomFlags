@@ -1,5 +1,6 @@
 package mods.custom_flags.client.renderer;
 
+import mods.custom_flags.CustomFlags;
 import mods.custom_flags.blocks.TileEntityFlagPole;
 import mods.custom_flags.client.utils.ImageCahce;
 import net.minecraft.block.Block;
@@ -7,10 +8,14 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 
 import net.minecraft.util.Icon;
+import net.minecraftforge.event.ListenerList;
 import org.lwjgl.opengl.GL11;
+
+import java.util.List;
 
 /**
  * User: nerd-boy
@@ -22,10 +27,9 @@ public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
 
 
     public static final int sections = 32;
-    public static final int period = 500;
 
-    public static double getZLevel(float x){
-        return Math.pow(x, 0.75) * Math.sin(Math.PI * ( -x * 3 + ((float)(System.currentTimeMillis()%period)) / (0.5F*(float)period))) / 4;
+    public static double getZLevel(float x, float size){
+        return Math.pow(x, 0.5/(size/5)) * Math.sin(Math.PI * ( -x/size * 3 + ((float)(System.currentTimeMillis()% CustomFlags.period)) / (0.5F*(float)CustomFlags.period))) / 4;
     }
 
     @Override
@@ -97,26 +101,38 @@ public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
                 GL11.glEnable(GL11.GL_BLEND);
                 GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 
-                ImageCahce.setTexture(((TileEntityFlagPole) tileentity).getFlag());
+                List<ItemStack> flags = ((TileEntityFlagPole) tileentity).getFlags();
 
-                for(int i = 0; i < 8; i++){
-                    tess.startDrawingQuads();
 
-                    double z1 = getZLevel((float)(i) / 8F);
-                    double z2 = getZLevel((float)(i+1) / 8F);
+                GL11.glDisable(GL11.GL_LIGHTING);
+                for(int flagIndex = 0; flagIndex < flags.size(); flagIndex++){
+                    ItemStack flag = flags.get(flagIndex);
+                    ImageCahce.setTexture(flag);
 
-                    tess.addVertexWithUV(7F / 16F-(float)(i) / 8F, 0, 8F / 16F+z1,   (float)(i) / 8F, 0.999);
-                    tess.addVertexWithUV(7F /16F- (float)(i+1) / 8F, 0, 8F / 16F+z2, (float)(i+1) / 8F, 0.999);
-                    tess.addVertexWithUV(7F /16F-(float)(i+1) / 8F, 1, 8F / 16F+z2,    (float)(i+1) / 8F, 0.001);
-                    tess.addVertexWithUV(7F / 16F- (float)(i) / 8F, 1, 8F / 16F+z1,  (float)(i) / 8F, 0.001);
 
-                    tess.addVertexWithUV(7F / 16F- (float)(i) / 8F, 1, 8F / 16F+z1,  (float)(i) / 8F, 0.001);
-                    tess.addVertexWithUV(7F /16F-(float)(i+1) / 8F, 1, 8F / 16F+z2,    (float)(i+1) / 8F, 0.001);
-                    tess.addVertexWithUV(7F /16F- (float)(i+1) / 8F, 0, 8F / 16F+z2, (float)(i+1) / 8F, 0.999);
-                    tess.addVertexWithUV(7F / 16F-(float)(i) / 8F, 0, 8F / 16F+z1,   (float)(i) / 8F, 0.999);
 
-                    tess.draw();
+                    for(int i = 0; i < 8; i++){
+                        tess.startDrawingQuads();
+
+                        double z1 = getZLevel((float)(i) / 8F + flagIndex, 3);
+                        double z2 = getZLevel((float)(i+1) / 8F + flagIndex, 3);
+
+                        tess.addVertexWithUV(7F / 16F-(float)(i) / 8F - flagIndex, 0, 8F / 16F+z1,   (float)(i) / 8F, 0.999);
+                        tess.addVertexWithUV(7F /16F- (float)(i+1) / 8F- flagIndex, 0, 8F / 16F+z2, (float)(i+1) / 8F, 0.999);
+                        tess.addVertexWithUV(7F /16F-(float)(i+1) / 8F- flagIndex, 1, 8F / 16F+z2,    (float)(i+1) / 8F, 0.001);
+                        tess.addVertexWithUV(7F / 16F- (float)(i) / 8F- flagIndex, 1, 8F / 16F+z1,  (float)(i) / 8F, 0.001);
+
+                        tess.addVertexWithUV(7F / 16F- (float)(i) / 8F - flagIndex, 1, 8F / 16F+z1,  (float)(i) / 8F, 0.001);
+                        tess.addVertexWithUV(7F /16F-(float)(i+1) / 8F - flagIndex, 1, 8F / 16F+z2,    (float)(i+1) / 8F, 0.001);
+                        tess.addVertexWithUV(7F /16F- (float)(i+1) / 8F - flagIndex, 0, 8F / 16F+z2, (float)(i+1) / 8F, 0.999);
+                        tess.addVertexWithUV(7F / 16F-(float)(i) / 8F - flagIndex, 0, 8F / 16F+z1,   (float)(i) / 8F, 0.999);
+
+                        tess.draw();
+                    }
                 }
+                GL11.glEnable(GL11.GL_LIGHTING);
+
+
 
                 GL11.glDisable(GL11.GL_BLEND);
 

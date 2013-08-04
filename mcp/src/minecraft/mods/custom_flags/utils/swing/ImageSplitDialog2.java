@@ -1,0 +1,307 @@
+package mods.custom_flags.utils.swing;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Image;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
+import java.awt.image.BufferedImage;
+
+import javax.imageio.ImageIO;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
+import javax.swing.JSlider;
+import javax.swing.JLabel;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingConstants;
+
+import mods.custom_flags.utils.ImageData;
+
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
+
+public class ImageSplitDialog2 extends JDialog {
+
+	private final JPanel contentPanel = new JPanel();
+	private JLabel imageLabel;
+	
+	private static BufferedImage defaultImage;
+	static{
+		try{
+			defaultImage = ImageIO.read(ImageSplitDialog2.class.getResource("modjam.png"));
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	private BufferedImage image;
+	private JSlider y2slider;
+	private JSlider x2slider;
+	private JSlider x1slider;
+	private JSlider y1slider;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		try {
+			ImageSplitDialog2 dialog = new ImageSplitDialog2();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public ImageSplitDialog2() {
+		this(defaultImage);
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public ImageSplitDialog2(BufferedImage bi) {
+		setBounds(100, 100, 453, 470);
+		image = bi;
+		
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		
+		JLabel lblNewLabel = new JLabel("Number of X Sections");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		JPanel panel = new JPanel();
+		panel.setLayout(new BorderLayout(0, 0));
+		
+		imageLabel = new JLabel("");
+		panel.add(imageLabel, BorderLayout.CENTER);
+		
+		
+		x2slider = new JSlider();
+		x2slider.setValue(1);
+		x2slider.setPaintTicks(true);
+		x2slider.setSnapToTicks(true);
+		x2slider.setPaintLabels(true);
+		x2slider.setMajorTickSpacing(1);
+		x2slider.setMinorTickSpacing(1);
+		x2slider.setMinimum(1);
+		x2slider.setMaximum(4);
+		
+		x1slider = new JSlider();
+		x1slider.setValue(4);
+		x1slider.setSnapToTicks(true);
+		x1slider.setPaintTicks(true);
+		x1slider.setPaintLabels(true);
+		x1slider.setMinorTickSpacing(1);
+		x1slider.setMinimum(1);
+		x1slider.setMaximum(4);
+		x1slider.setMajorTickSpacing(1);
+		
+		JLabel lblNewLabel_1 = new JLabel("X Section");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		
+
+		y2slider = new JSlider();
+		y2slider.setValue(1);
+		y2slider.setInverted(true);
+		y2slider.setMajorTickSpacing(1);
+		y2slider.setMinorTickSpacing(1);
+		y2slider.setMinimum(1);
+		y2slider.setMaximum(4);
+		y2slider.setSnapToTicks(true);
+		y2slider.setPaintTicks(true);
+		y2slider.setPaintLabels(true);
+		y2slider.setOrientation(SwingConstants.VERTICAL);
+		
+		JLabel lblYSection = new JLabel("Y Section");
+		lblYSection.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		y1slider = new JSlider();
+		y1slider.setValue(4);
+		y1slider.setSnapToTicks(true);
+		y1slider.setPaintTicks(true);
+		y1slider.setPaintLabels(true);
+		y1slider.setOrientation(SwingConstants.VERTICAL);
+		y1slider.setMinorTickSpacing(1);
+		y1slider.setMinimum(1);
+		y1slider.setMaximum(4);
+		y1slider.setMajorTickSpacing(1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Number of");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		JLabel lblYSections = new JLabel("Y Sections");
+		lblYSections.setHorizontalAlignment(SwingConstants.CENTER);
+		GroupLayout gl_contentPanel = new GroupLayout(contentPanel);
+		gl_contentPanel.setHorizontalGroup(
+			gl_contentPanel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPanel.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_contentPanel.createParallelGroup(Alignment.TRAILING, false)
+						.addComponent(lblNewLabel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(x1slider, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(lblNewLabel_1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(x2slider, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(panel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(y2slider, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(lblYSection, GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(lblNewLabel_2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(y1slider, GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+						.addComponent(lblYSections, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addContainerGap(44, Short.MAX_VALUE))
+		);
+		gl_contentPanel.setVerticalGroup(
+			gl_contentPanel.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_contentPanel.createSequentialGroup()
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(lblNewLabel)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(x1slider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblNewLabel_1)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPanel.createSequentialGroup()
+							.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
+								.addComponent(x2slider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblYSection)
+								.addGroup(gl_contentPanel.createSequentialGroup()
+									.addComponent(lblNewLabel_2)
+									.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addComponent(lblYSections)))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
+								.addComponent(y2slider, GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+								.addComponent(panel, GroupLayout.PREFERRED_SIZE, 220, GroupLayout.PREFERRED_SIZE)))
+						.addComponent(y1slider, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 220, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap())
+		);
+		
+		
+		x1slider.addChangeListener(new ChangeListener() {
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				JSlider source = (JSlider)e.getSource();
+				x2slider.setMaximum((int)source.getValue());
+				
+				resetImage();
+			}
+		});
+		
+		x2slider.addChangeListener(new ChangeListener() {
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				resetImage();
+			}
+		});
+		
+		y1slider.addChangeListener(new ChangeListener() {
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				JSlider source = (JSlider)e.getSource();
+				y2slider.setMaximum((int)source.getValue());
+				resetImage();
+			}
+		});
+		
+		y2slider.addChangeListener(new ChangeListener() {
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				resetImage();
+			}
+		});
+		
+		
+		
+		
+		
+		
+		contentPanel.setLayout(gl_contentPanel);
+		{
+			JPanel buttonPane = new JPanel();
+			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			getContentPane().add(buttonPane, BorderLayout.SOUTH);
+			{
+				JButton okButton = new JButton("OK");
+				okButton.setActionCommand("OK");
+				buttonPane.add(okButton);
+				getRootPane().setDefaultButton(okButton);
+			}
+			{
+				JButton cancelButton = new JButton("Cancel");
+				cancelButton.setActionCommand("Cancel");
+				buttonPane.add(cancelButton);
+			}
+		}
+		
+		
+		resetImage();
+	}
+	
+	private void resetImage(){
+		
+		BufferedImage before = image.getSubimage(0, 0, image.getWidth(), image.getHeight());
+		BufferedImage scaled = before;
+		int width = 250;
+		int height = 250;
+		
+		if(before.getWidth() != width || before.getHeight() != height){ //If the hight of the image is not our targert
+            scaled = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB); //Create a new empty image of the target size
+            AffineTransform at = new AffineTransform(); //Create a new Affine Transform
+            at.scale((float)width / before.getWidth(), (float)height / before.getHeight()); //Scale the image to the size we want
+            AffineTransformOp scaleOp =
+                    new AffineTransformOp(at, AffineTransformOp.TYPE_BICUBIC); // use the bi linear transfomation mode
+            scaled = scaleOp.filter(before, scaled); //Scale it
+        }
+		
+		int xBound = 250 / this.getX1slider().getValue();
+		int yBound = 250 / this.getY1slider().getValue();
+		
+		for(int x = 0; x < width; x++){
+			System.out.println(x);
+			System.out.println(xBound*getX2slider().getValue());
+			if(x > xBound*(getX2slider().getValue()-1) && x < xBound*(getX2slider().getValue())){
+				for(int y = 0; y < height; y++){
+					if(! (y > yBound*(getY2slider().getValue()-1) && y < yBound*(getY2slider().getValue()))){
+						scaled.setRGB(x, y, 0xFF000000);
+					}
+				}
+			}else{
+				for(int y = 0; y < height; y++)
+					scaled.setRGB(x, y, 0xFF000000);
+			}
+		}
+		
+		
+		ImageIcon icon = new ImageIcon(scaled);
+		
+		imageLabel.setIcon(icon);
+		
+	}
+	public JSlider getY2slider() {
+		return y2slider;
+	}
+	public JSlider getX2slider() {
+		return x2slider;
+	}
+	public JSlider getX1slider() {
+		return x1slider;
+	}
+	public JSlider getY1slider() {
+		return y1slider;
+	}
+}

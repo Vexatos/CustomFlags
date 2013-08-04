@@ -2,6 +2,9 @@ package mods.custom_flags.client;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.registry.TickRegistry;
+import cpw.mods.fml.relauncher.Side;
 import mods.custom_flags.CommonProxy;
 import mods.custom_flags.CustomFlags;
 import mods.custom_flags.blocks.TileEntityFlagPole;
@@ -25,5 +28,8 @@ public class ClientProxy extends CommonProxy {
 
         MinecraftForgeClient.registerItemRenderer(CustomFlags.blockFlagPole.blockID, new FlagPoleItemRenderer());
         MinecraftForgeClient.registerItemRenderer(CustomFlags.itemFlag.itemID, new FlagItemRenderer());
+
+
+        TickRegistry.registerTickHandler(new MapTextureReplacer(), Side.CLIENT);
     }
 }

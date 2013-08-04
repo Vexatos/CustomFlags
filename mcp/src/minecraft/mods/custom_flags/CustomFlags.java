@@ -22,6 +22,8 @@ import net.minecraftforge.common.Configuration;
 
 import javax.swing.*;
 
+import static cpw.mods.fml.common.registry.GameRegistry.*;
+
 //import static cpw.mods.fml.common.Mod.*;
 
 /**
@@ -46,6 +48,7 @@ public class CustomFlags {
     public static CommonProxy PROXY;
 
     public static int CAHCE_SIZE;
+    public static int period;
 
     public static BlockFlagPole blockFlagPole;
     public static ItemFlag itemFlag;
@@ -62,16 +65,21 @@ public class CustomFlags {
         blockFlagPole = new BlockFlagPole(config.getBlock("Flag Pole", 2700).getInt(2700));
         itemFlag = new ItemFlag(config.getItem(Configuration.CATEGORY_GENERAL, "Flag", 24532).getInt());
 
-        GameRegistry.registerBlock(blockFlagPole, "flagpole");
-        GameRegistry.registerTileEntity(TileEntityFlagPole.class, "flagpole_tile");
+        registerBlock(blockFlagPole, "flagpole");
+        registerTileEntity(TileEntityFlagPole.class, "flagpole_tile");
 
-        GameRegistry.addRecipe(new ItemStack(blockFlagPole), new Object[]{
-            "S",
-            "S",
-            "S",
-            Character.valueOf('S'), Item.stick});
+        addRecipe(new ItemStack(blockFlagPole), new Object[]{
+                "S",
+                "S",
+                "S",
+                Character.valueOf('S'), Item.stick});
 
-        GameRegistry.addRecipe(new FlagRecipie());
+        period = ((10-config.get(Configuration.CATEGORY_GENERAL, "Flag Speed", 3).getInt(3)) * 100) + 250;
+        period = Math.max(period, 250);
+        period = Math.min(period, 1250);
+
+
+        addRecipe(new FlagRecipie());
 
         if(config.hasChanged()){
             config.save();

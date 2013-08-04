@@ -8,13 +8,17 @@ import mods.custom_flags.packet.FlagTileEntityDescripPacket;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 /**
  * User: nerd-boy
@@ -30,6 +34,22 @@ public class BlockFlagPole extends BlockContainer{
         this.setCreativeTab(CreativeTabs.tabDecorations);
 
         this.setUnlocalizedName("custom_flags:flagpole");
+
+        setBlockBounds(6F/16F, 0, 6F/16F, 10F/16F, 1,  10F/16F);
+    }
+
+    @Override
+    public void registerIcons(IconRegister par1IconRegister) {
+    }
+
+    @Override
+    public AxisAlignedBB getSelectedBoundingBoxFromPool(World par1World, int par2, int par3, int par4) {
+        return super.getSelectedBoundingBoxFromPool(par1World, par2, par3, par4);
+    }
+
+    @Override
+    public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4) {
+        return super.getCollisionBoundingBoxFromPool(par1World, par2, par3, par4);
     }
 
     @Override
@@ -37,18 +57,34 @@ public class BlockFlagPole extends BlockContainer{
 
         TileEntity te = world.getBlockTileEntity(x,y,z);
         ItemStack stack = par5EntityPlayer.getCurrentEquippedItem();
-        if(te != null && te instanceof TileEntityFlagPole && stack != null && stack.getItem() instanceof ItemFlag){
-            par5EntityPlayer.inventory.decrStackSize(par5EntityPlayer.inventory.currentItem, 1);
+        if(te != null && te instanceof TileEntityFlagPole){
+            if(stack == null){
 
-            if(FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER){
-                ((TileEntityFlagPole) te).setFlag(stack);
-                PacketDispatcher.sendPacketToAllPlayers(te.getDescriptionPacket());
+                if(FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER){
+                    if(((TileEntityFlagPole) te).hasFlag()){
+                        par5EntityPlayer.inventory.setInventorySlotContents(par5EntityPlayer.inventory.currentItem, ((TileEntityFlagPole) te).popFlag());
+                        PacketDispatcher.sendPacketToAllPlayers(te.getDescriptionPacket());
+                    }
+                }
+
+                return true;
+            }else if(stack.getItem() instanceof ItemFlag){
+
+
+
+                if(FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER){
+                    if(((TileEntityFlagPole) te).setFlag(stack) && !par5EntityPlayer.capabilities.isCreativeMode){
+                        par5EntityPlayer.inventory.decrStackSize(par5EntityPlayer.inventory.currentItem, 1);
+                    }
+                    PacketDispatcher.sendPacketToAllPlayers(te.getDescriptionPacket());
+
+                }
+
+                return true;
             }
-
-            return true;
-            //PacketDispatcher.sendPacketToAllPlayers(FlagTileEntityDescripPacket.generatePacket(x,y,z,stack));
-            //PacketDispatcher.sendPacketToServer(FlagTileEntityDescripPacket.generatePacket(x,y,z,stack));
         }
+
+
 
         return super.onBlockActivated(world, x, y, z, par5EntityPlayer, par6, par7, par8, par9);
     }
@@ -84,9 +120,11 @@ public class BlockFlagPole extends BlockContainer{
         if(FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER){
             TileEntity te = par1World.getBlockTileEntity(par2, par3, par4);
             if(te != null && te instanceof TileEntityFlagPole){
-                ItemStack flag = ((TileEntityFlagPole)te).getFlag();
-                if(flag != null)
-                    par1World.spawnEntityInWorld(new EntityItem(par1World, par2, par3, par4, flag));
+                List<ItemStack> flags = ((TileEntityFlagPole)te).getFlags();
+
+                for(ItemStack f : flags){
+                    par1World.spawnEntityInWorld(new EntityItem(par1World, par2, par3, par4, f));
+                }
             }
         }
         super.breakBlock(par1World, par2, par3, par4, par5, par6);

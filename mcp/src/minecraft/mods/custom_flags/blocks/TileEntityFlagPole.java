@@ -1,10 +1,17 @@
 package mods.custom_flags.blocks;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import mods.custom_flags.packet.FlagTileEntityDescripPacket;
+import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
+
+import java.util.ArrayList;
 
 /**
  * User: nerd-boy
@@ -13,59 +20,93 @@ import net.minecraft.tileentity.TileEntity;
  */
 public class TileEntityFlagPole extends TileEntity {
 
-    private ItemStack flag;
+
+    private ArrayList<ItemStack> flags;
+
+    private static final int MAX_FLAGS = 4;
 
     public TileEntityFlagPole(){
+
+        flags = new ArrayList<ItemStack>(MAX_FLAGS);
+
     }
 
 
+    @SideOnly(Side.CLIENT)
+    public AxisAlignedBB getRenderBoundingBox()
+    {
+        return  AxisAlignedBB.getAABBPool().getAABB(
+                xCoord - flags.size(),
+                yCoord,
+                zCoord,
+                xCoord + flags.size()+1,
+                yCoord + 1, zCoord + 1);
+    }
 
     @Override
     public void readFromNBT(NBTTagCompound par1NBTTagCompound) {
-        System.out.println("Read NBT");
         super.readFromNBT(par1NBTTagCompound);
 
+        flags = new ArrayList<ItemStack>(MAX_FLAGS);
+
+        for(int i = 0; i < MAX_FLAGS; i++){
+            if(par1NBTTagCompound.hasKey("flag"+i)){
+                flags.add(ItemStack.loadItemStackFromNBT(par1NBTTagCompound.getCompoundTag("flag"+i)));
+            }
+        }
+
+        //TODO Remove this, its for backwards compatibiulity
         if(par1NBTTagCompound.hasKey("flag")){
-            flag = ItemStack.loadItemStackFromNBT((NBTTagCompound) par1NBTTagCompound.getTag("flag"));
-        }else{
-            flag = null;
+            flags.add(ItemStack.loadItemStackFromNBT(par1NBTTagCompound.getCompoundTag("flag")));
         }
     }
 
     @Override
     public void writeToNBT(NBTTagCompound par1NBTTagCompound) {
         super.writeToNBT(par1NBTTagCompound);
-        System.out.println("Write NBT");
-        System.out.println(flag);
 
-        if(flag != null){
+        for(int i = 0; i < flags.size(); i++){
             NBTTagCompound flagCompound = new NBTTagCompound();
-            flag.writeToNBT(flagCompound);
-
-            par1NBTTagCompound.setCompoundTag("flag", flagCompound);
+            flags.get(i).writeToNBT(flagCompound);
+            par1NBTTagCompound.setCompoundTag("flag"+i, flagCompound);
         }
-
-        System.out.println(par1NBTTagCompound.hasKey("flag"));
-
     }
 
 
 
     @Override
     public Packet getDescriptionPacket() {
-        return FlagTileEntityDescripPacket.generatePacket(xCoord, yCoord, zCoord, flag);
+        return FlagTileEntityDescripPacket.generatePacket(xCoord, yCoord, zCoord, flags);
     }
 
     public boolean hasFlag(){
-        return flag !=  null;
+        return flags.size() != 0;
     }
 
-    public void setFlag(ItemStack flag) {
-        System.out.println("SET FLAG");
-        this.flag = flag;
+    public void clearFlags() {
+        flags.clear();
     }
 
-    public ItemStack getFlag() {
+    public boolean setFlag(ItemStack flag) {
+        if(flags.size() == MAX_FLAGS){
+            return false;
+        }else{
+            this.flags.add(flag);
+            return true;
+        }
+    }
+
+    public ArrayList<ItemStack> getFlags() {
+        return flags;
+    }
+
+    public boolean shouldRemoveFlag(EntityPlayer player){
+        return (flags.size() <= MAX_FLAGS & !player.capabilities.isCreativeMode);
+    }
+
+    public ItemStack popFlag(){
+        ItemStack flag = flags.get(flags.size()-1);
+        flags.remove(flags.size()-1);
         return flag;
     }
 }

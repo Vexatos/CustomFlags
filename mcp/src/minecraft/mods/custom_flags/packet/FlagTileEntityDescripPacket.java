@@ -10,6 +10,8 @@ import net.minecraft.network.packet.Packet250CustomPayload;
 import net.minecraft.tileentity.TileEntity;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Aaron on 3/08/13.
@@ -18,7 +20,7 @@ public class FlagTileEntityDescripPacket extends AbstractPacket{
 
     public static final String channel = "CF.FlagDes";
 
-    public static Packet250CustomPayload generatePacket(int x, int y, int z, ItemStack stack){
+    public static Packet250CustomPayload generatePacket(int x, int y, int z, List<ItemStack> flags){
 
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         DataOutputStream outputStream = new DataOutputStream(bos);
@@ -28,7 +30,14 @@ public class FlagTileEntityDescripPacket extends AbstractPacket{
             outputStream.writeInt(y);
             outputStream.writeInt(z);
 
-            Packet.writeItemStack(stack, outputStream);
+            System.out.println("Send "+((byte)flags.size()));
+
+            outputStream.writeByte(((byte) flags.size()));
+
+            for(ItemStack f:flags){
+                Packet.writeItemStack(f, outputStream);
+            }
+
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -44,15 +53,19 @@ public class FlagTileEntityDescripPacket extends AbstractPacket{
         int x = 0;
         int y = 0;
         int z = 0;
-        ItemStack stack = null;
+        int size = 0;
+        List<ItemStack> flags = new ArrayList<ItemStack>();
 
         try{
 
             x = inputStream.readInt();
             y = inputStream.readInt();
             z = inputStream.readInt();
+            size = inputStream.readByte();
 
-            stack = Packet.readItemStack(inputStream);
+            for(int i = 0; i < size; i++){
+                flags.add(Packet.readItemStack(inputStream));
+            }
 
         }catch (Exception e){
             e.printStackTrace();
@@ -60,7 +73,10 @@ public class FlagTileEntityDescripPacket extends AbstractPacket{
 
         TileEntity te = ((EntityPlayer)player).worldObj.getBlockTileEntity(x,y,z);
         if(te != null && te instanceof TileEntityFlagPole){
-            ((TileEntityFlagPole)te).setFlag(stack);
+            ((TileEntityFlagPole) te).clearFlags();
+            for(ItemStack flag:flags){
+                ((TileEntityFlagPole)te).setFlag(flag);
+            }
         }
     }
 }
