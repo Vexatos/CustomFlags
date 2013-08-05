@@ -19,6 +19,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.Configuration;
 
+import javax.swing.*;
+
 import static cpw.mods.fml.common.registry.GameRegistry.*;
 
 //import static cpw.mods.fml.common.Mod.*;
@@ -46,6 +48,7 @@ public class CustomFlags {
 
     public static int CAHCE_SIZE;
     public static int period;
+    public static int flag_sections;
 
     public static BlockFlagPole blockFlagPole;
     public static ItemFlag itemFlag;
@@ -59,8 +62,8 @@ public class CustomFlags {
 
         CAHCE_SIZE = config.get(Configuration.CATEGORY_GENERAL, "Cache Size", 25).getInt(25);
 
-        blockFlagPole = new BlockFlagPole(config.getBlock("Flag Pole", 2700).getInt(2700));
-        itemFlag = new ItemFlag(config.getItem(Configuration.CATEGORY_GENERAL, "Flag", 24532).getInt());
+        blockFlagPole = new BlockFlagPole(config.getBlock("Flag Pole Id", 2700).getInt(2700));
+        itemFlag = new ItemFlag(config.getItem("Flag Id", 24532).getInt());
 
         registerBlock(blockFlagPole, "flagpole");
         registerTileEntity(TileEntityFlagPole.class, "flagpole_tile");
@@ -74,6 +77,18 @@ public class CustomFlags {
         period = ((10-config.get(Configuration.CATEGORY_GENERAL, "Flag Speed", 3).getInt(3)) * 100) + 250;
         period = Math.max(period, 250);
         period = Math.min(period, 1250);
+
+        if(config.get(Configuration.CATEGORY_GENERAL, "Use System L&F", true).getBoolean(true)){
+            try {
+                // Set System L&F
+                UIManager.setLookAndFeel(
+                        UIManager.getSystemLookAndFeelClassName());
+            }
+            catch (Exception e) {e.printStackTrace();}
+        }
+
+        flag_sections = config.get(Configuration.CATEGORY_GENERAL, "Animation Detail Level", 16).getInt(16);
+        flag_sections = Math.max(0, flag_sections);
 
 
         addRecipe(new FlagRecipie());

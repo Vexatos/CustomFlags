@@ -44,8 +44,6 @@ public class MapTextureReplacer implements ITickHandler {
             ItemStack current = player.getCurrentEquippedItem();
 
             if(current.getItem() instanceof ItemFlag){
-
-                System.out.println("Replace");
                 setFinalStatic(ItemRenderer.class, 1, blank);
             }else{
                 setFinalStatic(ItemRenderer.class, 1, defaultMap);

@@ -74,7 +74,7 @@ public class GuiFlagDesigner extends GuiScreen{
         this.player = player;
 
         fc = new JFileChooser();
-        fc.addChoosableFileFilter(new ImageFilter());
+        fc.setFileFilter(new ImageFilter());
         fc.setAcceptAllFileFilterUsed(false);
         fc.setFileView(new ImageFileViewer());
 
@@ -94,8 +94,6 @@ public class GuiFlagDesigner extends GuiScreen{
 
     @Override
     public void initGui() {
-
-        System.out.println(StatCollector.translateToLocal("gui.splitter.number.x.sections"));
         super.initGui();
 
         this.buttonList.clear();

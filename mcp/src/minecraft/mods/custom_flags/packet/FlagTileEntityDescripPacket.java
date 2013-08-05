@@ -33,8 +33,6 @@ public class FlagTileEntityDescripPacket extends AbstractPacket{
             outputStream.writeInt(y);
             outputStream.writeInt(z);
 
-            System.out.println("Send "+((byte)flags.size()));
-
             outputStream.writeByte(((byte) flags.size()));
 
             for(ItemStack f:flags){

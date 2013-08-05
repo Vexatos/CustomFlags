@@ -1,5 +1,7 @@
 package mods.custom_flags.utils;
 
+import net.minecraft.item.ItemDye;
+
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
@@ -20,7 +22,11 @@ public class ImageData {
 
 
     static{
-        defaultImage = new ImageData(0xFFFF0000, 0xFFFFFF00, 0xFF00FF00, 0xFF0000FF);
+        defaultImage = new ImageData(
+                ItemDye.dyeColors[0]|0xFF000000,
+                ItemDye.dyeColors[15]|0xFF000000,
+                ItemDye.dyeColors[15]|0xFF000000,
+                ItemDye.dyeColors[0]|0xFF000000);
         defaultData = defaultImage.getByteArray();
     }
 

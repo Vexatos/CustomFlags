@@ -26,7 +26,7 @@
     </target>
 
     <target name="compile-win" if="is_windows">
-        <exec dir="${mcp.dir}" executable="sh">
+        <exec dir="${mcp.dir}" executable="cmd">
             <arg line="/c recompile.bat"/>
         </exec>
     </target>
@@ -68,8 +68,8 @@
     </target>
 
     <target name="reob-win" if="is_windows">
-        <exec dir="${mcp.dir}" executable="sh">
-            <arg line="/c reobfuscate_srg.cbat"/>
+        <exec dir="${mcp.dir}" executable="cmd">
+            <arg line="/c reobfuscate_srg.bat"/>
         </exec>
     </target>
 

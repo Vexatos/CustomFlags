@@ -23,11 +23,8 @@ import java.util.List;
  */
 public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
 
-
-    public static final int sections = 32;
-
-    public static double getZLevel(float x, float size){
-        return Math.pow(x, 0.5/(size/5)) * Math.sin(Math.PI * ( -x/size * 3 + ((float)(System.currentTimeMillis()% CustomFlags.period)) / (0.5F*(float)CustomFlags.period))) / 4;
+    public static double getZLevel(float x, float size, long time){
+        return Math.pow(x, 0.5/(size/5)) * Math.sin(Math.PI * ( -x/size * 3 + ((float)(time% CustomFlags.period)) / (0.5F*(float)CustomFlags.period))) / 4;
     }
 
     @Override
@@ -108,24 +105,40 @@ public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
                     ImageCahce.setTexture(flag);
 
 
-
-                    for(int i = 0; i < 8; i++){
+                    if(CustomFlags.flag_sections == 0){
                         tess.startDrawingQuads();
+                        tess.addVertexWithUV(7F / 16F- flagIndex, 0, 8F / 16F,   0, 0.999);
+                        tess.addVertexWithUV(7F /16F- flagIndex - 1, 0, 8F / 16F, 1.0025, 0.999);
+                        tess.addVertexWithUV(7F /16F- flagIndex - 1, 1, 8F / 16F, 1.0025, 0.001);
+                        tess.addVertexWithUV(7F / 16F- flagIndex, 1, 8F / 16F,  0, 0.001);
 
-                        double z1 = getZLevel((float)(i) / 8F + flagIndex, 3);
-                        double z2 = getZLevel((float)(i+1) / 8F + flagIndex, 3);
-
-                        tess.addVertexWithUV(7F / 16F-(float)(i) / 8F - flagIndex, 0, 8F / 16F+z1,   (float)(i) / 8F, 0.999);
-                        tess.addVertexWithUV(7F /16F- (float)(i+1) / 8F- flagIndex, 0, 8F / 16F+z2, (float)(i+1) / 8F, 0.999);
-                        tess.addVertexWithUV(7F /16F-(float)(i+1) / 8F- flagIndex, 1, 8F / 16F+z2,    (float)(i+1) / 8F, 0.001);
-                        tess.addVertexWithUV(7F / 16F- (float)(i) / 8F- flagIndex, 1, 8F / 16F+z1,  (float)(i) / 8F, 0.001);
-
-                        tess.addVertexWithUV(7F / 16F- (float)(i) / 8F - flagIndex, 1, 8F / 16F+z1,  (float)(i) / 8F, 0.001);
-                        tess.addVertexWithUV(7F /16F-(float)(i+1) / 8F - flagIndex, 1, 8F / 16F+z2,    (float)(i+1) / 8F, 0.001);
-                        tess.addVertexWithUV(7F /16F- (float)(i+1) / 8F - flagIndex, 0, 8F / 16F+z2, (float)(i+1) / 8F, 0.999);
-                        tess.addVertexWithUV(7F / 16F-(float)(i) / 8F - flagIndex, 0, 8F / 16F+z1,   (float)(i) / 8F, 0.999);
+                        tess.addVertexWithUV(7F / 16F- flagIndex, 1, 8F / 16F,  0, 0.001);
+                        tess.addVertexWithUV(7F /16F- flagIndex - 1, 1, 8F / 16F, 1.0025, 0.001);
+                        tess.addVertexWithUV(7F /16F- flagIndex - 1, 0, 8F / 16F, 1.0025, 0.999);
+                        tess.addVertexWithUV(7F / 16F- flagIndex, 0, 8F / 16F,   0, 0.999);
 
                         tess.draw();
+
+                    }else{
+                        long time = System.currentTimeMillis();
+                        for(int i = 0; i < CustomFlags.flag_sections; i++){
+                            tess.startDrawingQuads();
+
+                            double z1 = getZLevel((float)(i) / (float)CustomFlags.flag_sections + flagIndex, 3, time);
+                            double z2 = getZLevel((float)(i+1) / (float)CustomFlags.flag_sections + flagIndex, 3, time);
+
+                            tess.addVertexWithUV(7F / 16F-(float)(i) / (float)CustomFlags.flag_sections - flagIndex, 0, 8F / 16F+z1,   (float)(i) / (float)CustomFlags.flag_sections, 0.999);
+                            tess.addVertexWithUV(7F /16F- (float)(i+1) / (float)CustomFlags.flag_sections- flagIndex, 0, 8F / 16F+z2, (float)(i+1) / (float)CustomFlags.flag_sections, 0.999);
+                            tess.addVertexWithUV(7F /16F-(float)(i+1) / (float)CustomFlags.flag_sections- flagIndex, 1.0025, 8F / 16F+z2,    (float)(i+1) / (float)CustomFlags.flag_sections, 0.001);
+                            tess.addVertexWithUV(7F / 16F- (float)(i) / (float)CustomFlags.flag_sections- flagIndex, 1.0025, 8F / 16F+z1,  (float)(i) / (float)CustomFlags.flag_sections, 0.001);
+
+                            tess.addVertexWithUV(7F / 16F- (float)(i) / (float)CustomFlags.flag_sections - flagIndex, 1.0025, 8F / 16F+z1,  (float)(i) / (float)CustomFlags.flag_sections, 0.001);
+                            tess.addVertexWithUV(7F /16F-(float)(i+1) / (float)CustomFlags.flag_sections - flagIndex, 1.0025, 8F / 16F+z2,    (float)(i+1) / (float)CustomFlags.flag_sections, 0.001);
+                            tess.addVertexWithUV(7F /16F- (float)(i+1) / (float)CustomFlags.flag_sections - flagIndex, 0, 8F / 16F+z2, (float)(i+1) / (float)CustomFlags.flag_sections, 0.999);
+                            tess.addVertexWithUV(7F / 16F-(float)(i) / (float)CustomFlags.flag_sections - flagIndex, 0, 8F / 16F+z1,   (float)(i) / (float)CustomFlags.flag_sections, 0.999);
+
+                            tess.draw();
+                        }
                     }
                 }
                 GL11.glEnable(GL11.GL_LIGHTING);

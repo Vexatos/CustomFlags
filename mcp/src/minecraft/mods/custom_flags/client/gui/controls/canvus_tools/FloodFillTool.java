@@ -48,8 +48,6 @@ public class FloodFillTool implements ITool {
 
         if (x > -1 &&  x < ImageData.IMAGE_RES && y > -1 && y < ImageData.IMAGE_RES){
 
-            System.out.println(x +", "+y );
-
             if(pixals[x+ImageData.IMAGE_RES*y] == targetColour){
                 pixals[x+ImageData.IMAGE_RES*y] = newColour;
 
