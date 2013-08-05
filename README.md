@@ -10,7 +10,7 @@ The mod revolves around 1 new item (Flag) and 1 new block (Flag pole)
 
 ###Flag poles###
 Flag poles are created by placing 3 sticks in a vertical line in the crafting recipie  
-[ ][S][ ]
+[ ][S][ ]  
 [ ][S][ ] = Flag Pole  
 [ ][S][ ]  
 
