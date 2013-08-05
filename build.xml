@@ -36,21 +36,40 @@
         <antcall target="reob-unix"/>
         <antcall target="reob-win"/>
 
-        <jar destfile="${dist.dir}/Custom Flags-${mod.version}.jar">
+        <echo file="mcmod.info" append="false">[
+    {
+        "modid": "${mod.id}",
+        "name": "${mod.name}",
+        "description": "${mod.descrip}",
+        "version": "${mod.version}",
+        "mcversion": "${mcversion}",
+        "logoFile": "${logoFile}",
+        "url": "${url}",
+        "updateUrl": "${updateUrl}",
+        "authors": ${authors},
+        "credits": "${credits}",
+        "parent": "${parent}",
+        "screenshots": ${screenshots},
+        "dependencies": ${dependencies}
+    }
+]
+        </echo>
+        <jar destfile="${dist.dir}/[${mcversion}] ${mod.name} - ${mod.version}.jar">
             <fileset dir="${reob.dir}" includes="mods/**"/>
             <fileset dir="${asset.dir}" includes="assets/**"/>
+            <fileset dir="." includes="mcmod.info"/>
         </jar>
     </target>
 
     <target name="reob-unix" unless="is_windows">
         <exec dir="${mcp.dir}" executable="sh">
-            <arg line="reobfuscate.sh"/>
+            <arg line="reobfuscate_srg.sh"/>
         </exec>
     </target>
 
     <target name="reob-win" if="is_windows">
         <exec dir="${mcp.dir}" executable="sh">
-            <arg line="/c reobfuscate.cbat"/>
+            <arg line="/c reobfuscate_srg.cbat"/>
         </exec>
     </target>
 
