@@ -58,6 +58,8 @@
             <fileset dir="${reob.dir}" includes="mods/**"/>
             <fileset dir="${asset.dir}" includes="assets/**"/>
             <fileset dir="." includes="mcmod.info"/>
+            <fileset dir="." includes="LICENSE"/>
+            <fileset dir="." includes="README.md"/>
         </jar>
     </target>
 

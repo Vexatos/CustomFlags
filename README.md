@@ -29,7 +29,6 @@ Each flag pole block can have a maximum of 4 flags attached to it. Each flag pla
 
 Flags attached to a flag pole will blow in the wind. Due to the fact minecraft wind only blows in the north direction, flags will ALWAYS blow north. The speed of the animation can be changed in the config file, (valid between 1 & 10) higher numbers will speed up the animation, lower nmumbers will slow it down.
 
-
 ###Flag Designer###
 Right clicking while holding a flag (with no usable block in front of the player) will open the flag designer gui. The GUI supports a 32x32 12 bit ARGB image. A colour chooser is included on the right of the screen and drawing tools on the left The tools include
 * **Pen Tool:** Draws a single pixel at the current mouse location when the left mouse button is down
