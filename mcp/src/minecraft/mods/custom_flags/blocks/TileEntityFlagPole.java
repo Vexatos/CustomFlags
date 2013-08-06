@@ -73,7 +73,7 @@ public class TileEntityFlagPole extends TileEntity {
 
     @Override
     public Packet getDescriptionPacket() {
-        return FlagTileEntityDescripPacket.generatePacket(xCoord, yCoord, zCoord, (byte)blockMetadata, flags);
+        return FlagTileEntityDescripPacket.generatePacket(xCoord, yCoord, zCoord, flags);
     }
 
     public boolean hasFlag(){
