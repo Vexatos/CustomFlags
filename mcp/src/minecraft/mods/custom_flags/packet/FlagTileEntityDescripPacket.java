@@ -62,6 +62,7 @@ public class FlagTileEntityDescripPacket extends AbstractPacket{
             x = inputStream.readInt();
             y = inputStream.readInt();
             z = inputStream.readInt();
+
             size = inputStream.readByte();
 
             for(int i = 0; i < size; i++){

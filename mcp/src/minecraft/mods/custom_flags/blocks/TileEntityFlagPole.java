@@ -25,9 +25,7 @@ public class TileEntityFlagPole extends TileEntity {
     private static final int MAX_FLAGS = 4;
 
     public TileEntityFlagPole(){
-
         flags = new ArrayList<ItemStack>(MAX_FLAGS);
-
     }
 
 
@@ -75,7 +73,7 @@ public class TileEntityFlagPole extends TileEntity {
 
     @Override
     public Packet getDescriptionPacket() {
-        return FlagTileEntityDescripPacket.generatePacket(xCoord, yCoord, zCoord, flags);
+        return FlagTileEntityDescripPacket.generatePacket(xCoord, yCoord, zCoord, (byte)blockMetadata, flags);
     }
 
     public boolean hasFlag(){

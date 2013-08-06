@@ -7,7 +7,9 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import mods.custom_flags.blocks.BlockFlagPole;
+import mods.custom_flags.blocks.ItemBlockFlagPole;
 import mods.custom_flags.blocks.TileEntityFlagPole;
 import mods.custom_flags.items.FlagRecipie;
 import mods.custom_flags.items.ItemFlag;
@@ -15,7 +17,10 @@ import mods.custom_flags.packet.CustomFlagsPacketHandeler;
 import mods.custom_flags.packet.FlagTileEntityDescripPacket;
 import mods.custom_flags.packet.UpdateHeldFlagImagePacket;
 import mods.custom_flags.utils.CustomFlagsGuiHandeler;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockWall;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemMultiTextureTile;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.Configuration;
 
@@ -67,12 +72,23 @@ public class CustomFlags {
 
         registerBlock(blockFlagPole, "flagpole");
         registerTileEntity(TileEntityFlagPole.class, "flagpole_tile");
+        Item.itemsList[blockFlagPole.blockID] = new ItemBlockFlagPole(blockFlagPole.blockID - 256);
 
-        addRecipe(new ItemStack(blockFlagPole), new Object[]{
-                "S",
-                "S",
-                "S",
-                Character.valueOf('S'), Item.stick});
+        for(int i = 0; i < 4; i++){
+            GameRegistry.addRecipe(new ItemStack(Item.itemsList[blockFlagPole.blockID], 0, i),
+                    new Object[]{
+                            "W",
+                            "W",
+                            "W", Character.valueOf('W'), new ItemStack(Block.planks, 1, i)
+                    });
+        }
+        GameRegistry.addRecipe(new ItemStack(Item.itemsList[blockFlagPole.blockID], 0, 5),
+                new Object[]{
+                        "I",
+                        "I",
+                        "I", Character.valueOf('I'), Item.ingotIron
+                });
+
 
         period = ((10-config.get(Configuration.CATEGORY_GENERAL, "Flag Speed", 3).getInt(3)) * 100) + 250;
         period = Math.max(period, 250);

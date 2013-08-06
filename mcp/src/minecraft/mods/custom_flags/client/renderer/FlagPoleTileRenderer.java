@@ -33,7 +33,10 @@ public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
 
         if(tileentity instanceof TileEntityFlagPole){
             Minecraft.getMinecraft().renderEngine.func_110577_a(TextureMap.field_110575_b);
-            Icon icon = Block.wood.getIcon(2,0);
+            int type = tileentity.getBlockMetadata();
+
+            Icon icon = CustomFlags.blockFlagPole.getIcon(2, type);
+
 
             GL11.glPushMatrix();
 
@@ -44,36 +47,36 @@ public class FlagPoleTileRenderer extends TileEntitySpecialRenderer {
             Tessellator tess = Tessellator.instance;
 
             tess.startDrawingQuads();
-            tess.addVertexWithUV(7F / 16F, 0, 9F / 16F, icon.getInterpolatedU(0), icon.getInterpolatedV(0));
-            tess.addVertexWithUV(9F / 16F, 0, 9F / 16F, icon.getInterpolatedU(4), icon.getInterpolatedV(0));
-            tess.addVertexWithUV(9F / 16F, 1, 9F / 16F, icon.getInterpolatedU(4), icon.getInterpolatedV(16));
-            tess.addVertexWithUV(7F / 16F, 1, 9F / 16F, icon.getInterpolatedU(0), icon.getInterpolatedV(16));
+            tess.addVertexWithUV(7F / 16F, 0, 9F / 16F, icon.getInterpolatedU(CustomFlags.blockFlagPole.getTextDim(type, 0)), icon.getInterpolatedV(CustomFlags.blockFlagPole.getTextDim(type, 0)));
+            tess.addVertexWithUV(9F / 16F, 0, 9F / 16F, icon.getInterpolatedU(CustomFlags.blockFlagPole.getTextDim(type, 1)), icon.getInterpolatedV(CustomFlags.blockFlagPole.getTextDim(type, 0)));
+            tess.addVertexWithUV(9F / 16F, 1, 9F / 16F, icon.getInterpolatedU(CustomFlags.blockFlagPole.getTextDim(type, 1)), icon.getInterpolatedV(CustomFlags.blockFlagPole.getTextDim(type, 4)));
+            tess.addVertexWithUV(7F / 16F, 1, 9F / 16F, icon.getInterpolatedU(CustomFlags.blockFlagPole.getTextDim(type, 0)), icon.getInterpolatedV(CustomFlags.blockFlagPole.getTextDim(type, 4)));
             tess.draw();
 
             tess.startDrawingQuads();
-            tess.addVertexWithUV(9F / 16F, 0, 9F / 16F, icon.getInterpolatedU(4), icon.getInterpolatedV(0));
-            tess.addVertexWithUV(9F / 16F, 0, 7F / 16F, icon.getInterpolatedU(8), icon.getInterpolatedV(0));
-            tess.addVertexWithUV(9F / 16F, 1, 7F / 16F, icon.getInterpolatedU(8), icon.getInterpolatedV(16));
-            tess.addVertexWithUV(9F / 16F, 1, 9F / 16F, icon.getInterpolatedU(4), icon.getInterpolatedV(16));
-            tess.draw();
-
-
-            tess.startDrawingQuads();
-            tess.addVertexWithUV(9F / 16F, 0, 7F / 16F, icon.getInterpolatedU(8), icon.getInterpolatedV(0));
-            tess.addVertexWithUV(7F / 16F, 0, 7F / 16F, icon.getInterpolatedU(12), icon.getInterpolatedV(0));
-            tess.addVertexWithUV(7F / 16F, 1, 7F / 16F, icon.getInterpolatedU(12), icon.getInterpolatedV(16));
-            tess.addVertexWithUV(9F / 16F, 1, 7F / 16F, icon.getInterpolatedU(8), icon.getInterpolatedV(16));
+            tess.addVertexWithUV(9F / 16F, 0, 9F / 16F, icon.getInterpolatedU(CustomFlags.blockFlagPole.getTextDim(type, 1)), icon.getInterpolatedV(CustomFlags.blockFlagPole.getTextDim(type, 0)));
+            tess.addVertexWithUV(9F / 16F, 0, 7F / 16F, icon.getInterpolatedU(CustomFlags.blockFlagPole.getTextDim(type, 2)), icon.getInterpolatedV(CustomFlags.blockFlagPole.getTextDim(type, 0)));
+            tess.addVertexWithUV(9F / 16F, 1, 7F / 16F, icon.getInterpolatedU(CustomFlags.blockFlagPole.getTextDim(type, 2)), icon.getInterpolatedV(CustomFlags.blockFlagPole.getTextDim(type, 4)));
+            tess.addVertexWithUV(9F / 16F, 1, 9F / 16F, icon.getInterpolatedU(CustomFlags.blockFlagPole.getTextDim(type, 1)),icon.getInterpolatedV(CustomFlags.blockFlagPole.getTextDim(type, 4)));
             tess.draw();
 
 
             tess.startDrawingQuads();
-            tess.addVertexWithUV(7F / 16F, 0, 7F / 16F, icon.getInterpolatedU(12), icon.getInterpolatedV(0));
-            tess.addVertexWithUV(7F / 16F, 0, 9F / 16F, icon.getInterpolatedU(16), icon.getInterpolatedV(0));
-            tess.addVertexWithUV(7F / 16F, 1, 9F / 16F, icon.getInterpolatedU(16), icon.getInterpolatedV(16));
-            tess.addVertexWithUV(7F / 16F, 1, 7F / 16F, icon.getInterpolatedU(12), icon.getInterpolatedV(16));
+            tess.addVertexWithUV(9F / 16F, 0, 7F / 16F, icon.getInterpolatedU(CustomFlags.blockFlagPole.getTextDim(type, 2)), icon.getInterpolatedV(CustomFlags.blockFlagPole.getTextDim(type, 0)));
+            tess.addVertexWithUV(7F / 16F, 0, 7F / 16F, icon.getInterpolatedU(CustomFlags.blockFlagPole.getTextDim(type, 3)),icon.getInterpolatedV(CustomFlags.blockFlagPole.getTextDim(type, 0)));
+            tess.addVertexWithUV(7F / 16F, 1, 7F / 16F, icon.getInterpolatedU(CustomFlags.blockFlagPole.getTextDim(type, 3)), icon.getInterpolatedV(CustomFlags.blockFlagPole.getTextDim(type, 4)));
+            tess.addVertexWithUV(9F / 16F, 1, 7F / 16F, icon.getInterpolatedU(CustomFlags.blockFlagPole.getTextDim(type, 2)), icon.getInterpolatedV(CustomFlags.blockFlagPole.getTextDim(type, 4)));
             tess.draw();
 
-            icon = Block.wood.getIcon(0,0);
+
+            tess.startDrawingQuads();
+            tess.addVertexWithUV(7F / 16F, 0, 7F / 16F, icon.getInterpolatedU(CustomFlags.blockFlagPole.getTextDim(type, 3)), icon.getInterpolatedV(CustomFlags.blockFlagPole.getTextDim(type, 0)));
+            tess.addVertexWithUV(7F / 16F, 0, 9F / 16F, icon.getInterpolatedU(CustomFlags.blockFlagPole.getTextDim(type, 4)), icon.getInterpolatedV(CustomFlags.blockFlagPole.getTextDim(type, 0)));
+            tess.addVertexWithUV(7F / 16F, 1, 9F / 16F, icon.getInterpolatedU(CustomFlags.blockFlagPole.getTextDim(type, 4)), icon.getInterpolatedV(CustomFlags.blockFlagPole.getTextDim(type, 4)));
+            tess.addVertexWithUV(7F / 16F, 1, 7F / 16F, icon.getInterpolatedU(CustomFlags.blockFlagPole.getTextDim(type, 3)), icon.getInterpolatedV(CustomFlags.blockFlagPole.getTextDim(type, 4)));
+            tess.draw();
+
+            icon = CustomFlags.blockFlagPole.getIcon(0, type);
 
             tess.startDrawingQuads();
             tess.addVertexWithUV(7F / 16F, 0, 7F / 16F, icon.getInterpolatedU(6), icon.getInterpolatedV(6));

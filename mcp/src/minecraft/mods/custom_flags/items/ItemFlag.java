@@ -10,6 +10,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemMap;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.packet.Packet;
@@ -24,7 +25,7 @@ import java.util.List;
  * Time: 11:52 AM
  * TODO: Add discription
  */
-public class ItemFlag extends Item {
+public class ItemFlag extends ItemMap {
 
     public ItemFlag(int id) {
         super(id);

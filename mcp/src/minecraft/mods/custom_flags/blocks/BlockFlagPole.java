@@ -30,14 +30,43 @@ import java.util.List;
  */
 public class BlockFlagPole extends BlockContainer{
 
+    private static final float[] woodTexDims = new float[5];
+    private static final float[] ironTexDims = new float[5];
+    static{
+        woodTexDims[0] = 0F;
+        woodTexDims[1] = 4F;
+        woodTexDims[2] = 8F;
+        woodTexDims[3] = 12F;
+        woodTexDims[4] = 16F;
+
+        ironTexDims[0] = 1F;
+        ironTexDims[1] = 4.5F;
+        ironTexDims[2] = 8F;
+        ironTexDims[3] = 11.5F;
+        ironTexDims[4] = 15;
+    }
+
     public BlockFlagPole(int id) {
         super(id, Material.wood);
         this.setCreativeTab(CreativeTabs.tabDecorations);
 
         this.setUnlocalizedName("custom_flags:flagpole");
-
-        setBlockBounds(6F/16F, 0, 6F/16F, 10F/16F, 1,  10F/16F);
+        this.setBlockBounds(6F/16F, 0, 6F/16F, 10F/16F, 1,  10F/16F);
     }
+
+    @Override
+    public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List) {
+        for(int i = 0; i < 5; i++){
+            par3List.add(new ItemStack(par1, 1, i));
+        }
+
+    }
+
+    public int damageDropped(int par1)
+    {
+        return par1 % 5;
+    }
+
 
     @Override
     public void registerIcons(IconRegister par1IconRegister) {
@@ -90,6 +119,14 @@ public class BlockFlagPole extends BlockContainer{
         return super.onBlockActivated(world, x, y, z, par5EntityPlayer, par6, par7, par8, par9);
     }
 
+    public float getTextDim(int metadata, int section){
+        if(metadata % 5 == 4){
+            return ironTexDims[section];
+        }else{
+            return woodTexDims[section];
+        }
+    }
+
     @Override
     public int getRenderType() {
         return -1;
@@ -105,6 +142,8 @@ public class BlockFlagPole extends BlockContainer{
         return false;
     }
 
+
+
     @Override
     public TileEntity createNewTileEntity(World world) {
         return new TileEntityFlagPole();
@@ -112,7 +151,14 @@ public class BlockFlagPole extends BlockContainer{
 
     @Override
     public Icon getIcon(int par1, int par2) {
-        return Block.wood.getIcon(2,0);
+
+        if(par2 % 5 == 4)
+            return Block.blockIron.getIcon(par1,0);
+        else{
+            return Block.wood.getIcon(par1,par2 % 5);
+        }
+
+
     }
 
     @Override
