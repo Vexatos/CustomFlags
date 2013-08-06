@@ -103,13 +103,21 @@ public class FlagItemRenderer implements IItemRenderer {
 
                 GL11.glEnable(GL11.GL_BLEND);
                 GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-                tess = Tessellator.instance;
+
                 tess.startDrawingQuads();
-                tess.addVertexWithUV(1F/16F, 15F/16F, 0, 1, 0);
-                tess.addVertexWithUV(15F/16F, 15F/16F, 0, 0, 0);
-                tess.addVertexWithUV(15F/16F, 1F/16F, 0, 0, 1);
-                tess.addVertexWithUV(1F/16F, 1F/16F, 0, 1, 1);
+                tess.addVertexWithUV(1F/16F, 15F/16F, 0.001, 1, 0);
+                tess.addVertexWithUV(15F/16F, 15F/16F, 0.001, 0, 0);
+                tess.addVertexWithUV(15F/16F, 1F/16F, 0.001, 0, 1);
+                tess.addVertexWithUV(1F/16F, 1F/16F, 0.001, 1, 1);
                 tess.draw();
+
+                tess.startDrawingQuads();
+                tess.addVertexWithUV(1F/16F, 15F/16F, -0.001, 1, 0);
+                tess.addVertexWithUV(15F/16F, 15F/16F, -0.001, 0, 0);
+                tess.addVertexWithUV(15F/16F, 1F/16F, -0.001, 0, 1);
+                tess.addVertexWithUV(1F/16F, 1F/16F, -0.001, 1, 1);
+                tess.draw();
+
                 GL11.glDisable(GL11.GL_BLEND);
 
 
