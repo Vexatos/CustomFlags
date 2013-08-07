@@ -2,6 +2,7 @@ package mods.custom_flags.blocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import mods.custom_flags.CustomFlags;
 import mods.custom_flags.packet.FlagTileEntityDescripPacket;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -32,6 +33,25 @@ public class TileEntityFlagPole extends TileEntity {
     @SideOnly(Side.CLIENT)
     public AxisAlignedBB getRenderBoundingBox()
     {
+        int side = CustomFlags.blockFlagPole.getOrient(getBlockMetadata());
+        switch (side){
+            case 0:
+                return  AxisAlignedBB.getAABBPool().getAABB(
+                        xCoord - flags.size(),
+                        yCoord,
+                        zCoord,
+                        xCoord + flags.size()+1,
+                        yCoord + 1, zCoord + 1);
+            case 1:
+            case 2:
+                return  AxisAlignedBB.getAABBPool().getAABB(
+                        xCoord,
+                        yCoord - flags.size(),
+                        zCoord,
+                        xCoord+1,
+                        yCoord+ flags.size()+1, zCoord + 1);
+        }
+
         return  AxisAlignedBB.getAABBPool().getAABB(
                 xCoord - flags.size(),
                 yCoord,
@@ -50,11 +70,6 @@ public class TileEntityFlagPole extends TileEntity {
             if(par1NBTTagCompound.hasKey("flag"+i)){
                 flags.add(ItemStack.loadItemStackFromNBT(par1NBTTagCompound.getCompoundTag("flag"+i)));
             }
-        }
-
-        //TODO Remove this, its for backwards compatibiulity
-        if(par1NBTTagCompound.hasKey("flag")){
-            flags.add(ItemStack.loadItemStackFromNBT(par1NBTTagCompound.getCompoundTag("flag")));
         }
     }
 

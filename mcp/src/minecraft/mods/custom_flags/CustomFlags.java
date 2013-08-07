@@ -38,7 +38,7 @@ import static cpw.mods.fml.common.registry.GameRegistry.*;
  * The main entry class for the Custom Flags Mod
  */
 
-@Mod(modid = "custom_flags", name="Custom Flags", version = "dev 1")
+@Mod(modid = "custom_flags", name="Custom Flags", version = "1.1")
 @NetworkMod(packetHandler = CustomFlagsPacketHandeler.class, clientSideRequired = true,
         channels = {
         FlagTileEntityDescripPacket.channel, UpdateHeldFlagImagePacket.channel

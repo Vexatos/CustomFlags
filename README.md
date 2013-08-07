@@ -9,15 +9,15 @@ Custom adds flags to minecraft that allow full customisation by the user. Flags 
 The mod revolves around 1 new item (Flag) and 1 new block (Flag pole)
 
 ###Flag poles###
-Flag poles are created by placing 3 sticks in a vertical line in the crafting recipe
-[ ][S][ ]
-[ ][S][ ] = Flag Pole
-[ ][S][ ]
+Flag poles are created by placing 3 wooden planks or 3 iron ingots in a vertical line in the crafting recipe
+[ ][P][ ]
+[ ][P][ ] = Flag Pole
+[ ][P][ ]
 
 Flag poles can be placed on any block. All flag ploes will be placed vertically and they can be stacked
 
 ###Flags###
-Flags are created by arranging 4 wool blocks (of any colour) in a 2 x 2 square in the crafting grid
+Flags are created by arranging 4 wool blocks (of any colour) in a 2 x 2 square in the crafting grid  
 [ ][W][W]
 [ ][W][W] = Flag
 [ ][ ][ ]

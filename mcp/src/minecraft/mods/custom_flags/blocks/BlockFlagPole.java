@@ -9,6 +9,7 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -32,6 +33,7 @@ public class BlockFlagPole extends BlockContainer{
 
     private static final float[] woodTexDims = new float[5];
     private static final float[] ironTexDims = new float[5];
+    private static final AxisAlignedBB[] bounds = new AxisAlignedBB[3];
     static{
         woodTexDims[0] = 0F;
         woodTexDims[1] = 4F;
@@ -51,7 +53,6 @@ public class BlockFlagPole extends BlockContainer{
         this.setCreativeTab(CreativeTabs.tabDecorations);
 
         this.setUnlocalizedName("custom_flags:flagpole");
-        this.setBlockBounds(6F/16F, 0, 6F/16F, 10F/16F, 1,  10F/16F);
     }
 
     @Override
@@ -74,12 +75,21 @@ public class BlockFlagPole extends BlockContainer{
 
     @Override
     public AxisAlignedBB getSelectedBoundingBoxFromPool(World par1World, int par2, int par3, int par4) {
+        int side = getOrient(par1World.getBlockMetadata(par2, par3, par4));
+        switch(side){
+            case 0:
+                return AxisAlignedBB.getAABBPool().getAABB((double)par2 + 6F/16F, (double)par3 + 0, (double)par4 + 6F/16F, (double)par2 + 10F/16F, (double)par3 + 1, (double)par4 + 10F/16F);
+            case 1:
+                return AxisAlignedBB.getAABBPool().getAABB((double)par2 + 6F/16F, (double)par3 + 13F/16F, (double)par4 + 0, (double)par2 + 10F/16F, (double)par3 + 1, (double)par4 + 1);
+            case 2:
+                return AxisAlignedBB.getAABBPool().getAABB((double)par2 + 0, (double)par3 + 13F/16F, (double)par4 + 6F/16F, (double)par2 + 1, (double)par3 + 1, (double)par4 + 10F/16F);
+        }
         return super.getSelectedBoundingBoxFromPool(par1World, par2, par3, par4);
     }
 
     @Override
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4) {
-        return super.getCollisionBoundingBoxFromPool(par1World, par2, par3, par4);
+        return getSelectedBoundingBoxFromPool(par1World, par2, par3, par4);
     }
 
     @Override
@@ -157,8 +167,19 @@ public class BlockFlagPole extends BlockContainer{
         else{
             return Block.wood.getIcon(par1,par2 % 5);
         }
+    }
 
+    /**
+     * Called when a block is placed using its ItemBlock. Args: World, X, Y, Z, side, hitX, hitY, hitZ, block metadata
+     */
+    public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta)
+    {
+        meta = meta % 5 + (5 * (side / 2));
+        return meta;
+    }
 
+    public int getOrient(int meta){
+        return meta / 5;
     }
 
     @Override
