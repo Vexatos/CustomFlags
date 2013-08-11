@@ -26,6 +26,8 @@ import net.minecraftforge.common.Configuration;
 
 import javax.swing.*;
 
+import java.util.Locale;
+
 import static cpw.mods.fml.common.registry.GameRegistry.*;
 
 //import static cpw.mods.fml.common.Mod.*;
@@ -38,7 +40,7 @@ import static cpw.mods.fml.common.registry.GameRegistry.*;
  * The main entry class for the Custom Flags Mod
  */
 
-@Mod(modid = "custom_flags", name="Custom Flags", version = "1.1")
+@Mod(modid = "custom_flags", name="Custom Flags", version = "1.2")
 @NetworkMod(packetHandler = CustomFlagsPacketHandeler.class, clientSideRequired = true,
         channels = {
         FlagTileEntityDescripPacket.channel, UpdateHeldFlagImagePacket.channel
@@ -51,9 +53,13 @@ public class CustomFlags {
     @SidedProxy(clientSide = "mods.custom_flags.client.ClientProxy", serverSide = "mods.custom_flags.CommonProxy")
     public static CommonProxy PROXY;
 
+    public static boolean FcLoadImages;
+
     public static int CAHCE_SIZE;
     public static int period;
     public static int flag_sections;
+
+    public static int BUFFER_SIZE = 10;
 
     public static BlockFlagPole blockFlagPole;
     public static ItemFlag itemFlag;
@@ -75,14 +81,14 @@ public class CustomFlags {
         Item.itemsList[blockFlagPole.blockID] = new ItemBlockFlagPole(blockFlagPole.blockID - 256);
 
         for(int i = 0; i < 4; i++){
-            GameRegistry.addRecipe(new ItemStack(Item.itemsList[blockFlagPole.blockID], 0, i),
+            GameRegistry.addRecipe(new ItemStack(Item.itemsList[blockFlagPole.blockID], 1, i),
                     new Object[]{
                             "W",
                             "W",
-                            "W", Character.valueOf('W'), new ItemStack(Block.planks, 1, i)
+                            "W", Character.valueOf('W'), new ItemStack(Block.wood, 1, i)
                     });
         }
-        GameRegistry.addRecipe(new ItemStack(Item.itemsList[blockFlagPole.blockID], 0, 5),
+        GameRegistry.addRecipe(new ItemStack(Item.itemsList[blockFlagPole.blockID], 1, 4),
                 new Object[]{
                         "I",
                         "I",
@@ -94,6 +100,7 @@ public class CustomFlags {
         period = Math.max(period, 250);
         period = Math.min(period, 1250);
 
+        /*
         if(config.get(Configuration.CATEGORY_GENERAL, "Use System L&F", true).getBoolean(true)){
             try {
                 // Set System L&F
@@ -101,7 +108,9 @@ public class CustomFlags {
                         UIManager.getSystemLookAndFeelClassName());
             }
             catch (Exception e) {e.printStackTrace();}
-        }
+        }*/
+
+        FcLoadImages = config.get(Configuration.CATEGORY_GENERAL, "Load Images in FileChooser", true).getBoolean(true);
 
         flag_sections = config.get(Configuration.CATEGORY_GENERAL, "Animation Detail Level", 16).getInt(16);
         flag_sections = Math.max(0, flag_sections);

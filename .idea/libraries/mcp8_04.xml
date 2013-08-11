@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="mcp8.04">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Battlegear2/fml/mcp8.04.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

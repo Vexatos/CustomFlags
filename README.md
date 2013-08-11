@@ -17,7 +17,7 @@ Flag poles are created by placing 3 wooden planks or 3 iron ingots in a vertical
 Flag poles can be placed on any block. All flag ploes will be placed vertically and they can be stacked
 
 ###Flags###
-Flags are created by arranging 4 wool blocks (of any colour) in a 2 x 2 square in the crafting grid  
+Flags are created by arranging 4 wool blocks (of any colour) in a 2 x 2 square in the crafting grid
 [ ][W][W]
 [ ][W][W] = Flag
 [ ][ ][ ]

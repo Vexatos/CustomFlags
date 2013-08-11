@@ -119,7 +119,7 @@ public class ImageData {
     }
 
 
-    private int roundColour(int rgb){
+    public static int roundColour(int rgb){
         return (rgb & 0xF0F0F0F0) | 0x0F080808;
     }
 

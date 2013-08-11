@@ -7,11 +7,11 @@ import net.minecraft.client.renderer.texture.DynamicTexture;
  */
 public class EyeDropperTool implements ITool {
     @Override
-    public void drawOverlay(int x, int y, DynamicTexture current, DynamicTexture overlay, int rgb, boolean shift) {
+    public void drawOverlay(int x, int y, int[] pixelsCurrent, DynamicTexture overlay, int rgb, boolean shift) {
         overlay.func_110564_a();
     }
 
     @Override
-    public void draw(int x, int y, DynamicTexture current, int rgb, boolean shift) {
+    public void draw(int x, int y, int[] pixelsCurrent, int rgb, boolean shift) {
     }
 }

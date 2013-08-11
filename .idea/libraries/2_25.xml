@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="2.25">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Battlegear2/mcp/jars/libraries/net/sourceforge/argo/argo/2.25/argo-2.25-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Battlegear2/mcp/jars/libraries/net/sourceforge/argo/argo/2.25/argo-2.25.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

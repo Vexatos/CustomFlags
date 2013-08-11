@@ -12,9 +12,8 @@ public class PenTool implements ITool {
     private int last_y = ImageData.IMAGE_RES / 2;
 
     @Override
-    public void drawOverlay(int x, int y, DynamicTexture current, DynamicTexture overlay, int rgb, boolean shift) {
+    public void drawOverlay(int x, int y, int[] pixelsCurrent, DynamicTexture overlay, int rgb, boolean shift) {
         int[] pixelsOverlay = overlay.func_110565_c();
-        int[] pixelsCurrent = current.func_110565_c();
 
         for(int i = 0; i < pixelsOverlay.length; i++){
             pixelsOverlay[i] = pixelsCurrent[i];
@@ -32,9 +31,7 @@ public class PenTool implements ITool {
     }
 
     @Override
-    public void draw(int x, int y, DynamicTexture current, int rgb, boolean shift) {
-        int[] pixelsCurrent = current.func_110565_c();
-
+    public void draw(int x, int y, int[] pixelsCurrent, int rgb, boolean shift) {
         if(shift){
 
             drawLine(x, last_x, y, last_y, pixelsCurrent, rgb);

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="2.9.01">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Battlegear2/mcp/jars/libraries/org/lwjgl/lwjgl/lwjgl-platform/2.9.0/lwjgl-platform-2.9.0-natives-osx.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Battlegear2/mcp/jars/libraries/org/lwjgl/lwjgl/lwjgl-platform/2.9.0/lwjgl-platform-2.9.0-natives-linux.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Battlegear2/mcp/jars/libraries/org/lwjgl/lwjgl/lwjgl-platform/2.9.0/lwjgl-platform-2.9.0-natives-windows.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="14.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Battlegear2/mcp/jars/libraries/com/google/guava/guava/14.0/guava-14.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Battlegear2/mcp/jars/libraries/com/google/guava/guava/14.0/guava-14.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="2.2.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Battlegear2/mcp/jars/libraries/com/google/code/gson/gson/2.2.2/gson-2.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Battlegear2/mcp/jars/libraries/com/google/code/gson/gson/2.2.2/gson-2.2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

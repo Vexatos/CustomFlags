@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="temp">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Battlegear2/mcp/temp/minecraft_rg.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Battlegear2/mcp/temp/minecraft_exc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Battlegear2/mcp/temp/minecraft_ff_in.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -7,8 +7,8 @@ import net.minecraft.client.renderer.texture.DynamicTexture;
  */
 public interface ITool {
 
-    public void drawOverlay(int x, int y, DynamicTexture current, DynamicTexture overlay, int rgb, boolean shift);
+    public void drawOverlay(int x, int y, int[] pixals, DynamicTexture overlay, int rgb, boolean shift);
 
-    public void draw(int x, int y, DynamicTexture current, int rgb, boolean shift);
+    public void draw(int x, int y, int[] pixels, int rgb, boolean shift);
 
 }

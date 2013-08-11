@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="2.0.51">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Battlegear2/mcp/jars/libraries/net/java/jinput/jinput-platform/2.0.5/jinput-platform-2.0.5-natives-linux.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Battlegear2/mcp/jars/libraries/net/java/jinput/jinput-platform/2.0.5/jinput-platform-2.0.5-natives-osx.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Battlegear2/mcp/jars/libraries/net/java/jinput/jinput-platform/2.0.5/jinput-platform-2.0.5-natives-windows.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

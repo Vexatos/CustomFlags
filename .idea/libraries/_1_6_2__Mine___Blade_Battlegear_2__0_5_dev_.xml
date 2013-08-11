@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="[1.6.2] Mine &amp; Blade Battlegear 2 (0.5 dev)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Battlegear2/battlegear dist/[1.6.2] Mine &amp; Blade Battlegear 2 (0.5 dev).jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

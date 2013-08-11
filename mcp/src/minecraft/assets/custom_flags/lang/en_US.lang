@@ -1,6 +1,10 @@
 
 item.custom_flags:flag.name=Flag
-tile.custom_flags:flagpole.name=Flag Pole
+tile.custom_flags:flagpole.oak.name=Oak Flag Pole
+tile.custom_flags:flagpole.spruce.name=Spruce Flag Pole
+tile.custom_flags:flagpole.birch.name=Birch Flag Pole
+tile.custom_flags:flagpole.jungle.name=Jungle Flag Pole
+tile.custom_flags:flagpole.iron.name=Iron Flag Pole
 
 button.ok=OK
 button.cancel=Cancel
@@ -16,3 +20,4 @@ gui.splitter.y.section=Y Section
 tool.pen=Pen
 tool.flood=Flood Fill
 tool.dropper=Color Picker
+gui.threshold=Threshold

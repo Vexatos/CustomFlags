@@ -7,10 +7,12 @@ import net.minecraft.client.renderer.texture.DynamicTexture;
  * Created by Aaron on 3/08/13.
  */
 public class FloodFillTool implements ITool {
+
+    public int threshold = 0;
+
     @Override
-    public void drawOverlay(int x, int y, DynamicTexture current, DynamicTexture overlay, int rgb, boolean shift) {
+    public void drawOverlay(int x, int y, int[] pixelsCurrent, DynamicTexture overlay, int rgb, boolean shift) {
         int[] pixelsOverlay = overlay.func_110565_c();
-        int[] pixelsCurrent = current.func_110565_c();
 
         for(int i = 0; i < pixelsOverlay.length; i++){
             pixelsOverlay[i] = pixelsCurrent[i];
@@ -24,10 +26,9 @@ public class FloodFillTool implements ITool {
     }
 
     @Override
-    public void draw(int x, int y, DynamicTexture current, int rgb, boolean shift) {
+    public void draw(int x, int y, int[] pixelsCurrent, int rgb, boolean shift) {
 
         if (x > -1 &&  x < ImageData.IMAGE_RES && y > -1 && y < ImageData.IMAGE_RES){
-            int[] pixelsCurrent = current.func_110565_c();
             if(shift){
                 for(int i = 0; i < pixelsCurrent.length; i++){
                     pixelsCurrent[i] = rgb;
@@ -48,7 +49,7 @@ public class FloodFillTool implements ITool {
 
         if (x > -1 &&  x < ImageData.IMAGE_RES && y > -1 && y < ImageData.IMAGE_RES){
 
-            if(pixals[x+ImageData.IMAGE_RES*y] == targetColour){
+            if(isSame(pixals[x+ImageData.IMAGE_RES*y], targetColour)){
                 pixals[x+ImageData.IMAGE_RES*y] = newColour;
 
                 floodFill(x+1, y, pixals, targetColour, newColour);
@@ -58,5 +59,10 @@ public class FloodFillTool implements ITool {
             }
 
         }
+    }
+
+
+    private boolean isSame(int rgb1, int rgb2){
+        return rgb1 == rgb2;
     }
 }

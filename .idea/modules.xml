@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Battlegear2/Battlegear2.iml" filepath="$PROJECT_DIR$/../Battlegear2/Battlegear2.iml" />
       <module fileurl="file://$PROJECT_DIR$/CustomFlags.iml" filepath="$PROJECT_DIR$/CustomFlags.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Battlegear2/battlegear mod src/battlegear mod src.iml" filepath="$PROJECT_DIR$/../Battlegear2/battlegear mod src/battlegear mod src.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Battlegear2/fml/conf/conf1.iml" filepath="$PROJECT_DIR$/../Battlegear2/fml/conf/conf1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Battlegear2/fml/fml.iml" filepath="$PROJECT_DIR$/../Battlegear2/fml/fml.iml" />
     </modules>
   </component>
 </project>

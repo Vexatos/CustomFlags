@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="python271">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Battlegear2/fml/python/python27.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
