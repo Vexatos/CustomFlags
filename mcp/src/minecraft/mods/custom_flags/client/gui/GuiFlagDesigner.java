@@ -5,40 +5,34 @@ import mods.custom_flags.CustomFlags;
 import mods.custom_flags.client.gui.controls.GuiColourPicker;
 import mods.custom_flags.client.gui.controls.GuiSliderAlt;
 import mods.custom_flags.client.gui.controls.GuiToggleButton;
-import mods.custom_flags.client.gui.controls.canvus_tools.EyeDropperTool;
-import mods.custom_flags.client.gui.controls.canvus_tools.FloodFillTool;
-import mods.custom_flags.client.gui.controls.canvus_tools.ITool;
-import mods.custom_flags.client.gui.controls.canvus_tools.PenTool;
+import mods.custom_flags.client.gui.controls.canvus_tools.*;
 import mods.custom_flags.items.ItemFlag;
 import mods.custom_flags.packet.UpdateHeldFlagImagePacket;
 import mods.custom_flags.utils.ImageData;
 import mods.custom_flags.utils.Utils;
 import mods.custom_flags.utils.swing.ImageFileViewer;
 import mods.custom_flags.utils.swing.ImageFilter;
+import mods.custom_flags.utils.swing.ImagePreviewPanel;
 import mods.custom_flags.utils.swing.ImageSplitDialog;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.gui.GuiSlider;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.client.renderer.texture.TextureUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.launchwrapper.Launch;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.input.Cursor;
-import org.lwjgl.util.Display;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.Console;
 import java.io.File;
 import java.nio.IntBuffer;
 import java.util.Arrays;
@@ -62,10 +56,6 @@ public class GuiFlagDesigner extends GuiScreen{
     private static final int SLIDER = 5;
     private int guiLeft, guiTop, xSize, ySize;
 
-    private static final String[] labels = new String[]{"tool.pen", "tool.flood","tool.dropper"};
-    private static ResourceLocation[] toolResource = new ResourceLocation[labels.length];
-
-
     private static final int canvusMult = 5;
     private static final int canvusSize = canvusMult * 32;
 
@@ -74,6 +64,9 @@ public class GuiFlagDesigner extends GuiScreen{
     private static final DynamicTexture overlay = new DynamicTexture(ImageData.IMAGE_RES, ImageData.IMAGE_RES);
 
     private JFileChooser fc;
+
+    //private DummyDialog dialog;
+
 
     private EntityPlayer player;
 
@@ -95,12 +88,27 @@ public class GuiFlagDesigner extends GuiScreen{
     public GuiFlagDesigner(EntityPlayer player) {
         this.player = player;
 
-        fc = new JFileChooser();
+        //dialog = new DummyDialog(null);
+
+        fc = new JFileChooser() {
+            @Override
+            protected JDialog createDialog(Component parent) throws HeadlessException {
+                // intercept the dialog created by JFileChooser
+                JDialog dialog = super.createDialog(parent);
+                dialog.setModal(true);  // set modality (or setModalityType)
+                dialog.setAlwaysOnTop(true);
+                return dialog;
+            }
+        };
         fc.setFileFilter(new ImageFilter());
         fc.setAcceptAllFileFilterUsed(false);
         if(CustomFlags.FcLoadImages){
             fc.setFileView(new ImageFileViewer());
+            ImagePreviewPanel preview = new ImagePreviewPanel();
+            fc.setAccessory(preview);
+            fc.addPropertyChangeListener(preview);
         }
+
 
         imageBuffer = new int[CustomFlags.BUFFER_SIZE][];
         imageBuffer[bufferPointer] =  new int[ImageData.IMAGE_RES * ImageData.IMAGE_RES];
@@ -115,21 +123,6 @@ public class GuiFlagDesigner extends GuiScreen{
         }else{
             ImageData.defaultImage.setTexture(imageBuffer[bufferPointer]);
         }
-        cursors = new Cursor[4];
-        cursors[0] = Mouse.getNativeCursor();
-
-        for(int i = 0; i < 3; i++){
-            toolResource[i] = new ResourceLocation("custom_flags:textures/"+labels[i]+".png");
-            try{
-                int[] rgbs = TextureUtil.func_110986_a(Minecraft.getMinecraft().func_110442_L(), toolResource[i]);
-                IntBuffer buffer = IntBuffer.wrap(rgbs);
-                cursors[i+1] = new Cursor(16, 16, 0, 0, 1, buffer, null);
-            }
-            catch(Exception e){
-                e.printStackTrace();
-            }
-        }
-
 
     }
 
@@ -182,22 +175,33 @@ public class GuiFlagDesigner extends GuiScreen{
         this.buttonList.add(new GuiButton(ID_LOAD_SECTION, guiLeft + 70+80+80, guiTop, 75, 20, StatCollector.translateToLocal("button.load.sections")));
         this.buttonList.add(colourPicker);
 
-        toggleButtons = new GuiToggleButton[3];
-        tools = new ITool[3];
+        tools = new ITool[5];
+        toggleButtons = new GuiToggleButton[tools.length];
+        tools[0] = new PenTool();
+        tools[1] = new RectangleTool();
+        tools[2] = new CircleTool();
+        tools[3] = new FloodFillTool();
+        tools[4] = new EyeDropperTool();
+        cursors = new Cursor[tools.length+1];
+        cursors[0] = Mouse.getNativeCursor();
+
         for(int i = 0; i < toggleButtons.length; i++){
-            toggleButtons[i] = new GuiToggleButton(10+ i, guiLeft+60, guiTop+25+i*22, 20, 20, StatCollector.translateToLocal(labels[i]), i==0, toolResource[i]);
+            toggleButtons[i] = new GuiToggleButton(10+ i, guiLeft+60, guiTop+25+i*22, 20, 20, StatCollector.translateToLocal(tools[i].getToolName()), i==0, tools[i].getToolImage());
             this.buttonList.add(toggleButtons[i]);
 
-            tools[i] = new PenTool();
+            try{
+                int[] rgbs = TextureUtil.func_110986_a(Minecraft.getMinecraft().func_110442_L(), tools[i].getToolImage());
+                IntBuffer buffer = IntBuffer.wrap(rgbs);
+                cursors[i+1] = new Cursor(16, 16, i==1||i==2?8:0, i==1||i==2?8:0, 1, buffer, null);
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
         }
-
-        tools[0] = new PenTool();
-        tools[1] = new FloodFillTool();
-        tools[2] = new EyeDropperTool();
 
         selectedTool = tools[0];
 
-       slider = new GuiSliderAlt(SLIDER,  guiLeft, guiTop+25+5*22, 80, StatCollector.translateToLocal("gui.threshold"), 0, 0 , 64);
+        slider = new GuiSliderAlt(SLIDER,  guiLeft, guiTop+25+5*22, 80, StatCollector.translateToLocal("gui.threshold"), 0, 0 , 64);
 
        //this.buttonList.add(slider);
 
@@ -234,6 +238,9 @@ public class GuiFlagDesigner extends GuiScreen{
         if(x >= 0 && x < ImageData.IMAGE_RES && y >= 0 && y < ImageData.IMAGE_RES){
             if(selectedTool instanceof EyeDropperTool){
                 colourPicker.selectColour(imageBuffer[bufferPointer][x+ImageData.IMAGE_RES*y]);
+            }else if (selectedTool instanceof RectangleTool){
+                ((RectangleTool) selectedTool).last_x = x;
+                ((RectangleTool) selectedTool).last_y = y;
             }else{
                 int next = (bufferPointer+1) % CustomFlags.BUFFER_SIZE;
                 imageBuffer[next] = Arrays.copyOf(imageBuffer[bufferPointer], ImageData.IMAGE_RES * ImageData.IMAGE_RES);
@@ -244,18 +251,39 @@ public class GuiFlagDesigner extends GuiScreen{
 
                 selectedTool.draw(x, y, imageBuffer[bufferPointer], ImageData.roundColour(colourPicker.getRGB()), Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT));
             }
+        }else if (selectedTool instanceof RectangleTool){
+            ((RectangleTool) selectedTool).last_x = -1000;
+            ((RectangleTool) selectedTool).last_y = -1000;
         }
+
         super.mouseClicked(par1, par2, par3);
     }
 
+
+
     @Override
     public void handleMouseInput() {
-        super.handleMouseInput();
+
+       super.handleMouseInput();
 
         int x = (Mouse.getEventX() * this.width / this.mc.displayWidth -90 -guiLeft)/canvusMult;
         int y = (this.height - Mouse.getEventY() * this.height / this.mc.displayHeight - 1 - 25- guiTop)/canvusMult;
 
+        if(! Mouse.getEventButtonState() && Mouse.getEventButton() == 0){
+            if(selectedTool instanceof RectangleTool){
+                int next = (bufferPointer+1) % CustomFlags.BUFFER_SIZE;
+                imageBuffer[next] = Arrays.copyOf(imageBuffer[bufferPointer], ImageData.IMAGE_RES * ImageData.IMAGE_RES);
+                bufferPointer = next;
+
+                //Clear the next
+                imageBuffer[(bufferPointer+1) % CustomFlags.BUFFER_SIZE] = null;
+
+                selectedTool.draw(x, y, imageBuffer[bufferPointer], ImageData.roundColour(colourPicker.getRGB()), Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT));
+            }
+        }
+
         selectedTool.drawOverlay(x,y,imageBuffer[bufferPointer],overlay, ImageData.roundColour(colourPicker.getRGB()), Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT));
+
     }
 
     @Override
@@ -337,8 +365,7 @@ public class GuiFlagDesigner extends GuiScreen{
                 }
                 break;
             case ID_SAVE:
-
-                if(fc.showDialog(null, "Save") == JFileChooser.APPROVE_OPTION){
+                if(fc.showSaveDialog(null) == JFileChooser.APPROVE_OPTION){
                     BufferedImage image = new BufferedImage(ImageData.IMAGE_RES, ImageData.IMAGE_RES, BufferedImage.TYPE_4BYTE_ABGR);
                     int[] pixels = imageBuffer[bufferPointer];
                     for(int x = 0; x < image.getWidth(); x++){
@@ -364,7 +391,7 @@ public class GuiFlagDesigner extends GuiScreen{
                 }
                 break;
             case ID_LOAD:
-                if(fc.showDialog(null, "Load") == JFileChooser.APPROVE_OPTION){
+                if(fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
                     try{
                         ImageData image = new ImageData(ImageIO.read(fc.getSelectedFile()), ImageData.IMAGE_RES, ImageData.IMAGE_RES);
                         image.setTexture(imageBuffer[bufferPointer]);
@@ -380,8 +407,7 @@ public class GuiFlagDesigner extends GuiScreen{
                 }
                 break;
             case ID_LOAD_SECTION:
-                fc.
-                if(fc.showDialog(null, "Load") == JFileChooser.APPROVE_OPTION){
+                if(fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
                     try{
                         BufferedImage original = ImageIO.read(fc.getSelectedFile());
 
@@ -416,6 +442,7 @@ public class GuiFlagDesigner extends GuiScreen{
                 break;
         }
     }
+
 
     public void drawTexturedModalRect(int x, int y, int width, int height, int tex_x, int tex_y, int tex_width, int tex_height)
     {

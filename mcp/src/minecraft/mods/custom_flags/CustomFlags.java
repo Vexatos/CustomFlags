@@ -40,7 +40,7 @@ import static cpw.mods.fml.common.registry.GameRegistry.*;
  * The main entry class for the Custom Flags Mod
  */
 
-@Mod(modid = "custom_flags", name="Custom Flags", version = "1.2")
+@Mod(modid = "custom_flags", name="Custom Flags", version = "1.3.1")
 @NetworkMod(packetHandler = CustomFlagsPacketHandeler.class, clientSideRequired = true,
         channels = {
         FlagTileEntityDescripPacket.channel, UpdateHeldFlagImagePacket.channel
@@ -100,7 +100,7 @@ public class CustomFlags {
         period = Math.max(period, 250);
         period = Math.min(period, 1250);
 
-        /*
+
         if(config.get(Configuration.CATEGORY_GENERAL, "Use System L&F", true).getBoolean(true)){
             try {
                 // Set System L&F
@@ -108,7 +108,7 @@ public class CustomFlags {
                         UIManager.getSystemLookAndFeelClassName());
             }
             catch (Exception e) {e.printStackTrace();}
-        }*/
+        }
 
         FcLoadImages = config.get(Configuration.CATEGORY_GENERAL, "Load Images in FileChooser", true).getBoolean(true);
 

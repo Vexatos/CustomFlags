@@ -2,6 +2,7 @@ package mods.custom_flags.client.gui.controls.canvus_tools;
 
 import mods.custom_flags.utils.ImageData;
 import net.minecraft.client.renderer.texture.DynamicTexture;
+import net.minecraft.util.ResourceLocation;
 
 /**
  * Created by Aaron on 3/08/13.
@@ -10,6 +11,17 @@ public class PenTool implements ITool {
 
     private int last_x = ImageData.IMAGE_RES / 2;
     private int last_y = ImageData.IMAGE_RES / 2;
+
+
+    @Override
+    public String getToolName() {
+        return "tool.pen";
+    }
+
+    @Override
+    public ResourceLocation getToolImage() {
+        return new ResourceLocation("custom_flags:textures/"+getToolName()+".png");
+    }
 
     @Override
     public void drawOverlay(int x, int y, int[] pixelsCurrent, DynamicTexture overlay, int rgb, boolean shift) {
