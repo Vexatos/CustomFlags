@@ -54,6 +54,13 @@
     }
 ]
         </echo>
+        <echo file="pack.mcmeta" append="false">{
+    "pack": {
+        "pack_format": ${pack.format},
+        "description": "${pack.descrip}"
+    }
+}
+        </echo>
         <jar destfile="${dist.dir}/[${mcversion}] ${mod.name} - ${mod.version}.jar">
             <fileset dir="${reob.dir}" includes="mods/**"/>
             <fileset dir="${asset.dir}" includes="assets/**"/>

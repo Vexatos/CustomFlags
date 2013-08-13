@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e688ddff-badf-4b93-be44-68768cf1d7b0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mcp/src/minecraft/assets/custom_flags/textures/gui.designer.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mcp/src/minecraft/assets/custom_flags/textures/tool.text.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlagsInstructions" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/CustomFlagsPlayerTracker.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/GiveInstructionsCommand.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/controls/canvus_tools/TextTool.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/ClientProxy.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/ClientProxy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/controls/canvus_tools/FloodFillTool.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/controls/canvus_tools/FloodFillTool.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/GuiFlagDesigner.java" afterPath="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/GuiFlagDesigner.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Battlegear2/battlegear-install.py" afterPath="$PROJECT_DIR$/../Battlegear2/battlegear-install.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mcp/src/minecraft/assets/custom_flags/lang/en_US.lang" afterPath="$PROJECT_DIR$/mcp/src/minecraft/assets/custom_flags/lang/en_US.lang" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.xml" afterPath="$PROJECT_DIR$/build.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mod.properties" afterPath="$PROJECT_DIR$/mod.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Custom Flags.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,7 +22,7 @@
     <file path="/TileEntityFlagPole.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1375764223545" ignored="false" />
     <file path="/DummyDialog.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1376268082297" ignored="false" />
     <file path="/GuiFlagDesigner.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1376379962531" ignored="false" />
-    <file path="/mod.properties" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1376376463198" ignored="false" />
+    <file path="/mod.properties" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1376381655885" ignored="false" />
     <file path="/RectangleTool.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1376276756944" ignored="false" />
     <file path="/ITool.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1376270882670" ignored="false" />
     <file path="/EyeDropperTool.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1376270922594" ignored="false" />
@@ -47,6 +36,7 @@
     <file path="/CustomFlagsInstructions" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1376378711449" ignored="false" />
     <file path="/CustomFlagsPlayerTracker.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1376379485918" ignored="false" />
     <file path="/ClientProxy.java" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1376379328885" ignored="false" />
+    <file path="/build.xml" changelist="e688ddff-badf-4b93-be44-68768cf1d7b0" time="1376381563864" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,10 +132,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GuiFlagDesigner.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="GuiFlagDesigner.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/GuiFlagDesigner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="256" column="123" selection-start="10396" selection-end="10396" vertical-scroll-proportion="0.509434">
+            <state line="261" column="12" selection-start="10709" selection-end="10709" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="58" column="36" selection-start="1632" selection-end="1632" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mod.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mod.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="76" selection-start="437" selection-end="437" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -178,15 +186,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChatMessageComponent.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/util/ChatMessageComponent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="13" selection-start="364" selection-end="364" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CommandGameRule.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/command/CommandGameRule.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -196,19 +195,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ICommandSender.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/command/ICommandSender.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="9" selection-start="338" selection-end="338" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomFlags.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="CustomFlags.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="129" selection-start="4584" selection-end="4584" vertical-scroll-proportion="0.0">
+            <state line="120" column="129" selection-start="4584" selection-end="4584" vertical-scroll-proportion="1.8977469">
               <folding />
             </state>
           </provider>
@@ -232,7 +222,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/controls/canvus_tools/EyeDropperTool.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/controls/canvus_tools/RectangleTool.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/controls/canvus_tools/CircleTool.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/controls/GuiToggleButton.java" />
@@ -240,7 +229,6 @@
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/controls/GuiTextFieldAlt.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/controls/canvus_tools/FloodFillTool.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/controls/canvus_tools/TextTool.java" />
-        <option value="$PROJECT_DIR$/mod.properties" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/GiveInstructionsCommand.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/ClientProxy.java" />
@@ -248,6 +236,8 @@
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/CustomFlagsPlayerTracker.java" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlagsInstructions" />
         <option value="$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/GuiFlagDesigner.java" />
+        <option value="$PROJECT_DIR$/build.xml" />
+        <option value="$PROJECT_DIR$/mod.properties" />
       </list>
     </option>
   </component>
@@ -723,13 +713,13 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31049722" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31049722" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31590182" sideWeight="0.6519337" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3480663" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31590182" sideWeight="0.6895028" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3480663" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21034242" sideWeight="0.80903953" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
@@ -819,11 +809,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/nbt/NBTTagList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="0" selection-start="3334" selection-end="3334" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/command/CommandHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="22" selection-start="498" selection-end="498" vertical-scroll-proportion="0.0" />
@@ -832,11 +817,6 @@
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/nbt/NBTTagString.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="61" column="0" selection-start="1284" selection-end="1284" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mod.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="12" selection-start="72" selection-end="203" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/client/gui/GuiScreenBook.java">
@@ -865,13 +845,6 @@
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/net/minecraft/command/CommandGameRule.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="55" column="35" selection-start="1556" selection-end="1556" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="129" selection-start="4584" selection-end="4584" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -918,7 +891,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/client/gui/GuiFlagDesigner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="256" column="123" selection-start="10396" selection-end="10396" vertical-scroll-proportion="0.509434">
+        <state line="261" column="12" selection-start="10709" selection-end="10709" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="36" selection-start="1632" selection-end="1632" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mod.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="76" selection-start="437" selection-end="437" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mcp/src/minecraft/mods/custom_flags/CustomFlags.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="120" column="129" selection-start="4584" selection-end="4584" vertical-scroll-proportion="1.8977469">
           <folding />
         </state>
       </provider>
