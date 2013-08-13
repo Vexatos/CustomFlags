@@ -60,13 +60,15 @@ public class FloodFillTool implements ITool {
 
         if (x > -1 &&  x < ImageData.IMAGE_RES && y > -1 && y < ImageData.IMAGE_RES){
 
-            if(isSame(pixals[x+ImageData.IMAGE_RES*y], targetColour)){
-                pixals[x+ImageData.IMAGE_RES*y] = newColour;
+            if(pixals[x+ImageData.IMAGE_RES*y] != newColour){
+                if(isSame(pixals[x+ImageData.IMAGE_RES*y], targetColour)){
+                    pixals[x+ImageData.IMAGE_RES*y] = newColour;
 
-                floodFill(x+1, y, pixals, targetColour, newColour);
-                floodFill(x-1, y, pixals, targetColour, newColour);
-                floodFill(x, y+1, pixals, targetColour, newColour);
-                floodFill(x, y-1, pixals, targetColour, newColour);
+                    floodFill(x+1, y, pixals, targetColour, newColour);
+                    floodFill(x-1, y, pixals, targetColour, newColour);
+                    floodFill(x, y+1, pixals, targetColour, newColour);
+                    floodFill(x, y-1, pixals, targetColour, newColour);
+                }
             }
 
         }
@@ -74,6 +76,13 @@ public class FloodFillTool implements ITool {
 
 
     private boolean isSame(int rgb1, int rgb2){
-        return rgb1 == rgb2;
+
+        int diff = 0;
+        diff +=  (((rgb1>>24) & 0x000000FF) - ((rgb2>>24) & 0x000000FF));
+        diff +=  (((rgb1>>16) & 0x000000FF) - ((rgb2>>16) & 0x000000FF));
+        diff +=  (((rgb1>>8) & 0x000000FF) - ((rgb2>>8) & 0x000000FF));
+        diff +=  (((rgb1>>0) & 0x000000FF) - ((rgb2>>0) & 0x000000FF));
+
+        return diff <= threshold;
     }
 }

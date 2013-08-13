@@ -4,6 +4,7 @@ import cpw.mods.fml.common.network.PacketDispatcher;
 import mods.custom_flags.CustomFlags;
 import mods.custom_flags.client.gui.controls.GuiColourPicker;
 import mods.custom_flags.client.gui.controls.GuiSliderAlt;
+import mods.custom_flags.client.gui.controls.GuiTextFieldAlt;
 import mods.custom_flags.client.gui.controls.GuiToggleButton;
 import mods.custom_flags.client.gui.controls.canvus_tools.*;
 import mods.custom_flags.items.ItemFlag;
@@ -17,6 +18,7 @@ import mods.custom_flags.utils.swing.ImageSplitDialog;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.client.renderer.texture.TextureUtil;
@@ -60,13 +62,11 @@ public class GuiFlagDesigner extends GuiScreen{
     private static final int canvusSize = canvusMult * 32;
 
     private static final DynamicTexture canvus_back = new DynamicTexture(2,2);
-    //private static final DynamicTexture current = new DynamicTexture(ImageData.IMAGE_RES, ImageData.IMAGE_RES);
     private static final DynamicTexture overlay = new DynamicTexture(ImageData.IMAGE_RES, ImageData.IMAGE_RES);
 
+    private GuiTextFieldAlt colourTextField;
+
     private JFileChooser fc;
-
-    //private DummyDialog dialog;
-
 
     private EntityPlayer player;
 
@@ -87,9 +87,6 @@ public class GuiFlagDesigner extends GuiScreen{
 
     public GuiFlagDesigner(EntityPlayer player) {
         this.player = player;
-
-        //dialog = new DummyDialog(null);
-
         fc = new JFileChooser() {
             @Override
             protected JDialog createDialog(Component parent) throws HeadlessException {
@@ -130,7 +127,14 @@ public class GuiFlagDesigner extends GuiScreen{
     protected void keyTyped(char par1, int par2) {
         super.keyTyped(par1, par2);
 
-        if(Keyboard.isKeyDown(Keyboard.KEY_LCONTROL) || Keyboard.isKeyDown(Keyboard.KEY_RCONTROL)){
+        if(colourTextField.textboxKeyTyped(par1, par2)){
+
+            if(colourTextField.getText().length() == 4){
+                colourPicker.selectColour(colourTextField.parseText());
+                //colourPicker.hasChanged = false;
+            }
+
+        }else if(Keyboard.isKeyDown(Keyboard.KEY_LCONTROL) || Keyboard.isKeyDown(Keyboard.KEY_RCONTROL)){
 
             int x = (Mouse.getEventX() * this.width / this.mc.displayWidth -90 -guiLeft)/canvusMult;
             int y = (this.height - Mouse.getEventY() * this.height / this.mc.displayHeight - 1 - 25- guiTop)/canvusMult;
@@ -207,6 +211,10 @@ public class GuiFlagDesigner extends GuiScreen{
 
         slider.enabled = false;
         slider.drawButton = false;
+
+        colourTextField = new GuiTextFieldAlt(this.fontRenderer, guiLeft + 80 + 10 + canvusSize + 10 , guiTop+25+90, 48, 20);
+        colourTextField.setText("F000");
+        colourTextField.setMaxStringLength(4);
     }
 
     @Override
@@ -257,6 +265,7 @@ public class GuiFlagDesigner extends GuiScreen{
         }
 
         super.mouseClicked(par1, par2, par3);
+        colourTextField.mouseClicked(par1, par2, par3);
     }
 
 
@@ -326,6 +335,8 @@ public class GuiFlagDesigner extends GuiScreen{
     {
         this.drawDefaultBackground();
 
+        colourTextField.drawTextBox();
+
         //Draw Canvas
         canvus_back.func_110564_a();
         drawTexturedModalRect(90 + guiLeft, 25+guiTop, canvusSize, canvusSize, 0, 0, 32, 32);
@@ -337,6 +348,19 @@ public class GuiFlagDesigner extends GuiScreen{
         GL11.glDisable(GL11.GL_BLEND);
 
         super.drawScreen(par1, par2, par3);
+
+        if(colourPicker.hasChanged){
+            int rgb = colourPicker.getRGB();
+
+            StringBuffer sb = new StringBuffer();
+            sb.append(Integer.toHexString((rgb >> 28) & 0xF));
+            sb.append(Integer.toHexString((rgb >> 20) & 0xF));
+            sb.append(Integer.toHexString((rgb >> 12) & 0xF));
+            sb.append(Integer.toHexString((rgb >> 4) & 0xF));
+
+            colourTextField.setText(sb.toString());
+            colourPicker.hasChanged = false;
+        }
     }
 
 

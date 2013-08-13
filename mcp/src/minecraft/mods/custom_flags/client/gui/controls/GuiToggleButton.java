@@ -120,7 +120,7 @@ public class GuiToggleButton extends GuiButton{
 
             this.zLevel = 0.0F;
             zLevel = 0.0F;
-            GL11.glEnable(GL11.GL_LIGHTING);
+            //GL11.glEnable(GL11.GL_LIGHTING);
             GL11.glEnable(GL11.GL_DEPTH_TEST);
             RenderHelper.enableStandardItemLighting();
             GL11.glEnable(GL12.GL_RESCALE_NORMAL);

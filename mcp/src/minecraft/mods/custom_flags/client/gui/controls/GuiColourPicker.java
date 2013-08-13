@@ -69,6 +69,8 @@ public class GuiColourPicker extends GuiButton {
 
     private int type;
 
+    public boolean hasChanged = false;
+
 
     public GuiColourPicker(int id, int x, int y, int rgb, int type){
         super(id, x, y,
@@ -267,6 +269,7 @@ public class GuiColourPicker extends GuiButton {
         this.selectedHSB = Color.RGBtoHSB((rgb&0x00FF0000) >> 16, (rgb&0x0000FF00) >> 8, (rgb&0x000000FF), new float[3]);
         selected_alpha = ((float)((rgb & 0xFF000000) >>> 24)) / 255F;
 
+        hasChanged = true;
         calculateBuffers();
     }
 
@@ -275,6 +278,7 @@ public class GuiColourPicker extends GuiButton {
         this.selected_alpha = alpha;
         this.selectedRGB = (Color.HSBtoRGB(hue, sat, bright) & 0x00FFFFFF) | (((int)(alpha * 255)) << 24);
 
+        hasChanged = true;
         calculateBuffers();
     }
 
