@@ -77,6 +77,7 @@ public class FloodFillTool implements ITool {
 
     private boolean isSame(int rgb1, int rgb2){
 
+        /*
         int diff = 0;
         diff +=  (((rgb1>>24) & 0x000000FF) - ((rgb2>>24) & 0x000000FF));
         diff +=  (((rgb1>>16) & 0x000000FF) - ((rgb2>>16) & 0x000000FF));
@@ -84,5 +85,8 @@ public class FloodFillTool implements ITool {
         diff +=  (((rgb1>>0) & 0x000000FF) - ((rgb2>>0) & 0x000000FF));
 
         return diff <= threshold;
+        */
+
+        return  rgb1 == rgb2;
     }
 }

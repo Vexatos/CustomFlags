@@ -5,6 +5,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -64,6 +65,8 @@ public class CustomFlags {
     public static BlockFlagPole blockFlagPole;
     public static ItemFlag itemFlag;
 
+    public static boolean DISPLAY_INSTRUCTIONS;
+
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event){
         //Load Config, register blocks & Items
@@ -115,6 +118,7 @@ public class CustomFlags {
         flag_sections = config.get(Configuration.CATEGORY_GENERAL, "Animation Detail Level", 16).getInt(16);
         flag_sections = Math.max(0, flag_sections);
 
+        DISPLAY_INSTRUCTIONS = config.get(Configuration.CATEGORY_GENERAL, "Display Instruction Message", true).getBoolean(true);
 
         addRecipe(new FlagRecipie());
 
@@ -124,8 +128,8 @@ public class CustomFlags {
     }
 
     @Mod.EventHandler
-    public void init(FMLInitializationEvent event){
-
+    public void init(FMLServerStartingEvent event){
+        event.registerServerCommand(new GiveInstructionsCommand());
     }
 
     @Mod.EventHandler

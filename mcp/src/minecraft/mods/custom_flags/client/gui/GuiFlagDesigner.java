@@ -18,12 +18,12 @@ import mods.custom_flags.utils.swing.ImageSplitDialog;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.client.renderer.texture.TextureUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ChatAllowedCharacters;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import org.lwjgl.input.Keyboard;
@@ -50,6 +50,8 @@ public class GuiFlagDesigner extends GuiScreen{
     private ITool selectedTool;
     private GuiSliderAlt slider;
 
+    private static final ResourceLocation map_background = new ResourceLocation("textures/map/map_background.png");
+    private static final ResourceLocation background = new ResourceLocation("custom_flags:textures/gui.designer.png");
     private static final int ID_SAVE = 0;
     private static final int ID_LOAD = 1;
     private static final int ID_OK = 2;
@@ -74,6 +76,31 @@ public class GuiFlagDesigner extends GuiScreen{
     private int bufferPointer = 0;
 
     private Cursor[] cursors;
+
+    int x_lpanel_width = 30;
+    int panel_space = 10;
+    int canvus_pad = 16;
+    int x_rpanel_width = 92;
+    int x_tpanel_width;
+
+    int x_tpanel_start;
+    int x_lpanel_start;
+    int x_canvus_start;
+    int x_rpanel_start;
+
+
+    int y_tpanel_height = 20 + 10;
+    int y_panel_space = 10;
+    int y_rpanel_height = canvusSize;
+    int y_lpanel_height = canvusSize;
+
+    int y_tpanel_start;
+    int y_lpanel_start;
+    int y_canvus_start;
+    int y_rpanel_start;
+
+
+    long last_refresh = System.currentTimeMillis() - 500;
 
     static{
         int[] pixels = canvus_back.func_110565_c();
@@ -127,6 +154,9 @@ public class GuiFlagDesigner extends GuiScreen{
     protected void keyTyped(char par1, int par2) {
         super.keyTyped(par1, par2);
 
+        int x = (Mouse.getEventX() * this.width / this.mc.displayWidth -90 -guiLeft)/canvusMult;
+        int y = (this.height - Mouse.getEventY() * this.height / this.mc.displayHeight - 1 - 25- guiTop)/canvusMult;
+
         if(colourTextField.textboxKeyTyped(par1, par2)){
 
             if(colourTextField.getText().length() == 4){
@@ -136,8 +166,7 @@ public class GuiFlagDesigner extends GuiScreen{
 
         }else if(Keyboard.isKeyDown(Keyboard.KEY_LCONTROL) || Keyboard.isKeyDown(Keyboard.KEY_RCONTROL)){
 
-            int x = (Mouse.getEventX() * this.width / this.mc.displayWidth -90 -guiLeft)/canvusMult;
-            int y = (this.height - Mouse.getEventY() * this.height / this.mc.displayHeight - 1 - 25- guiTop)/canvusMult;
+
 
             if(par2 == Keyboard.KEY_Z){
                 int prev = (bufferPointer+CustomFlags.BUFFER_SIZE-1) % CustomFlags.BUFFER_SIZE;
@@ -156,6 +185,32 @@ public class GuiFlagDesigner extends GuiScreen{
                     selectedTool.drawOverlay(x,y,imageBuffer[bufferPointer],overlay,ImageData.roundColour(colourPicker.getRGB()), Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT));
                 }
             }
+        }else if (selectedTool instanceof TextTool){
+
+            if(par1 == '\b'){
+                if(((TextTool) selectedTool).text.length() > 0){
+
+                    ((TextTool) selectedTool).text = ((TextTool) selectedTool).text.substring(0, ((TextTool) selectedTool).text.length() - 1);
+                }
+
+            } else if (par1 == '\n' || par1 == '\r'){
+
+                int next = (bufferPointer+1) % CustomFlags.BUFFER_SIZE;
+                imageBuffer[next] = Arrays.copyOf(imageBuffer[bufferPointer], ImageData.IMAGE_RES * ImageData.IMAGE_RES);
+                bufferPointer = next;
+
+                //Clear the next
+                imageBuffer[(bufferPointer+1) % CustomFlags.BUFFER_SIZE] = null;
+
+                ((TextTool) selectedTool).pressEnter(imageBuffer[bufferPointer], ImageData.roundColour(colourPicker.getRGB()));
+            } else{
+                if(ChatAllowedCharacters.isAllowedCharacter(par1))
+                    ((TextTool) selectedTool).text += Character.toString(par1);
+            }
+
+            selectedTool.drawOverlay(x,y,imageBuffer[bufferPointer],overlay,ImageData.roundColour(colourPicker.getRGB()), Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT));
+
+
         }
     }
 
@@ -165,38 +220,52 @@ public class GuiFlagDesigner extends GuiScreen{
 
         this.buttonList.clear();
 
-        this.xSize = 80 + 10 + canvusSize + 10 + 80;
-        this.ySize = canvusSize + 25;
+        this.xSize = x_lpanel_width + panel_space + canvus_pad + canvusSize + canvus_pad + panel_space + x_rpanel_width;
+        this.ySize = y_tpanel_height + panel_space + canvus_pad + canvusSize + canvus_pad;
 
         this.guiLeft = (this.width - this.xSize) / 2;
         this.guiTop = (this.height - ySize) / 2;
 
-        colourPicker = new GuiColourPicker(ID_COLOUR_PICKER, 100+canvusSize+guiLeft, guiTop+25, 0xFF000000, 7);
+        x_lpanel_start = guiLeft;
+        x_canvus_start = x_lpanel_start + panel_space + canvus_pad + x_lpanel_width;
+        x_rpanel_start = x_canvus_start + canvusSize + canvus_pad + panel_space;
+        x_tpanel_start = guiLeft;
+        x_tpanel_width = xSize;
 
-        this.buttonList.add(new GuiButton(ID_OK, guiLeft+100+canvusSize, guiTop+canvusSize+5, 80, 20, StatCollector.translateToLocal("button.ok")));
-        this.buttonList.add(new GuiButton(ID_SAVE, guiLeft + 70, guiTop, 75, 20,StatCollector.translateToLocal( "button.save")));
-        this.buttonList.add(new GuiButton(ID_LOAD, guiLeft + 70+80, guiTop, 75, 20, StatCollector.translateToLocal("button.load")));
-        this.buttonList.add(new GuiButton(ID_LOAD_SECTION, guiLeft + 70+80+80, guiTop, 75, 20, StatCollector.translateToLocal("button.load.sections")));
+        y_tpanel_start = guiTop;
+        y_lpanel_start = y_tpanel_start + y_tpanel_height + panel_space + canvus_pad;
+        y_canvus_start = y_lpanel_start;
+        y_rpanel_start = y_lpanel_start;
+
+
+        this.buttonList.add(new GuiButton(ID_OK, 6 + x_rpanel_start, y_rpanel_start + y_rpanel_height - 25, 80, 20, StatCollector.translateToLocal("button.ok")));
+        this.buttonList.add(new GuiButton(ID_SAVE, guiLeft + 5, guiTop + 5, 100, 20,StatCollector.translateToLocal( "button.save")));
+        this.buttonList.add(new GuiButton(ID_LOAD, guiLeft + 5+100+11, guiTop + 5, 100, 20, StatCollector.translateToLocal("button.load")));
+        this.buttonList.add(new GuiButton(ID_LOAD_SECTION, guiLeft + 5+200+22, guiTop + 5, 100, 20, StatCollector.translateToLocal("button.load.sections")));
+        colourPicker = new GuiColourPicker(ID_COLOUR_PICKER, x_rpanel_start+6, y_rpanel_start+5, 0xFF000000, 7);
         this.buttonList.add(colourPicker);
 
-        tools = new ITool[5];
+        tools = new ITool[6];
         toggleButtons = new GuiToggleButton[tools.length];
         tools[0] = new PenTool();
         tools[1] = new RectangleTool();
         tools[2] = new CircleTool();
         tools[3] = new FloodFillTool();
-        tools[4] = new EyeDropperTool();
+//        tools[4] = new EyeDropperTool();
+        tools[4] = new TextTool();
+        tools[5] = new EyeDropperTool();
         cursors = new Cursor[tools.length+1];
         cursors[0] = Mouse.getNativeCursor();
 
         for(int i = 0; i < toggleButtons.length; i++){
-            toggleButtons[i] = new GuiToggleButton(10+ i, guiLeft+60, guiTop+25+i*22, 20, 20, StatCollector.translateToLocal(tools[i].getToolName()), i==0, tools[i].getToolImage());
+            toggleButtons[i] = new GuiToggleButton(10+ i, x_lpanel_start+5, y_lpanel_start +i*26 + 5, 20, 20, StatCollector.translateToLocal(tools[i].getToolName()), i==0, tools[i].getToolImage());
             this.buttonList.add(toggleButtons[i]);
 
             try{
                 int[] rgbs = TextureUtil.func_110986_a(Minecraft.getMinecraft().func_110442_L(), tools[i].getToolImage());
                 IntBuffer buffer = IntBuffer.wrap(rgbs);
-                cursors[i+1] = new Cursor(16, 16, i==1||i==2?8:0, i==1||i==2?8:0, 1, buffer, null);
+                int res = (int) Math.sqrt(buffer.array().length);
+                cursors[i+1] = new Cursor(res, res, i==1||i==2?res/2:0, i==1||i==2?res/2:0, 1, buffer, null);
             }
             catch(Exception e){
                 e.printStackTrace();
@@ -212,15 +281,16 @@ public class GuiFlagDesigner extends GuiScreen{
         slider.enabled = false;
         slider.drawButton = false;
 
-        colourTextField = new GuiTextFieldAlt(this.fontRenderer, guiLeft + 80 + 10 + canvusSize + 10 , guiTop+25+90, 48, 20);
+        colourTextField = new GuiTextFieldAlt(this.fontRenderer, x_rpanel_start + 10 , y_rpanel_start+91, 75, 20);
         colourTextField.setText("F000");
         colourTextField.setMaxStringLength(4);
+        colourTextField.setEnableBackgroundDrawing(false);
     }
 
     @Override
     public void updateScreen() {
-        int x = (Mouse.getEventX() * this.width / this.mc.displayWidth -90 -guiLeft)/canvusMult;
-        int y = (this.height - Mouse.getEventY() * this.height / this.mc.displayHeight - 1 - 25- guiTop)/canvusMult;
+        int x = (Mouse.getEventX() * this.width / this.mc.displayWidth -(x_canvus_start))/canvusMult;
+        int y = (this.height - Mouse.getEventY() * this.height / this.mc.displayHeight - 1 - (y_canvus_start))/canvusMult;
 
         try{
         if(x >= 0 && x < ImageData.IMAGE_RES && y >= 0 && y < ImageData.IMAGE_RES){
@@ -232,6 +302,14 @@ public class GuiFlagDesigner extends GuiScreen{
             e.printStackTrace();
         }
 
+
+
+        if(selectedTool instanceof TextTool && (last_refresh + 500 < System.currentTimeMillis())){
+            last_refresh = System.currentTimeMillis();
+            selectedTool.drawOverlay(x,y,imageBuffer[bufferPointer],overlay,ImageData.roundColour(colourPicker.getRGB()), Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT));
+
+        }
+
         super.updateScreen();
     }
 
@@ -240,8 +318,8 @@ public class GuiFlagDesigner extends GuiScreen{
     @Override
     protected void mouseClicked(int par1, int par2, int par3) {
 
-        int x = (Mouse.getEventX() * this.width / this.mc.displayWidth -90 -guiLeft)/canvusMult;
-        int y = (this.height - Mouse.getEventY() * this.height / this.mc.displayHeight - 1 - 25- guiTop)/canvusMult;
+        int x = (Mouse.getEventX() * this.width / this.mc.displayWidth -(x_canvus_start))/canvusMult;
+        int y = (this.height - Mouse.getEventY() * this.height / this.mc.displayHeight - 1 - (y_canvus_start))/canvusMult;
 
         if(x >= 0 && x < ImageData.IMAGE_RES && y >= 0 && y < ImageData.IMAGE_RES){
             if(selectedTool instanceof EyeDropperTool){
@@ -249,6 +327,8 @@ public class GuiFlagDesigner extends GuiScreen{
             }else if (selectedTool instanceof RectangleTool){
                 ((RectangleTool) selectedTool).last_x = x;
                 ((RectangleTool) selectedTool).last_y = y;
+            }else if(selectedTool instanceof TextTool){
+                selectedTool.draw(x, y, imageBuffer[bufferPointer], ImageData.roundColour(colourPicker.getRGB()), Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT));
             }else{
                 int next = (bufferPointer+1) % CustomFlags.BUFFER_SIZE;
                 imageBuffer[next] = Arrays.copyOf(imageBuffer[bufferPointer], ImageData.IMAGE_RES * ImageData.IMAGE_RES);
@@ -275,8 +355,8 @@ public class GuiFlagDesigner extends GuiScreen{
 
        super.handleMouseInput();
 
-        int x = (Mouse.getEventX() * this.width / this.mc.displayWidth -90 -guiLeft)/canvusMult;
-        int y = (this.height - Mouse.getEventY() * this.height / this.mc.displayHeight - 1 - 25- guiTop)/canvusMult;
+        int x = (Mouse.getEventX() * this.width / this.mc.displayWidth -(x_canvus_start))/canvusMult;
+        int y = (this.height - Mouse.getEventY() * this.height / this.mc.displayHeight - 1 - (y_canvus_start))/canvusMult;
 
         if(! Mouse.getEventButtonState() && Mouse.getEventButton() == 0){
             if(selectedTool instanceof RectangleTool){
@@ -299,8 +379,8 @@ public class GuiFlagDesigner extends GuiScreen{
     protected void mouseClickMove(int par1, int par2, int par3, long par4) {
         super.mouseClickMove(par1, par2, par3, par4);
 
-        int x = (Mouse.getEventX() * this.width / this.mc.displayWidth -90 -guiLeft)/canvusMult;
-        int y = (this.height - Mouse.getEventY() * this.height / this.mc.displayHeight - 1 - 25- guiTop)/canvusMult;
+        int x = (Mouse.getEventX() * this.width / this.mc.displayWidth -(x_canvus_start))/canvusMult;
+        int y = (this.height - Mouse.getEventY() * this.height / this.mc.displayHeight - 1 - (y_canvus_start))/canvusMult;
 
         if(Mouse.isButtonDown(0)){
             if(selectedTool instanceof EyeDropperTool){
@@ -328,6 +408,8 @@ public class GuiFlagDesigner extends GuiScreen{
         }
     }
 
+
+
     /**
      * Draws the screen and all the components in it.
      */
@@ -335,16 +417,35 @@ public class GuiFlagDesigner extends GuiScreen{
     {
         this.drawDefaultBackground();
 
+        mc.renderEngine.func_110577_a(map_background);
+        drawTexturedModalRect(x_canvus_start - canvus_pad, y_canvus_start - canvus_pad, canvusSize + 2 * canvus_pad, canvusSize + 2 * canvus_pad, 0, 0, 1, 1);
+
+        mc.renderEngine.func_110577_a(background);
+        //Draw Top Panel
+        drawTexturedModalRect(x_tpanel_start, y_tpanel_start, 0,0, x_tpanel_width/2, y_tpanel_height);
+        drawTexturedModalRect(x_tpanel_start+x_tpanel_width/2, y_tpanel_start, 0,30, x_tpanel_width/2, y_tpanel_height);
+        //drawRect(x_tpanel_start, y_tpanel_start, x_tpanel_start + x_tpanel_width, y_tpanel_start + y_tpanel_height, 0xFFAAAAAA);
+
+        //Draw Left Panel
+        drawTexturedModalRect(x_lpanel_start, y_lpanel_start, 0,60, x_lpanel_width, y_lpanel_height);
+        //drawRect(x_lpanel_start, y_lpanel_start, x_lpanel_start + x_lpanel_width, y_lpanel_start + y_lpanel_height, 0xFFAAAAAA);
+
+        //Draw Right Panel
+        drawTexturedModalRect(x_rpanel_start, y_rpanel_start, 30,60, x_rpanel_width, y_rpanel_height);
+
+
         colourTextField.drawTextBox();
+
+        GL11.glColor3f(1,1,1);
 
         //Draw Canvas
         canvus_back.func_110564_a();
-        drawTexturedModalRect(90 + guiLeft, 25+guiTop, canvusSize, canvusSize, 0, 0, 32, 32);
+        drawTexturedModalRect(x_canvus_start, y_canvus_start, canvusSize, canvusSize, 0, 0, 32, 32);
 
         GL11.glEnable(GL11.GL_BLEND);
         GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
         overlay.func_110564_a();
-        drawTexturedModalRect(90 + guiLeft, 25 + guiTop, canvusSize, canvusSize, 0, 0, 1, 1);
+        drawTexturedModalRect(x_canvus_start, y_canvus_start, canvusSize, canvusSize, 0, 0, 1, 1);
         GL11.glDisable(GL11.GL_BLEND);
 
         super.drawScreen(par1, par2, par3);
@@ -377,6 +478,12 @@ public class GuiFlagDesigner extends GuiScreen{
 
             slider.enabled = selectedTool instanceof FloodFillTool;
             slider.drawButton = selectedTool instanceof FloodFillTool;
+
+            if(selectedTool instanceof TextTool){
+                ((TextTool) selectedTool).text="";
+                ((TextTool) selectedTool).click_x = -1000;
+                ((TextTool) selectedTool).click_y = -1000;
+            }
         }
 
         switch (par1GuiButton.id){

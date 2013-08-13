@@ -20,4 +20,12 @@ gui.splitter.y.section=Y Section
 tool.pen=Pen
 tool.flood=Flood Fill
 tool.dropper=Color Picker
+tool.text=Text
+tool.rectangle=Rectangle
+tool.circle=Oval
 gui.threshold=Threshold
+
+
+
+cf.welcome=Welcome to Custom Flags. Type /cf.instructions for an instruction manual.
+commands.cf.instr.usage=/cf.instructions
