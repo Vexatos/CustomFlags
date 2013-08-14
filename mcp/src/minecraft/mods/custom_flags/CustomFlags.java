@@ -67,11 +67,13 @@ public class CustomFlags {
 
     public static boolean DISPLAY_INSTRUCTIONS;
 
+    public static Configuration config;
+
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event){
         //Load Config, register blocks & Items
 
-        Configuration config = new Configuration(event.getSuggestedConfigurationFile());
+        config = new Configuration(event.getSuggestedConfigurationFile());
         config.load();
 
         CAHCE_SIZE = config.get(Configuration.CATEGORY_GENERAL, "Cache Size", 25).getInt(25);
@@ -84,14 +86,14 @@ public class CustomFlags {
         Item.itemsList[blockFlagPole.blockID] = new ItemBlockFlagPole(blockFlagPole.blockID - 256);
 
         for(int i = 0; i < 4; i++){
-            GameRegistry.addRecipe(new ItemStack(Item.itemsList[blockFlagPole.blockID], 1, i),
+            GameRegistry.addRecipe(new ItemStack(Item.itemsList[blockFlagPole.blockID], 4, i),
                     new Object[]{
                             "W",
                             "W",
                             "W", Character.valueOf('W'), new ItemStack(Block.wood, 1, i)
                     });
         }
-        GameRegistry.addRecipe(new ItemStack(Item.itemsList[blockFlagPole.blockID], 1, 4),
+        GameRegistry.addRecipe(new ItemStack(Item.itemsList[blockFlagPole.blockID], 4, 4),
                 new Object[]{
                         "I",
                         "I",

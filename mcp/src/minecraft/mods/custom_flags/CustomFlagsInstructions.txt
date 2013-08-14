@@ -7,7 +7,8 @@ Have you ever had an awesome design but wished you could show it off in Minecraf
 Well now you can in beautifully animated flags
 [pb]
 Flag Pole
-Flag poles are created by placing 3 wooden logs or 3 iron ingots in a vertical line in the crafting recipe\nHorizontal flags are created by placing it on the top or bottom of a block, vertical flags are created by hanging it on the side
+Flag poles are created by placing 3 wooden logs or 3 iron ingots in a vertical line in the crafting recipe
+Horizontal flags are created by placing it on the top or bottom of a block, vertical flags are created by hanging it on the side
 [pb]
 Flags
 Flags are created by arranging 4 wool blocks (of any colour) in a 2 x 2 square in the crafting grid. Flags may be attached to any flag pole by right clicking a flag pole while holding a flag. Each flag pole block can have a maximum of 4 flags attached to it
