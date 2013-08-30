@@ -1,0 +1,31 @@
+
+item.custom_flags:flag.name=Flagge
+tile.custom_flags:flagpole.oak.name=Eichenholzfahnenmast
+tile.custom_flags:flagpole.spruce.name=Fichtenholzfahnenmast
+tile.custom_flags:flagpole.birch.name=Birkenholzfahnenmast
+tile.custom_flags:flagpole.jungle.name=Tropenholzfahnenmast
+tile.custom_flags:flagpole.iron.name=Eisener Fahnenmast
+
+button.ok=OK
+button.cancel=Abbrechen
+button.save=Speichern
+button.load=Laden
+button.load.sections=Lade Abschnitt
+
+gui.splitter.number.x.sections=Zahl der X-Abschnitte
+gui.splitter.number.y.sections=Zahl der Y-Abschnitte
+gui.splitter.x.section=X-Abschnitt
+gui.splitter.y.section=Y-Abschnitt
+
+tool.pen=Stift
+tool.flood=Füllen
+tool.dropper=Farbauswahl
+tool.text=Text
+tool.rectangle=Rechteck
+tool.circle=Oval
+gui.threshold=Schwellenwert
+
+
+
+cf.welcome=Wilkommen zu Custom Flags. Gib /cf.instructions ein für ein Benutzerhandbuch.
+commands.cf.instr.usage=/cf.instructions
